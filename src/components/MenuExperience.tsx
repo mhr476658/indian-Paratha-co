@@ -163,7 +163,7 @@ export const MenuExperience: React.FC<MenuExperienceProps> = ({
         </div>
 
         {/* Categories Pill Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar justify-start lg:justify-center">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar justify-start">
           {categories.map((cat) => (
             <button
               key={cat.id}

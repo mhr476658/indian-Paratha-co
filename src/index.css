@@ -82,12 +82,14 @@
 .amber-shimmer-text {
   background: linear-gradient(135deg, #FFFFFF 0%, #F5E6CC 30%, #E5A93C 70%, #C68A2E 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .botanical-shimmer-text {
   background: linear-gradient(135deg, #FFFFFF 0%, #CFE4D4 30%, #8EA893 70%, #46634E 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
