@@ -98,20 +98,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
       {/* 2. MAIN HERO CONTENT AREA                                */}
       {/* ========================================================= */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-between py-6 lg:py-10">
-        {/* TOP ROW: EDITORIAL CAPTION & AMBER SUNBURST ORB */}
-        <div className="flex items-start justify-end w-full">
-          <div className="flex items-center gap-6 max-w-lg text-right">
-            <p className="text-white/80 text-xs sm:text-sm md:text-base font-sans font-light leading-relaxed hidden sm:block">
-              Get Ready for an Unforgettable Culinary Journey! Stop by Devanahalli NH7 for Fresh Cast-Iron Parathas &amp; Steaming Kulhad Chai!
-            </p>
-
-            {/* Glowing Amber Orb (DIRECT REPLICA FROM REFERENCE IMAGE) */}
-            <div className="relative shrink-0">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#D49A3D] to-[#F2B84B] shadow-[0_0_35px_rgba(229,169,60,0.85)] animate-pulse-glow" />
-              <div className="absolute inset-0 rounded-full bg-white/20 blur-[2px]" />
-            </div>
-          </div>
-        </div>
 
         {/* MIDDLE / MAIN ROW: SPLIT LAYOUT (HEADLINE LEFT, CIRCULAR LENS RIGHT) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end my-auto pt-6 pb-4">

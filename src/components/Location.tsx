@@ -29,7 +29,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
             <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
           </div>
 
-          <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
+          <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold text-white [word-spacing:0.25em] tracking-wider mb-3">
             COME FIND US <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">ON NH7</span>
           </h2>
 

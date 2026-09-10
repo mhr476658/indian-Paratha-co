@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(window.scrollY > 20);
 
       // Simple active tab detector
-      const sections = ['home', 'parathzzaa', 'location', 'franchise'];
+      const sections = ['home', 'parathzzaa', 'products', 'location', 'franchise'];
       const scrollPos = window.scrollY + 120;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -38,6 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           if (scrollPos >= top && scrollPos < top + height) {
             if (section === 'home') setActiveTab('Home');
             else if (section === 'parathzzaa') setActiveTab('Parathzzaa®');
+            else if (section === 'products') setActiveTab('Products');
             else if (section === 'location') setActiveTab('Location');
             else if (section === 'franchise') setActiveTab('Franchise');
             break;
@@ -52,6 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Parathzzaa®', href: '#signature-dishes' },
+    { label: 'Products', href: '#products' },
     { label: 'Location', href: '#location' },
     { label: 'Franchise', href: '#franchise' },
   ];
@@ -104,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={`desktop-nav-${link.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.label)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
+                  className={`px-6 py-2.5 rounded-full text-base font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
                     isActive
                       ? 'bg-white text-black shadow-lg scale-100'
                       : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -118,16 +120,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* 3. Right Actions & Order Pill (MATCHING REFERENCE IMAGE "Booking ↗" BUTTON) */}
           <div className="flex items-center gap-3">
-            {/* Search Button */}
-            <button
-              id="desktop-search-btn"
-              onClick={onOpenSearch}
-              className="p-2 text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10 cursor-pointer hidden sm:flex items-center justify-center"
-              aria-label="Search menu"
-              title="Search Menu"
-            >
-              <Search className="w-4 h-4" />
-            </button>
 
             {/* Cart Button */}
             <button
@@ -154,17 +146,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Shield className="w-4 h-4" />
             </button>
 
-            {/* Pill CTA Button (Direct replica of reference image Booking ↗) */}
-            <button
-              id="desktop-order-now-btn"
-              onClick={onOpenOrderModal}
-              className="hidden sm:flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs font-semibold tracking-wide border border-white/20 backdrop-blur-xl transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-lg group cursor-pointer"
-            >
-              <span>Order Online</span>
-              <span className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center group-hover:bg-[#E5A93C] transition-colors shadow-sm">
-                <ArrowUpRight className="w-3.5 h-3.5 font-bold" />
-              </span>
-            </button>
 
             {/* Mobile Hamburger Toggle */}
             <button

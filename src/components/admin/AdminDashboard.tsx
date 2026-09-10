@@ -10,6 +10,7 @@ import {
   subscribeToFranchiseInquiries,
   updateFranchiseInquiryStatusInFirestore,
   updateStoreSettingsInFirestore,
+  subscribeToStoreSettings,
   toggleStockInFirestore,
 } from '../../services/firestoreService';
 import { menuStore } from '../../data/menuStore';
@@ -363,9 +364,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#07111E] text-stone-100 font-sans flex flex-col">
+    <div className="min-h-screen bg-[#080D0A] text-white font-sans flex flex-col">
       {/* Top Admin Navigation Header */}
-      <header className="bg-[#0A1728] border-b border-[#1E3A5F] sticky top-0 z-40 shadow-xl backdrop-blur-md">
+      <header className="bg-white/5 border-b border-white/10 sticky top-0 z-40 shadow-2xl backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
             
@@ -374,59 +375,59 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               <IPCLogo variant="light" size="sm" badgeOnly={true} className="shrink-0 drop-shadow-md" />
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-serif font-black text-white text-base sm:text-lg tracking-tight">
-                    IPC Station Command
+                  <span className="font-sans font-bold text-white text-base sm:text-lg tracking-wider">
+                    IPC COMMAND
                   </span>
-                  <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#112338] border border-[#1E3A5F] text-[#D49B44]">
+                  <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-[#E5A93C]">
                     <Shield className="w-3 h-3" />
                     <span>NH7 Hub</span>
                   </span>
-                  <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950/60 border border-emerald-700/50 text-emerald-400">
+                  <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Firestore DB Live</span>
+                    <span>Live DB</span>
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-stone-400">
-                  <span className="flex items-center gap-1">
+                <div className="flex items-center gap-2 text-xs text-white/60">
+                  <span className="flex items-center gap-1.5">
                     <span
                       className={`w-2 h-2 rounded-full ${
-                        storeSettings.isStoreOpen ? 'bg-emerald-400 animate-pulse' : 'bg-rose-500'
+                        storeSettings.isStoreOpen ? 'bg-emerald-400 animate-pulse' : 'bg-red-500'
                       }`}
                     />
-                    <span className="text-[11px]">
-                      {storeSettings.isStoreOpen ? 'Highway Kitchen Open' : 'Kitchen Paused'}
+                    <span className="text-[11px] font-mono">
+                      {storeSettings.isStoreOpen ? 'KITCHEN OPEN' : 'KITCHEN PAUSED'}
                     </span>
                   </span>
-                  <span className="text-stone-600 hidden sm:inline">•</span>
-                  <span className="text-[11px] text-stone-400 hidden sm:inline">
-                    Est. {storeSettings.prepTimeMinutes}m prep
+                  <span className="text-white/30 hidden sm:inline">•</span>
+                  <span className="text-[11px] font-mono text-white/50 hidden sm:inline">
+                    EST. {storeSettings.prepTimeMinutes}M PREP
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Right: Quick Actions & Profile */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-3">
               {/* Customer Website Switcher */}
               <button
                 onClick={onViewWebsite}
-                className="px-3 py-2 rounded-xl bg-[#112338] hover:bg-[#162A45] border border-[#1E3A5F] text-xs font-semibold text-stone-300 hover:text-white transition-all flex items-center gap-1.5"
+                className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-semibold text-white/80 hover:text-white transition-all flex items-center gap-2 backdrop-blur-md"
                 title="View customer facing website"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-[#D49B44]" />
-                <span className="hidden md:inline">Customer Site</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#E5A93C]" />
+                <span className="hidden md:inline tracking-wider">Customer Site</span>
               </button>
 
               {/* Logged in User Pill */}
               <div className="hidden lg:flex flex-col text-right px-2">
-                <span className="text-xs font-bold text-white">{user.name}</span>
-                <span className="text-[10px] text-stone-400">{user.role}</span>
+                <span className="text-xs font-bold text-white tracking-wider">{user.name}</span>
+                <span className="text-[10px] font-mono text-[#E5A93C] uppercase">{user.role}</span>
               </div>
 
               {/* Logout Button */}
               <button
                 onClick={onLogout}
-                className="p-2 sm:px-3 sm:py-2 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/40 text-rose-300 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5"
+                className="p-2 sm:px-4 sm:py-2 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2"
                 title="Sign out of station"
               >
                 <LogOut className="w-3.5 h-3.5" />
@@ -436,7 +437,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
 
           {/* Navigation Tabs Bar */}
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none border-t border-[#1E3A5F]/70 py-2.5">
+          <div className="flex items-center gap-3 overflow-x-auto scrollbar-none border-t border-white/10 py-3">
             {[
               {
                 id: 'overview',
@@ -446,17 +447,17 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               },
               {
                 id: 'orders',
-                label: 'Live Kitchen & Orders',
+                label: 'Live Kitchen',
                 icon: ChefHat,
-                badge: metrics.activeOrdersCount > 0 ? `${metrics.activeOrdersCount} Active` : null,
-                badgeColor: 'bg-amber-500 text-[#07111E]',
+                badge: metrics.activeOrdersCount > 0 ? `${metrics.activeOrdersCount}` : null,
+                badgeColor: 'bg-[#E5A93C] text-black',
               },
               {
                 id: 'franchise',
-                label: 'Franchise Leads & CRM',
+                label: 'Franchise CRM',
                 icon: Building2,
                 badge: metrics.newFranchiseLeadsCount > 0 ? `${metrics.newFranchiseLeadsCount} New` : null,
-                badgeColor: 'bg-[#D49B44] text-[#07111E]',
+                badgeColor: 'bg-[#E5A93C] text-black',
               },
               {
                 id: 'menu',
@@ -465,11 +466,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 badge: dashboardData?.unavailableItemIds?.length
                   ? `${dashboardData.unavailableItemIds.length} 86'd`
                   : null,
-                badgeColor: 'bg-rose-500 text-white',
+                badgeColor: 'bg-red-500 text-white',
               },
               {
                 id: 'operations',
-                label: 'Station Operations',
+                label: 'Operations',
                 icon: Settings,
                 badge: null,
               },
@@ -481,10 +482,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-2 border ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap transition-all duration-300 flex items-center gap-2.5 ${
                     isActive
-                      ? 'bg-[#9B1B1E] text-white border-[#DE2428] shadow-md shadow-[#9B1B1E]/30'
-                      : 'bg-[#0D1B2A] text-stone-300 hover:text-white hover:bg-[#112338] border-[#1E3A5F]'
+                      ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]'
+                      : 'bg-white/5 text-white/70 hover:text-white hover:bg-white/15 border border-white/10'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -526,16 +527,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             {/* KPI Stat Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {/* Revenue */}
-              <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl relative overflow-hidden group hover:border-[#D49B44]/60 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all backdrop-blur-md">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-white/60">
                     Today's Revenue
                   </span>
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
                     <IndianRupee className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="font-serif font-black text-3xl sm:text-4xl text-white">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-wider">
                   ₹{metrics.totalRevenue.toLocaleString('en-IN')}
                 </div>
                 <div className="flex items-center gap-1.5 text-xs text-emerald-400 mt-2">
@@ -545,55 +546,55 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
 
               {/* Active Kitchen Orders */}
-              <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl relative overflow-hidden group hover:border-[#D49B44]/60 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all backdrop-blur-md">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-white/60">
                     Active Kitchen Orders
                   </span>
-                  <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
+                  <div className="w-9 h-9 rounded-xl bg-[#E5A93C]/20 text-[#E5A93C] flex items-center justify-center border border-[#E5A93C]/30">
                     <Clock className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="font-serif font-black text-3xl sm:text-4xl text-white">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-wider">
                   {metrics.activeOrdersCount}
                 </div>
-                <div className="text-xs text-amber-400 mt-2 flex items-center gap-1">
+                <div className="text-xs text-[#E5A93C] mt-2 flex items-center gap-1">
                   <span>Rolling on hot tawas right now</span>
                 </div>
               </div>
 
               {/* Completed Orders */}
-              <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl relative overflow-hidden group hover:border-[#D49B44]/60 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all backdrop-blur-md">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-white/60">
                     Total Delivered Today
                   </span>
-                  <div className="w-9 h-9 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30">
+                  <div className="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center border border-white/20">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="font-serif font-black text-3xl sm:text-4xl text-white">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-wider">
                   {metrics.todayOrdersCount}
                 </div>
-                <div className="text-xs text-stone-400 mt-2">
+                <div className="text-xs text-white/50 mt-2">
                   100% freshly rolled & cooked on order
                 </div>
               </div>
 
               {/* Franchise Investor Inquiries */}
-              <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl relative overflow-hidden group hover:border-[#D49B44]/60 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 shadow-2xl relative overflow-hidden group hover:border-white/20 transition-all backdrop-blur-md">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-stone-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-white/60">
                     Franchise Leads
                   </span>
-                  <div className="w-9 h-9 rounded-xl bg-[#D49B44]/20 text-[#D49B44] flex items-center justify-center border border-[#D49B44]/30">
+                  <div className="w-9 h-9 rounded-xl bg-[#E5A93C]/20 text-[#E5A93C] flex items-center justify-center border border-[#E5A93C]/30">
                     <Building2 className="w-4 h-4" />
                   </div>
                 </div>
-                <div className="font-serif font-black text-3xl sm:text-4xl text-white">
+                <div className="font-sans font-bold text-3xl sm:text-4xl text-white tracking-wider">
                   {metrics.franchiseInquiriesCount}
                 </div>
-                <div className="text-xs text-[#D49B44] mt-2 font-semibold">
+                <div className="text-xs text-[#E5A93C] mt-2 font-semibold">
                   {metrics.newFranchiseLeadsCount} new applicants awaiting contact
                 </div>
               </div>
@@ -603,19 +604,19 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               
               {/* Left Column: Top Selling Items (7 cols) */}
-              <div className="lg:col-span-7 bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 sm:p-7 shadow-xl">
+              <div className="lg:col-span-7 bg-[#0F1712]/90 border border-white/10 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
                 <div className="flex items-center justify-between mb-5">
                   <div>
-                    <h3 className="font-serif text-xl font-bold text-white">
+                    <h3 className="font-sans text-xl font-bold text-white tracking-wider">
                       Top Selling Specialties Today
                     </h3>
-                    <p className="text-xs text-stone-400 mt-0.5">
+                    <p className="text-xs text-white/50 mt-0.5">
                       Most requested parathas, parathzzaas, and highway chai
                     </p>
                   </div>
                   <button
                     onClick={() => setActiveTab('menu')}
-                    className="text-xs text-[#D49B44] hover:underline font-bold"
+                    className="text-xs text-[#E5A93C] hover:underline font-bold"
                   >
                     View All Menu →
                   </button>
@@ -626,17 +627,17 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     metrics.topItems.map((item: any, idx: number) => (
                       <div
                         key={idx}
-                        className="bg-[#0D1B2A] p-3.5 rounded-2xl border border-[#1E3A5F]/70 flex items-center justify-between gap-3"
+                        className="bg-black/40 p-3.5 rounded-2xl border border-white/5 flex items-center justify-between gap-3"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-lg bg-[#162942] text-[#D49B44] font-serif font-black text-xs flex items-center justify-center border border-[#1E3A5F]">
+                          <span className="w-6 h-6 rounded-lg bg-white/5 text-[#E5A93C] font-sans font-black text-xs flex items-center justify-center border border-white/10">
                             #{idx + 1}
                           </span>
                           <div>
                             <span className="font-semibold text-white text-sm block">
                               {item.name}
                             </span>
-                            <span className="text-[11px] text-stone-400">
+                            <span className="text-[11px] text-white/50">
                               {item.count} portions sold
                             </span>
                           </div>
@@ -653,7 +654,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       </div>
                     ))
                   ) : (
-                    <div className="text-center py-8 text-stone-400 text-xs">
+                    <div className="text-center py-8 text-white/50 text-xs">
                       No order items recorded yet today.
                     </div>
                   )}
@@ -664,26 +665,26 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               <div className="lg:col-span-5 space-y-6">
                 
                 {/* Channel Distribution */}
-                <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl">
-                  <h3 className="font-serif text-lg font-bold text-white mb-1">
+                <div className="bg-[#0F1712]/90 border border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-md">
+                  <h3 className="font-sans text-lg font-bold text-white mb-1 tracking-wider">
                     Dining & Pickup Channels
                   </h3>
-                  <p className="text-xs text-stone-400 mb-4">
+                  <p className="text-xs text-white/50 mb-4">
                     Distribution of traveler orders across formats
                   </p>
 
                   <div className="space-y-3">
                     {[
-                      { label: 'Highway Takeaway', count: 2, pct: '50%', color: 'bg-[#D49B44]' },
+                      { label: 'Highway Takeaway', count: 2, pct: '50%', color: 'bg-[#E5A93C]' },
                       { label: 'Dine-In', count: 1, pct: '25%', color: 'bg-emerald-500' },
                       { label: 'Road Trip Pre-Order', count: 1, pct: '25%', color: 'bg-blue-500' },
                     ].map((channel, i) => (
                       <div key={i} className="space-y-1">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-stone-300 font-medium">{channel.label}</span>
+                          <span className="text-white/80 font-medium">{channel.label}</span>
                           <span className="font-mono text-white font-bold">{channel.pct}</span>
                         </div>
-                        <div className="w-full h-2 bg-[#0D1B2A] rounded-full overflow-hidden border border-[#1E3A5F]/50">
+                        <div className="w-full h-2 bg-black/50 rounded-full overflow-hidden border border-white/5">
                           <div className={`h-full ${channel.color}`} style={{ width: channel.pct }} />
                         </div>
                       </div>
@@ -692,31 +693,31 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
 
                 {/* Highway Station Operations Snapshot */}
-                <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl space-y-3">
+                <div className="bg-[#0F1712]/90 border border-white/10 rounded-3xl p-6 shadow-2xl space-y-3 backdrop-blur-md">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#D49B44]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#E5A93C]">
                       Station Corridor
                     </span>
                     <button
                       onClick={() => setActiveTab('operations')}
-                      className="text-xs text-stone-400 hover:text-white underline"
+                      className="text-xs text-white/50 hover:text-white underline"
                     >
                       Configure
                     </button>
                   </div>
 
-                  <h4 className="font-serif font-bold text-white text-base">
+                  <h4 className="font-sans font-bold text-white text-base tracking-wider">
                     {storeSettings.activeHighwayCorridor}
                   </h4>
 
-                  <div className="bg-[#0D1B2A] p-3 rounded-xl border border-[#1E3A5F] text-xs space-y-1">
-                    <div className="flex justify-between text-stone-300">
+                  <div className="bg-black/50 p-3 rounded-xl border border-white/5 text-xs space-y-1">
+                    <div className="flex justify-between text-white/70">
                       <span>Kitchen Prep Time:</span>
                       <strong className="text-white">{storeSettings.prepTimeMinutes} Mins</strong>
                     </div>
-                    <div className="flex justify-between text-stone-300">
+                    <div className="flex justify-between text-white/70">
                       <span>Emergency Hotline:</span>
-                      <strong className="text-[#D49B44] font-mono">{storeSettings.contactHotline}</strong>
+                      <strong className="text-[#E5A93C] font-mono">{storeSettings.contactHotline}</strong>
                     </div>
                   </div>
                 </div>
@@ -724,14 +725,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </div>
 
             {/* Quick Action Dock */}
-            <div className="bg-gradient-to-r from-[#112338] to-[#162A45] border border-[#1E3A5F] rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="bg-gradient-to-r from-[#0F1712] to-[#1a261d] border border-white/10 rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-md shadow-2xl">
               <div className="flex items-center gap-3">
-                <ChefHat className="w-8 h-8 text-[#D49B44] shrink-0" />
+                <ChefHat className="w-8 h-8 text-[#E5A93C] shrink-0" />
                 <div>
-                  <h4 className="font-serif text-base sm:text-lg font-bold text-white">
+                  <h4 className="font-sans text-base sm:text-lg font-bold text-white tracking-wider">
                     Need to expedite kitchen tickets?
                   </h4>
-                  <p className="text-xs text-stone-300">
+                  <p className="text-xs text-white/60">
                     View active orders, mark tawa items ready, or communicate directly with travelers via WhatsApp.
                   </p>
                 </div>
@@ -740,13 +741,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setActiveTab('orders')}
-                  className="px-5 py-2.5 rounded-xl bg-[#9B1B1E] hover:bg-[#801416] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+                  className="px-5 py-2.5 rounded-full bg-[#E5A93C] hover:bg-white text-black text-xs font-bold uppercase tracking-wider transition-all shadow-xl"
                 >
                   Go to Live Orders ({metrics.activeOrdersCount})
                 </button>
                 <button
                   onClick={() => setActiveTab('franchise')}
-                  className="px-4 py-2.5 rounded-xl bg-[#0D1B2A] hover:bg-[#112338] border border-[#1E3A5F] text-stone-200 text-xs font-bold uppercase tracking-wider transition-all"
+                  className="px-4 py-2.5 rounded-full bg-black/50 hover:bg-black/70 border border-white/10 text-white text-xs font-bold uppercase tracking-wider transition-all"
                 >
                   Franchise CRM ({metrics.newFranchiseLeadsCount})
                 </button>

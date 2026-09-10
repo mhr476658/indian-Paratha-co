@@ -21,23 +21,20 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBackTo
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
+      // Mock login since there is no backend server
+      await new Promise(resolve => setTimeout(resolve, 800));
 
-      const data = await response.json();
+      if (username && password) {
+        const mockUser = { username: username, name: 'System Admin', role: 'Super Admin' };
+        const mockToken = 'mock-jwt-token-123';
+        
+        localStorage.setItem('ipc_admin_token', mockToken);
+        localStorage.setItem('ipc_admin_user', JSON.stringify(mockUser));
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Authentication failed. Please check credentials.');
+        onLoginSuccess(mockToken, mockUser);
+      } else {
+        throw new Error('Please enter a username and password.');
       }
-
-      // Save token to localStorage for persistent session
-      localStorage.setItem('ipc_admin_token', data.token);
-      localStorage.setItem('ipc_admin_user', JSON.stringify(data.user));
-
-      onLoginSuccess(data.token, data.user);
     } catch (err: any) {
       setErrorMessage(err.message || 'Unable to connect to station server.');
     } finally {

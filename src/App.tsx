@@ -9,6 +9,7 @@ import { SignatureDishes } from './components/SignatureDishes';
 import { TodaysSpecial } from './components/TodaysSpecial';
 import { MadeFresh } from './components/MadeFresh';
 import { RestaurantStory } from './components/RestaurantStory';
+import { Products } from './components/Products';
 import { FoodGallery } from './components/FoodGallery';
 import { Franchise } from './components/Franchise';
 import { Location } from './components/Location';
@@ -225,6 +226,9 @@ export default function App() {
 
         {/* 9. The IPC Story & Highway Sanctuary Heritage */}
         <RestaurantStory onExploreMenu={() => scrollToSection('menu')} />
+
+        {/* Highway Merchandise / Products */}
+        <Products onOrderNow={() => setIsCartOpen(true)} />
 
         {/* 10. Visual Masonry Photo Gallery (Dishes, Chalet, Kitchen, Patio) */}
         <FoodGallery />
