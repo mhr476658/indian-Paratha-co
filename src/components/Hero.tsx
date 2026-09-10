@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-[100svh] min-h-[750px] flex flex-col justify-between text-white overflow-hidden bg-[#080D0A]"
+      className="relative w-full min-h-[80svh] min-h-[500px] flex flex-col justify-between text-white overflow-hidden bg-[#080D0A]"
     >
       {/* ========================================================= */}
       {/* 1. BOTANICAL CONSERVATORY & GLASSHOUSE BACKGROUND         */}
@@ -126,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
             </div>
 
             {/* Main Headline (MATCHING REFERENCE IMAGE TYPOGRAPHIC WEIGHT & SCALE) */}
-            <h1 className="font-sans text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.04] mb-5 sm:mb-7 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.04] mb-5 sm:mb-7 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
               Savor Hot<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">
                 Handcrafted Parathas
@@ -169,55 +169,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
           {/* RIGHT COLUMN: CIRCULAR INTERACTIVE PORTAL & ORBITAL NODES (EXACT REPLICA FROM REFERENCE IMAGE!) */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end relative mt-6 lg:mt-0">
             <div className="relative flex items-center">
-              {/* ORBITAL PATH LINE & 3 CHECKPOINT NODES ON THE LEFT */}
-              <div className="flex flex-col justify-between h-[280px] sm:h-[340px] pr-4 sm:pr-8 py-4 z-20">
-                {ORBITAL_FEATURES.map((feat) => {
-                  const isSelected = selectedFeature.id === feat.id;
-                  return (
-                    <button
-                      key={feat.id}
-                      onClick={() => setSelectedFeature(feat)}
-                      className={`group flex items-center gap-3 text-left transition-all duration-300 cursor-pointer ${
-                        isSelected ? 'scale-105' : 'opacity-65 hover:opacity-100'
-                      }`}
-                    >
-                      <span
-                        className={`text-xs sm:text-sm font-medium tracking-wide transition-colors ${
-                          isSelected ? 'text-white font-bold' : 'text-white/70 group-hover:text-white'
-                        }`}
-                      >
-                        {feat.label}
-                      </span>
-
-                      {/* Checkpoint Node Dot */}
-                      <div className="relative flex items-center justify-center">
-                        <div
-                          className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
-                            isSelected
-                              ? 'bg-white border-white shadow-[0_0_15px_#FFFFFF]'
-                              : 'bg-[#080D0A] border-white/40 group-hover:border-white'
-                          }`}
-                        >
-                          {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-black" />}
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Connecting Arc SVG */}
-              <div className="absolute right-0 top-0 bottom-0 w-[40px] pointer-events-none hidden sm:block">
-                <svg className="h-full w-full" viewBox="0 0 40 340" fill="none">
-                  <path
-                    d="M 35 20 C 5 100, 5 240, 35 320"
-                    stroke="rgba(255,255,255,0.25)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                  />
-                </svg>
-              </div>
-
               {/* LARGE CIRCULAR FOCAL WINDOW (DIRECT REPLICA OF THE CIRCULAR ROOM/DISH SHOWCASE) */}
               <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full border-4 border-white/80 p-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.8)] bg-[#080D0A] z-10 shrink-0 group overflow-hidden">
                 {/* Rotating Border Glow */}

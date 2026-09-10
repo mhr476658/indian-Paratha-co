@@ -39,19 +39,7 @@
   }
 }
 
-/* 3D Perspective & Spatial Depth Classes */
-.perspective-1000 {
-  perspective: 1000px;
-}
-.perspective-1500 {
-  perspective: 1500px;
-}
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-.backface-hidden {
-  backface-visibility: hidden;
-}
+/* 3D Perspective & Spatial Depth Classes Disabled */
 
 /* Luxury Glassmorphism - Botanical Glasshouse */
 .glass-panel-luxury {
@@ -93,44 +81,9 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Animations */
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes orbitRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-float-slow {
-  animation: floatSlow 5s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
-}
-
-.animate-orbit {
-  animation: orbitRotate 30s linear infinite;
+/* Animations and 3D Disabled globally */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+  transform-style: flat !important;
 }

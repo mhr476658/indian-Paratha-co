@@ -1,6 +1,5 @@
 import React from 'react';
 import { MapPin, Navigation, Phone, ShoppingBag, ExternalLink, MessageCircle, Clock, ShieldCheck, Car, Compass, ArrowUpRight } from 'lucide-react';
-import { MapReviews } from './MapReviews';
 
 interface LocationProps {
   onOrderNow: () => void;
@@ -172,9 +171,6 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
               className="w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             />
           </div>
-
-          {/* Reviews and Ratings at the Bottom of the Map */}
-          <MapReviews />
         </div>
       </div>
     </section>

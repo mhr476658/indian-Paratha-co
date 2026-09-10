@@ -1,17 +1,11 @@
 import React from 'react';
-import { VideoBackground } from './VideoBackground';
-import { AttractiveHighwayBackground } from './AttractiveHighwayBackground';
 
 /**
- * Premium Cinematic Video & Motion Background
- * Features active HTML5 video loops of sizzling cast-iron tawas,
- * rustic chalet ambience, floating spice embers, and interactive video controls.
+ * Static Background Replacement
+ * Replaced heavy video loops and 3D canvas animations to improve performance.
  */
 export const MotionBackground: React.FC = () => {
   return (
-    <>
-      <VideoBackground opacity={0.42} />
-      <AttractiveHighwayBackground />
-    </>
+    <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#080D0A] via-[#0F1712] to-[#080D0A]" />
   );
 };

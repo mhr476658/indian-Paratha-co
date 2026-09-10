@@ -6,26 +6,20 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { QuickActions } from './components/QuickActions';
-import { SpiceCanvas3D } from './components/SpiceCanvas3D';
 import { SignatureDishes } from './components/SignatureDishes';
 import { TodaysSpecial } from './components/TodaysSpecial';
 import { MadeFresh } from './components/MadeFresh';
-import { ChefKitchenCraft } from './components/ChefKitchenCraft';
-import { MenuExperience } from './components/MenuExperience';
 import { RestaurantStory } from './components/RestaurantStory';
 import { FoodGallery } from './components/FoodGallery';
-import { CustomerReviews } from './components/CustomerReviews';
 import { Franchise } from './components/Franchise';
 import { Location } from './components/Location';
 import { MoreSection } from './components/MoreSection';
-import { FinalOrderCTA } from './components/FinalOrderCTA';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { CartDrawer } from './components/CartDrawer';
 import { ItemDetailModal } from './components/ItemDetailModal';
 import { AdminLogin } from './components/admin/AdminLogin';
 import { AdminDashboard } from './components/admin/AdminDashboard';
-import { MotionBackground } from './components/MotionBackground';
 import { MoreHubModal, MoreTab } from './components/more/MoreHubModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CartItem, MenuItem } from './types';
@@ -194,8 +188,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#080D0A] text-white font-sans antialiased selection:bg-[#E5A93C] selection:text-black relative overflow-x-hidden overflow-y-auto">
-      {/* Ambient 3D / 4D Motion Background */}
-      <MotionBackground />
 
       {/* Top Fixed Navbar */}
       <Navbar
@@ -222,9 +214,6 @@ export default function App() {
           onOpenOrderModal={() => setIsCartOpen(true)}
         />
 
-        {/* 3. Interactive 3D WebGL Spice & Clay Kulhad Chai Canvas */}
-        <SpiceCanvas3D onExploreMenu={() => scrollToSection('menu')} />
-
         {/* 4. Signature Food Grid (Parathzzaa®, Amritsari Makhan, Kulhad Chai, Dum Biryani) */}
         <SignatureDishes
           onAddToCart={handleAddToCart}
@@ -241,23 +230,11 @@ export default function App() {
         {/* 6. Made Fresh Kitchen Craft & Purity Philosophy */}
         <MadeFresh onExploreMenu={() => scrollToSection('menu')} />
 
-        {/* 7. Interactive Chef Kitchen Craft Technique Cards */}
-        <ChefKitchenCraft />
-
-        {/* 8. Full Handcrafted Digital Menu & Ordering System */}
-        <MenuExperience
-          onAddToCart={handleAddToCart}
-          onSelectItemDetail={(item) => setSelectedItemDetail(item)}
-        />
-
         {/* 9. The IPC Story & Highway Sanctuary Heritage */}
         <RestaurantStory onExploreMenu={() => scrollToSection('menu')} />
 
         {/* 10. Visual Masonry Photo Gallery (Dishes, Chalet, Kitchen, Patio) */}
         <FoodGallery />
-
-        {/* 11. High-Trust Customer Testimonials & Reviews */}
-        <CustomerReviews onOrderNow={() => setIsCartOpen(true)} />
 
         {/* 12. Location, Route & Interactive Google Maps */}
         <Location onOrderNow={() => setIsCartOpen(true)} />
@@ -272,12 +249,6 @@ export default function App() {
             setIsMoreOpen(true);
           }}
           onOrderNow={() => setIsCartOpen(true)}
-        />
-
-        {/* 15. Closing Final Order CTA */}
-        <FinalOrderCTA
-          onOrderNow={() => setIsCartOpen(true)}
-          onViewMenu={() => scrollToSection('menu')}
         />
       </main>
 

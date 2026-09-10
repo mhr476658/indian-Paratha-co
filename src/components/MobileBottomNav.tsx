@@ -40,7 +40,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 6px)' }}
       aria-label="Mobile Navigation"
     >
-      <div className="grid grid-cols-5 items-center justify-items-center max-w-md mx-auto">
+      <div className="grid grid-cols-4 items-center justify-items-center max-w-md mx-auto">
         {/* HOME */}
         <button
           id="mob-bottom-home"
@@ -52,19 +52,6 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         >
           <Home className="w-5 h-5 mb-0.5" />
           <span className="text-[9px] font-bold tracking-wider uppercase font-mono">Home</span>
-        </button>
-
-        {/* MENU */}
-        <button
-          id="mob-bottom-menu"
-          onClick={() => scrollToSection('menu')}
-          className={`flex flex-col items-center justify-center w-full min-h-[44px] py-1 transition-colors cursor-pointer ${
-            activeSection === 'menu' ? 'text-[#E5A93C]' : 'text-white/60 hover:text-white'
-          }`}
-          aria-label="View Menu"
-        >
-          <UtensilsCrossed className="w-5 h-5 mb-0.5" />
-          <span className="text-[9px] font-bold tracking-wider uppercase font-mono">Menu</span>
         </button>
 
         {/* ORDER (Visually Prominent Floating Pill) */}
