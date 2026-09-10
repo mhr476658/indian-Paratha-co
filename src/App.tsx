@@ -282,28 +282,28 @@ export default function App() {
       {/* Physical Menu Image Modal */}
       {isMenuImageModalOpen && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8" 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black" 
           onClick={() => setIsMenuImageModalOpen(false)}
         >
           <div 
-            className="relative max-w-7xl w-full max-h-[90vh] bg-[#0F1712] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col" 
+            className="relative w-full h-full bg-[#0F1712] flex flex-col" 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-4 right-4 z-10 flex gap-2">
               <button
                 onClick={() => setIsMenuImageModalOpen(false)}
-                className="w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center border border-white/20 transition-colors shadow-lg backdrop-blur-md"
+                className="w-12 h-12 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center border border-white/20 transition-colors shadow-lg backdrop-blur-md"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
             
-            <div className="flex-1 overflow-auto p-2 sm:p-6 custom-scrollbar">
-              <div className="min-w-[800px] md:min-w-[1000px] w-full mx-auto">
+            <div className="flex-1 overflow-auto custom-scrollbar">
+              <div className="min-w-[1000px] w-full h-full mx-auto flex justify-center items-start">
                 <img 
                   src="/physical-menu.jpg" 
                   alt="Indian Paratha Company Menu" 
-                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-white/5" 
+                  className="w-full h-auto object-contain" 
                   style={{ imageRendering: 'high-quality' }}
                 />
               </div>
