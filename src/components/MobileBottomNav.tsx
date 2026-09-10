@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, UtensilsCrossed, ShoppingBag, MapPin, Camera } from 'lucide-react';
+import { Home, UtensilsCrossed, ShoppingBag, MapPin, Store } from 'lucide-react';
 
 interface MobileBottomNavProps {
   activeSection?: string;
@@ -87,15 +87,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           </button>
         </div>
 
-        {/* GALLERY */}
+        {/* FRANCHISE */}
         <button
-          id="mob-bottom-gallery"
-          onClick={() => scrollToSection('gallery')}
+          id="mob-bottom-franchise"
+          onClick={() => scrollToSection('franchise')}
           className="flex flex-col items-center justify-center w-full min-h-[44px] py-1 text-white/60 hover:text-[#E5A93C] transition-colors cursor-pointer"
-          aria-label="Food Gallery"
+          aria-label="Franchise Opportunities"
         >
-          <Camera className="w-5 h-5 mb-0.5" />
-          <span className="text-[9px] font-bold tracking-wider uppercase font-mono">Gallery</span>
+          <Store className="w-5 h-5 mb-0.5" />
+          <span className="text-[9px] font-bold tracking-wider uppercase font-mono">Franchise</span>
         </button>
 
         {/* LOCATION */}
