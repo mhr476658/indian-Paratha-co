@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin = () => {} }) => {
 
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/indianparathacompany?stkn=cDhoY3V4cWJiNGNu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition-colors border border-white/10"
