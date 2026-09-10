@@ -34,7 +34,7 @@ export const SIGNATURE_DISHES: (MenuItem & { chefNote?: string; rating: number; 
     category: 'PARATHAS',
     price: 240,
     description: '100% whole wheat stone-ground dough stuffed generously with spiced mashed mountain potatoes, cumin, fresh green chilies, and melted cheddar cheese, served with homemade white butter.',
-    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=900&auto=format&fit=crop&q=85',
+    image: '/aloo-cheese-paratha.png',
     isVegetarian: true,
     isSignature: true,
     isBestseller: true,
