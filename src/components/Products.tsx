@@ -1,11 +1,7 @@
 import React from 'react';
 import { ShoppingBag } from 'lucide-react';
 
-interface ProductsProps {
-  onOrderNow: () => void;
-}
-
-export const Products: React.FC<ProductsProps> = ({ onOrderNow }) => {
+export const Products: React.FC = () => {
   return (
     <section id="products" className="py-20 sm:py-28 bg-[#080D0A] text-white relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,13 +36,15 @@ export const Products: React.FC<ProductsProps> = ({ onOrderNow }) => {
             <p className="text-white/70 text-sm mb-6">
               Strong, rich, and refreshing. The perfect blend for a perfect cup, bringing the tradition of our highway kulhad chai straight to your kitchen.
             </p>
-            <button 
-              onClick={onOrderNow}
-              className="w-full py-3.5 bg-white hover:bg-[#E5A93C] text-black font-bold uppercase tracking-wider text-xs rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg"
+            <a 
+              href={`https://wa.me/919880883061?text=${encodeURIComponent("Hello Indian Paratha Company,\nI would like to order:\n• IPC Premium Tea Blend\nPlease confirm availability and delivery details.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3.5 bg-white hover:bg-[#E5A93C] text-black font-bold uppercase tracking-wider text-xs rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg cursor-pointer"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Add to Order</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

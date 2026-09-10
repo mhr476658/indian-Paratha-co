@@ -228,7 +228,7 @@ export default function App() {
         <RestaurantStory onExploreMenu={() => setIsMenuImageModalOpen(true)} />
 
         {/* Highway Merchandise / Products */}
-        <Products onOrderNow={() => setIsCartOpen(true)} />
+        <Products />
 
         {/* 10. Visual Masonry Photo Gallery (Dishes, Chalet, Kitchen, Patio) */}
         <FoodGallery />
