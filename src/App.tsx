@@ -286,7 +286,7 @@ export default function App() {
           onClick={() => setIsMenuImageModalOpen(false)}
         >
           <div 
-            className="relative max-w-5xl w-full max-h-[90vh] bg-[#0F1712] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col" 
+            className="relative max-w-7xl w-full max-h-[90vh] bg-[#0F1712] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col" 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-4 right-4 z-10 flex gap-2">
@@ -298,12 +298,15 @@ export default function App() {
               </button>
             </div>
             
-            <div className="flex-1 overflow-y-auto p-2 sm:p-6 custom-scrollbar">
-              <img 
-                src="/physical-menu.jpg" 
-                alt="Indian Paratha Company Menu" 
-                className="w-full h-auto object-contain rounded-xl shadow-lg border border-white/5" 
-              />
+            <div className="flex-1 overflow-auto p-2 sm:p-6 custom-scrollbar">
+              <div className="min-w-[800px] md:min-w-[1000px] w-full mx-auto">
+                <img 
+                  src="/physical-menu.jpg" 
+                  alt="Indian Paratha Company Menu" 
+                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-white/5" 
+                  style={{ imageRendering: 'high-quality' }}
+                />
+              </div>
             </div>
           </div>
         </div>
