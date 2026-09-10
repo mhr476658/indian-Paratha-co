@@ -148,6 +148,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
+            {/* Admin Access Button */}
+            <button
+              onClick={onOpenAdmin}
+              className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white border border-white/15 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-lg cursor-pointer"
+              aria-label="Admin Access"
+              title="Admin Access"
+            >
+              <Shield className="w-4 h-4" />
+            </button>
+
             {/* Pill CTA Button (Direct replica of reference image Booking ↗) */}
             <button
               id="desktop-order-now-btn"
