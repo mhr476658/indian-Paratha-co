@@ -170,7 +170,7 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
               className="rounded-3xl bg-[#0F1712]/95 border border-white/15 hover:border-[#E5A93C]/70 shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-xl"
             >
               {/* Image & Badges Container */}
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-black/40">
+              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-black/40">
                 <img
                   src={dish.image}
                   alt={dish.name}
@@ -231,31 +231,6 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
                     {dish.description}
                   </p>
 
-                  {dish.chefNote && (
-                    <div className="p-3 rounded-xl bg-black/50 border border-white/10 text-[11px] text-white/80 mb-5 italic flex items-start gap-2">
-                      <Sparkles className="w-3.5 h-3.5 text-[#E5A93C] shrink-0 mt-0.5" />
-                      <span>{dish.chefNote}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Actions: Add To Order & View Detail */}
-                <div className="flex items-center gap-2.5 pt-4 border-t border-white/10">
-                  <button
-                    onClick={() => onAddToCart(dish)}
-                    className="flex-1 py-3 px-4 rounded-full bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
-                  >
-                    <ShoppingBag className="w-3.5 h-3.5" />
-                    <span>Add to Order</span>
-                  </button>
-
-                  <button
-                    onClick={() => onSelectItemDetail(dish)}
-                    className="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/15 transition-colors cursor-pointer"
-                    title="View Ingredients & Story"
-                  >
-                    <Eye className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
