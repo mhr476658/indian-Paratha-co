@@ -13,7 +13,6 @@ import { Products } from './components/Products';
 import { FoodGallery } from './components/FoodGallery';
 import { Franchise } from './components/Franchise';
 import { Location } from './components/Location';
-import { MoreSection } from './components/MoreSection';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { CartDrawer } from './components/CartDrawer';
@@ -239,14 +238,6 @@ export default function App() {
         {/* 13. Franchise Investment & Opportunities */}
         <Franchise />
 
-        {/* 14. Highway Pitstop Amenities, Biker Hub & Hacks */}
-        <MoreSection
-          onOpenMoreTab={(tab) => {
-            setMoreDefaultTab(tab);
-            setIsMoreOpen(true);
-          }}
-          onOrderNow={() => setIsCartOpen(true)}
-        />
       </main>
 
       {/* Footer */}

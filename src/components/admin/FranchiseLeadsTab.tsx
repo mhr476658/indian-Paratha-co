@@ -105,7 +105,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
   return (
     <div className="space-y-6">
       {/* Search & Filter Header */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-2xl p-4 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-lg">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-xl">
         {/* Search */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -114,7 +114,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
             placeholder="Search applicants by name, target city, email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#D49B44]"
+            className="w-full pl-10 pr-4 py-2.5 bg-black/20 border border-white/10 rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all"
           />
         </div>
 
@@ -126,8 +126,8 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
               onClick={() => setFilterStatus(status)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border ${
                 filterStatus === status
-                  ? 'bg-[#D49B44] text-[#0B192C] font-bold border-[#D49B44]'
-                  : 'bg-[#0D1B2A] text-stone-300 hover:text-white border-[#1E3A5F]'
+                  ? 'bg-[#9B1B1E] text-white border-[#DE2428] shadow-lg shadow-[#9B1B1E]/20'
+                  : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
               }`}
             >
               {status}
@@ -138,8 +138,8 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
 
       {/* Inquiries Cards */}
       {filteredInquiries.length === 0 ? (
-        <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-12 text-center text-stone-400">
-          <Building2 className="w-12 h-12 text-stone-600 mx-auto mb-3" />
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-12 text-center text-stone-400 shadow-xl">
+          <Building2 className="w-12 h-12 text-stone-500 mx-auto mb-3 opacity-50" />
           <h4 className="text-lg font-bold text-white font-serif">No franchise applications found</h4>
           <p className="text-xs text-stone-400 mt-1">
             Investor inquiries submitted through the website franchise portal will land here automatically.
@@ -161,16 +161,16 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
             return (
               <div
                 key={lead.id}
-                className="bg-[#112338] border border-[#1E3A5F] hover:border-[#D49B44]/50 rounded-2xl p-6 shadow-xl transition-all"
+                className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-[#D49B44]/50 rounded-2xl p-6 shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#1E3A5F]/70">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-white/10">
                   {/* Left: Applicant Name, Model, City */}
                   <div>
                     <div className="flex items-center gap-3 flex-wrap">
-                      <h3 className="text-lg font-bold text-white font-serif tracking-tight">
+                      <h3 className="text-lg font-bold text-white font-serif tracking-tight group-hover:text-[#D49B44] transition-colors">
                         {displayName}
                       </h3>
-                      <span className="font-mono text-xs px-2.5 py-0.5 rounded-md bg-[#0D1B2A] text-[#D49B44] border border-[#D49B44]/30">
+                      <span className="font-mono text-xs px-2.5 py-0.5 rounded-md bg-black/40 text-[#D49B44] border border-white/10 backdrop-blur-sm">
                         {lead.id}
                       </span>
                       <span
@@ -207,7 +207,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
                         value={currentStatus}
                         disabled={savingId === lead.id}
                         onChange={(e) => handleStatusChange(lead.id, e.target.value)}
-                        className="text-xs font-semibold bg-[#0D1B2A] border border-[#1E3A5F] rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#D49B44]"
+                        className="text-xs font-semibold bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all cursor-pointer backdrop-blur-md"
                       >
                         {STATUS_LIST.map((s) => (
                           <option key={s} value={s}>
@@ -234,7 +234,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
 
                     <a
                       href={`mailto:${lead.email || ''}?subject=Indian Paratha Company Franchise Partnership - ${encodeURIComponent(displayCity)}&body=Dear ${encodeURIComponent(displayName)},%0D%0A%0D%0AThank you for expressing interest in expanding Indian Paratha Company to ${encodeURIComponent(displayCity)}.`}
-                      className="px-3 py-2 rounded-lg bg-[#162942] hover:bg-[#1E3A5F] text-stone-200 border border-[#1E3A5F] text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                      className="px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-stone-200 border border-white/10 text-xs font-semibold flex items-center gap-1.5 transition-colors backdrop-blur-md"
                     >
                       <Mail className="w-3.5 h-3.5 text-[#D49B44]" />
                       <span>Email</span>
@@ -244,7 +244,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
 
                 {/* Contact Details & Investment Notes */}
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                  <div className="bg-[#0D1B2A]/60 p-3 rounded-xl border border-[#1E3A5F]/40 space-y-1.5">
+                  <div className="bg-black/20 p-3 rounded-xl border border-white/5 space-y-1.5">
                     <div className="flex items-center gap-2">
                       <Phone className="w-3.5 h-3.5 text-[#D49B44]" />
                       <span className="text-stone-300 font-mono">{lead.phone}</span>
@@ -255,7 +255,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
                     </div>
                   </div>
 
-                  <div className="bg-[#0D1B2A]/60 p-3 rounded-xl border border-[#1E3A5F]/40">
+                  <div className="bg-black/20 p-3 rounded-xl border border-white/5">
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-stone-400 font-bold uppercase tracking-wider text-[10px]">
                         Applicant Proposal & Internal Notes
@@ -280,7 +280,7 @@ export const FranchiseLeadsTab: React.FC<FranchiseLeadsTabProps> = ({
                           value={notesText}
                           onChange={(e) => setNotesText(e.target.value)}
                           placeholder="Add internal evaluation comments, site inspection notes..."
-                          className="w-full p-2 bg-[#112338] border border-[#1E3A5F] rounded-lg text-white text-xs focus:outline-none focus:border-[#D49B44]"
+                          className="w-full p-2 bg-black/40 border border-white/10 rounded-lg text-white text-xs focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all backdrop-blur-sm"
                         />
                         <div className="flex justify-end gap-2">
                           <button

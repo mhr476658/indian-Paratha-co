@@ -61,7 +61,7 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
       )}
 
       {/* Main Switch: Store Open / Accepting Highway Orders */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 sm:p-8 shadow-xl">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#D49B44] mb-1">
@@ -94,7 +94,7 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
       </div>
 
       {/* Preparation Time Slider */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5 text-[#D49B44]" />
@@ -102,7 +102,7 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
               Estimated Kitchen Preparation Time
             </h4>
           </div>
-          <span className="font-mono text-xl font-bold text-[#D49B44] bg-[#0D1B2A] px-3 py-1 rounded-xl border border-[#D49B44]/30">
+          <span className="font-mono text-xl font-bold text-[#D49B44] bg-black/40 px-3 py-1 rounded-xl border border-white/10 backdrop-blur-sm">
             {formData.prepTimeMinutes} Mins
           </span>
         </div>
@@ -119,8 +119,8 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
               onClick={() => setFormData((prev) => ({ ...prev, prepTimeMinutes: mins }))}
               className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all border ${
                 formData.prepTimeMinutes === mins
-                  ? 'bg-[#9B1B1E] text-white border-[#DE2428]'
-                  : 'bg-[#0D1B2A] text-stone-300 hover:text-white border-[#1E3A5F]'
+                  ? 'bg-[#9B1B1E] text-white border-[#DE2428] shadow-lg shadow-[#9B1B1E]/20'
+                  : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
               }`}
             >
               {mins}m
@@ -130,7 +130,7 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
       </div>
 
       {/* Broadcast Highway Alert Message */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
         <div className="flex items-center gap-2">
           <Radio className="w-5 h-5 text-[#DE2428]" />
           <h4 className="font-serif text-lg font-bold text-white">
@@ -145,14 +145,14 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
           rows={2}
           value={formData.serviceAlert}
           onChange={(e) => setFormData((prev) => ({ ...prev, serviceAlert: e.target.value }))}
-          className="w-full p-3 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white text-xs sm:text-sm focus:outline-none focus:border-[#D49B44]"
+          className="w-full p-3 bg-black/40 border border-white/10 rounded-xl text-white text-xs sm:text-sm focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all backdrop-blur-sm"
           placeholder="e.g. NH7 corridor dining open 24/7. Drive safe! Special winter makhan batch live today."
         />
       </div>
 
       {/* Highway Location Corridor & Hotline */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl space-y-3">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-[#D49B44]" />
             <h5 className="font-serif font-bold text-white text-sm">Station Corridor</h5>
@@ -163,11 +163,11 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, activeHighwayCorridor: e.target.value }))
             }
-            className="w-full p-2.5 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44]"
+            className="w-full p-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all backdrop-blur-sm"
           />
         </div>
 
-        <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-6 shadow-xl space-y-3">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-xl space-y-3">
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4 text-[#D49B44]" />
             <h5 className="font-serif font-bold text-white text-sm">Customer Helpdesk Hotline</h5>
@@ -178,7 +178,7 @@ export const OperationsTab: React.FC<OperationsTabProps> = ({
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, contactHotline: e.target.value }))
             }
-            className="w-full p-2.5 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44]"
+            className="w-full p-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all backdrop-blur-sm"
           />
         </div>
       </div>

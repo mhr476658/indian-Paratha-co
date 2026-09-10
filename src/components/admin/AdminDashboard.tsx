@@ -437,69 +437,71 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
 
           {/* Navigation Tabs Bar */}
-          <div className="flex items-center gap-3 overflow-x-auto scrollbar-none border-t border-white/10 py-3">
-            {[
-              {
-                id: 'overview',
-                label: 'Overview & Analytics',
-                icon: LayoutDashboard,
-                badge: null,
-              },
-              {
-                id: 'orders',
-                label: 'Live Kitchen',
-                icon: ChefHat,
-                badge: metrics.activeOrdersCount > 0 ? `${metrics.activeOrdersCount}` : null,
-                badgeColor: 'bg-[#E5A93C] text-black',
-              },
-              {
-                id: 'franchise',
-                label: 'Franchise CRM',
-                icon: Building2,
-                badge: metrics.newFranchiseLeadsCount > 0 ? `${metrics.newFranchiseLeadsCount} New` : null,
-                badgeColor: 'bg-[#E5A93C] text-black',
-              },
-              {
-                id: 'menu',
-                label: 'Menu & 86 System',
-                icon: ListOrdered,
-                badge: dashboardData?.unavailableItemIds?.length
-                  ? `${dashboardData.unavailableItemIds.length} 86'd`
-                  : null,
-                badgeColor: 'bg-red-500 text-white',
-              },
-              {
-                id: 'operations',
-                label: 'Operations',
-                icon: Settings,
-                badge: null,
-              },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
+          <div className="flex items-center lg:justify-center overflow-x-auto scrollbar-none py-4 border-t border-white/10">
+            <nav className="inline-flex items-center p-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/15 shadow-2xl space-x-1 min-w-max">
+              {[
+                {
+                  id: 'overview',
+                  label: 'Overview & Analytics',
+                  icon: LayoutDashboard,
+                  badge: null,
+                },
+                {
+                  id: 'orders',
+                  label: 'Live Kitchen',
+                  icon: ChefHat,
+                  badge: metrics.activeOrdersCount > 0 ? `${metrics.activeOrdersCount}` : null,
+                  badgeColor: 'bg-[#E5A93C] text-black',
+                },
+                {
+                  id: 'franchise',
+                  label: 'Franchise CRM',
+                  icon: Building2,
+                  badge: metrics.newFranchiseLeadsCount > 0 ? `${metrics.newFranchiseLeadsCount} New` : null,
+                  badgeColor: 'bg-[#E5A93C] text-black',
+                },
+                {
+                  id: 'menu',
+                  label: 'Menu & 86 System',
+                  icon: ListOrdered,
+                  badge: dashboardData?.unavailableItemIds?.length
+                    ? `${dashboardData.unavailableItemIds.length} 86'd`
+                    : null,
+                  badgeColor: 'bg-red-500 text-white',
+                },
+                {
+                  id: 'operations',
+                  label: 'Operations',
+                  icon: Settings,
+                  badge: null,
+                },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
 
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap transition-all duration-300 flex items-center gap-2.5 ${
-                    isActive
-                      ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.2)]'
-                      : 'bg-white/5 text-white/70 hover:text-white hover:bg-white/15 border border-white/10'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                  {tab.badge && (
-                    <span
-                      className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${tab.badgeColor}`}
-                    >
-                      {tab.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`px-5 py-2 rounded-full text-sm font-semibold tracking-wide whitespace-nowrap transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                      isActive
+                        ? 'bg-white text-black shadow-lg scale-100'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{tab.label}</span>
+                    {tab.badge && (
+                      <span
+                        className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${tab.badgeColor}`}
+                      >
+                        {tab.badge}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
           </div>
         </div>
       </header>

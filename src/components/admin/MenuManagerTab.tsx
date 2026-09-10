@@ -293,12 +293,12 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner with Action Button & Stats */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-2xl p-5 shadow-xl">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#1E3A5F]">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-xl">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
           <div>
             <h3 className="font-serif text-xl font-bold text-white flex items-center gap-2">
               <span>Highway Kitchen Menu Master</span>
-              <span className="text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-[#D49B44]/20 text-[#D49B44] border border-[#D49B44]/40">
+              <span className="text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-[#E5A93C]/20 text-[#E5A93C] border border-[#E5A93C]/40">
                 Live Sync
               </span>
             </h3>
@@ -314,9 +314,9 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
               handleResetForm();
               setIsAddModalOpen(true);
             }}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B1B1E] to-[#B22222] hover:from-[#B22222] hover:to-[#9B1B1E] text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all transform hover:-translate-y-0.5 border border-red-400/30"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0F1712] to-[#B22222] hover:from-[#B22222] hover:to-[#0F1712] text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all transform hover:-translate-y-0.5 border border-red-400/30"
           >
-            <Plus className="w-4 h-4 text-[#D49B44]" />
+            <Plus className="w-4 h-4 text-[#E5A93C]" />
             <span>+ Add New Menu Item</span>
           </button>
         </div>
@@ -330,12 +330,12 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
               placeholder="Search items by name, category, or ingredients..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#D49B44]"
+              className="w-full pl-10 pr-4 py-2.5 bg-black/20 border border-white/10 rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all"
             />
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5 text-xs">
-            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0D1B2A] border border-[#1E3A5F] text-stone-300 font-medium">
+            <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/20 border border-white/10 text-stone-300 font-medium">
               <span>Total: {allItems.length}</span>
             </span>
 
@@ -352,7 +352,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
             )}
 
             {customItems.length > 0 && (
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#D49B44]/15 border border-[#D49B44]/40 text-[#D49B44] font-semibold">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#E5A93C]/15 border border-[#E5A93C]/40 text-[#E5A93C] font-semibold">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{customItems.length} Admin Added</span>
               </span>
@@ -361,13 +361,13 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
         </div>
 
         {/* Category Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none border-t border-[#1E3A5F]/60 pt-3 mt-3">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none border-t border-white/10 pt-3 mt-3">
           <button
             onClick={() => setSelectedCategory('ALL')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border ${
               selectedCategory === 'ALL'
-                ? 'bg-[#9B1B1E] text-white border-[#DE2428]'
-                : 'bg-[#0D1B2A] text-stone-300 hover:text-white border-[#1E3A5F]'
+                ? 'bg-[#0F1712] text-white border-[#DE2428] shadow-lg shadow-[#0F1712]/20'
+                : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
             }`}
           >
             All Menu ({allItems.length})
@@ -378,8 +378,8 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
               onClick={() => setSelectedCategory('CUSTOM')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border ${
                 selectedCategory === 'CUSTOM'
-                  ? 'bg-[#D49B44] text-[#0B192C] font-bold border-[#D49B44]'
-                  : 'bg-[#0D1B2A] text-[#D49B44] hover:text-white border-[#D49B44]/40'
+                  ? 'bg-[#E5A93C] text-[#080D0A] font-bold border-[#E5A93C] shadow-lg shadow-[#E5A93C]/20'
+                  : 'bg-black/20 text-[#E5A93C] hover:text-white border-[#E5A93C]/40 hover:border-[#E5A93C]'
               }`}
             >
               ⭐ Admin Added ({customItems.length})
@@ -394,8 +394,8 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border ${
                   selectedCategory === cat.id
-                    ? 'bg-[#9B1B1E] text-white border-[#DE2428]'
-                    : 'bg-[#0D1B2A] text-stone-300 hover:text-white border-[#1E3A5F]'
+                    ? 'bg-[#0F1712] text-white border-[#DE2428] shadow-lg shadow-[#0F1712]/20'
+                    : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
                 }`}
               >
                 {cat.label} ({count})
@@ -406,7 +406,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
       </div>
 
       {/* Menu Item Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredItems.map((item) => {
           const isUnavailable = unavailableSet.has(item.id);
           const isToggling = togglingId === item.id;
@@ -423,112 +423,132 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
           return (
             <div
               key={item.id}
-              className={`bg-[#112338] border rounded-2xl p-4 flex flex-col justify-between transition-all duration-200 ${
+              className={`rounded-3xl bg-[#0F1712]/95 border hover:border-[#E5A93C]/70 shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-xl ${
                 isUnavailable
-                  ? 'border-rose-900/50 opacity-75 bg-[#0e1b2b]'
+                  ? 'border-red-900/50 opacity-80'
                   : isCustom
-                  ? 'border-[#D49B44]/50 shadow-lg bg-[#102033]'
-                  : 'border-[#1E3A5F] hover:border-[#D49B44]/50 shadow-lg'
+                  ? 'border-[#E5A93C]/50'
+                  : 'border-white/15'
               }`}
             >
-              <div>
-                {/* Header: Category & Price */}
-                <div className="flex items-center justify-between mb-2">
+              {/* Image & Badges Container */}
+              <div className="relative h-56 w-full overflow-hidden bg-black/40">
+                <img
+                  src={item.image || 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&auto=format&fit=crop&q=80'}
+                  alt={item.name}
+                  className={`w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ${isUnavailable ? 'grayscale filter brightness-75' : 'filter brightness-95 group-hover:brightness-100'}`}
+                  loading="lazy"
+                />
+
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1712] via-transparent to-black/50" />
+
+                {/* Top Badges */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#D49B44] bg-[#0D1B2A] px-2.5 py-0.5 rounded-md border border-[#D49B44]/30">
+                    {item.isVegetarian && (
+                      <span className="p-1 rounded-md bg-white/95 border border-emerald-600 flex items-center justify-center shadow-md">
+                        <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                      </span>
+                    )}
+                    <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#E5A93C] text-[10px] font-mono font-bold tracking-wider uppercase border border-[#E5A93C]/40">
                       {item.category}
                     </span>
                     {isCustom && (
-                      <span className="text-[10px] font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 px-1.5 py-0.5 rounded">
-                        NEW ITEM
+                      <span className="px-2.5 py-1 rounded-full bg-[#E5A93C]/20 backdrop-blur-md text-[#E5A93C] text-[10px] font-mono font-bold tracking-wider uppercase border border-[#E5A93C]/40">
+                        ADMIN ADDED
                       </span>
                     )}
                   </div>
-                  <span className="font-serif font-black text-white text-base">
-                    ₹{item.price}
-                  </span>
-                </div>
 
-                {/* Title & Description */}
-                <div className="flex items-start justify-between gap-2">
-                  <h4 className="font-serif font-bold text-white text-base mb-1 line-clamp-1 flex-1 pr-2">
-                    {item.name}
-                  </h4>
-                  <div className="flex gap-1">
-                    <button
-                      onClick={() => handleEditClick(item)}
-                      disabled={isDeleting}
-                      className="text-stone-400 hover:text-amber-400 p-1 transition-colors cursor-pointer"
-                      title="Edit this item"
-                    >
-                      <Edit2 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => handleDeleteItem(item.id, item.name)}
-                      disabled={isDeleting}
-                      className="text-stone-400 hover:text-rose-400 p-1 transition-colors cursor-pointer"
-                      title="Remove this item"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                  {/* Status Badge (86'd vs Kitchen) */}
+                  <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full backdrop-blur-md text-white text-xs font-bold border shadow-md ${isUnavailable ? 'bg-red-900/80 border-red-500/50' : 'bg-emerald-900/80 border-emerald-500/50'}`}>
+                    {isUnavailable ? (
+                      <XCircle className="w-3.5 h-3.5 text-red-400" />
+                    ) : (
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    )}
+                    <span className="hidden sm:inline">{isUnavailable ? "86'D (SOLD OUT)" : 'IN KITCHEN'}</span>
                   </div>
                 </div>
 
-                <p className="text-stone-400 text-xs line-clamp-2 mb-3 mt-2">
-                  {item.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap items-center gap-1.5 mb-4">
-                  {badgeText && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#9B1B1E]/30 text-[#FFA0A3] border border-[#DE2428]/40">
-                      {badgeText}
+                {/* Quick Info Overlay */}
+                <div className="absolute bottom-3 left-4 right-4 z-10">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-2xl sm:text-3xl font-sans font-bold text-[#E5A93C] drop-shadow-md">
+                      ₹{item.price}
                     </span>
-                  )}
-                  {item.isVegetarian && (
-                    <span className="text-[10px] font-semibold text-emerald-400 border border-emerald-500/40 px-1.5 rounded">
-                      100% PURE VEG
-                    </span>
-                  )}
-                  {item.spiceLevel && item.spiceLevel > 1 && (
-                    <span className="text-[10px] text-amber-400">
-                      {'🌶️'.repeat(item.spiceLevel)}
-                    </span>
-                  )}
+                    {badgeText && (
+                      <span className="text-[11px] font-mono text-white bg-black/70 px-2.5 py-0.5 rounded-md backdrop-blur-sm border border-[#E5A93C]/50">
+                        {badgeText}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              {/* Toggle Availability Button */}
-              <div className="pt-3 border-t border-[#1E3A5F]/60 flex items-center justify-between">
-                <span
-                  className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
-                    isUnavailable ? 'text-rose-400' : 'text-emerald-400'
-                  }`}
-                >
-                  {isUnavailable ? (
-                    <>
-                      <XCircle className="w-3.5 h-3.5" />
-                      <span>86'd (Sold Out)</span>
-                    </>
-                  ) : (
-                    <>
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>In Kitchen</span>
-                    </>
-                  )}
-                </span>
+              {/* Content Body */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-[#E5A93C] transition-colors leading-snug">
+                      {item.name}
+                    </h3>
+                  </div>
 
-                <button
-                  onClick={() => handleToggle(item.id, item.name, !isUnavailable)}
-                  disabled={isToggling}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-50 border cursor-pointer ${
-                    isUnavailable
-                      ? 'bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border-emerald-500/40'
-                      : 'bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border-rose-500/40'
-                  }`}
-                >
-                  {isToggling ? 'Updating...' : isUnavailable ? 'Mark In Stock' : "86 Item (Out of Stock)"}
-                </button>
+                  {item.hindiName && (
+                    <p className="text-[#E5A93C] text-xs font-serif italic mb-3 opacity-90">
+                      {item.hindiName}
+                    </p>
+                  )}
+
+                  <p className="text-white/70 text-xs sm:text-sm font-sans leading-relaxed mb-4 line-clamp-3">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Actions: Edit, Delete, Toggle Stock */}
+                <div className="flex items-center gap-2.5 pt-4 border-t border-white/10 mt-auto">
+                  <button
+                    onClick={() => handleToggle(item.id, item.name, !isUnavailable)}
+                    disabled={isToggling}
+                    className={`flex-1 py-3 px-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center gap-2 active:scale-95 cursor-pointer disabled:opacity-50 ${
+                      isUnavailable
+                        ? 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                        : 'bg-red-600 hover:bg-red-500 text-white'
+                    }`}
+                  >
+                    {isToggling ? (
+                      <span>UPDATING...</span>
+                    ) : isUnavailable ? (
+                      <>
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>MARK IN STOCK</span>
+                      </>
+                    ) : (
+                      <>
+                        <XCircle className="w-3.5 h-3.5" />
+                        <span>86 ITEM</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => handleEditClick(item)}
+                    disabled={isDeleting}
+                    className="p-3 rounded-full bg-white/10 hover:bg-[#E5A93C] hover:text-black text-white transition-all shadow-md active:scale-95 cursor-pointer"
+                    title="Edit Item"
+                  >
+                    <Edit2 className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => handleDeleteItem(item.id, item.name)}
+                    disabled={isDeleting}
+                    className="p-3 rounded-full bg-white/10 hover:bg-red-600 text-white transition-all shadow-md active:scale-95 cursor-pointer"
+                    title="Delete Item"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           );
@@ -539,8 +559,8 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
       {/* MODAL: ADD NEW MENU ITEM DIALOG                            */}
       {/* ========================================================= */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#0D1B2A] border border-[#D49B44]/50 rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl p-6 sm:p-8 text-white relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-[#080D0A]/90 backdrop-blur-xl border border-[#E5A93C]/50 rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto shadow-2xl p-6 sm:p-8 text-white relative">
             {/* Close button */}
             <button
               onClick={() => setIsAddModalOpen(false)}
@@ -551,7 +571,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
             {/* Modal Header */}
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9B1B1E]/30 text-[#D49B44] border border-[#9B1B1E] text-xs font-bold uppercase tracking-wider mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5A93C]/10 text-[#E5A93C] border border-[#E5A93C]/30 text-xs font-bold uppercase tracking-wider mb-2">
                 <Plus className="w-3.5 h-3.5" />
                 <span>Highway Kitchen Operations</span>
               </div>
@@ -590,7 +610,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     placeholder="e.g. Amritsari Paneer Kulcha Paratha"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
+                    className="w-full px-3.5 py-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                   />
                 </div>
               </div>
@@ -604,7 +624,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value as MenuCategoryId)}
-                    className="w-full px-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
+                    className="w-full px-3.5 py-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                   >
                     {MENU_CATEGORIES.map((cat) => (
                       <option key={cat.id} value={cat.id}>
@@ -630,7 +650,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                       placeholder="180"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
-                      className="w-full pl-8 pr-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
+                      className="w-full pl-8 pr-3.5 py-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                     />
                   </div>
                 </div>
@@ -646,7 +666,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                   placeholder="Describe the crust, stuffing, spices, and tawa griddling style..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
+                  className="w-full px-3.5 py-2.5 bg-black/40 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                 />
               </div>
 
@@ -661,7 +681,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     placeholder="https://images.unsplash.com/..."
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    className="flex-1 px-3.5 py-2 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44]"
+                    className="flex-1 px-3.5 py-2 bg-black/40 border border-white/10 rounded-xl text-white text-xs focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                   />
                 </div>
 
@@ -678,8 +698,8 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                         onClick={() => setImage(preset.url)}
                         className={`text-[10px] px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                           image === preset.url
-                            ? 'bg-[#D49B44] text-[#0B192C] font-bold border-[#D49B44]'
-                            : 'bg-[#112338] text-stone-300 hover:text-white border-[#1E3A5F]'
+                            ? 'bg-[#E5A93C] text-[#080D0A] font-bold border-[#E5A93C]'
+                            : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
                         }`}
                       >
                         {preset.label}
@@ -699,13 +719,13 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                   placeholder="e.g. Best paired with Kadak Clay Kulhad Chai & Green Chutney"
                   value={pairing}
                   onChange={(e) => setPairing(e.target.value)}
-                  className="w-full px-3.5 py-2 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-xs focus:outline-none focus:border-[#D49B44]"
+                  className="w-full px-3.5 py-2 bg-black/40 border border-white/10 rounded-xl text-white text-xs focus:outline-none focus:border-[#E5A93C] focus:ring-1 focus:ring-[#E5A93C]/50 transition-all backdrop-blur-sm"
                 />
               </div>
 
               {/* Dietary & Badges */}
-              <div className="pt-2 border-t border-[#1E3A5F] grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <label className="flex items-center gap-2 p-2 rounded-xl bg-[#112338] border border-[#1E3A5F] cursor-pointer">
+              <div className="pt-2 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                <label className="flex items-center gap-2 p-2 rounded-xl bg-black/20 border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                   <input
                     type="checkbox"
                     checked={isVegetarian}
@@ -715,17 +735,17 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                   <span className="text-emerald-400 font-semibold">100% Pure Veg</span>
                 </label>
 
-                <label className="flex items-center gap-2 p-2 rounded-xl bg-[#112338] border border-[#1E3A5F] cursor-pointer">
+                <label className="flex items-center gap-2 p-2 rounded-xl bg-black/20 border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                   <input
                     type="checkbox"
                     checked={isBestseller}
                     onChange={(e) => setIsBestseller(e.target.checked)}
-                    className="accent-[#D49B44] rounded"
+                    className="accent-[#E5A93C] rounded"
                   />
-                  <span className="text-[#D49B44] font-semibold">Bestseller</span>
+                  <span className="text-[#E5A93C] font-semibold">Bestseller</span>
                 </label>
 
-                <label className="flex items-center gap-2 p-2 rounded-xl bg-[#112338] border border-[#1E3A5F] cursor-pointer">
+                <label className="flex items-center gap-2 p-2 rounded-xl bg-black/20 border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                   <input
                     type="checkbox"
                     checked={isSignature}
@@ -735,7 +755,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                   <span className="text-amber-300 font-semibold">Signature</span>
                 </label>
 
-                <label className="flex items-center gap-2 p-2 rounded-xl bg-[#112338] border border-[#1E3A5F] cursor-pointer">
+                <label className="flex items-center gap-2 p-2 rounded-xl bg-black/20 border border-white/10 cursor-pointer hover:bg-white/5 transition-colors">
                   <input
                     type="checkbox"
                     checked={isNew}
@@ -747,14 +767,14 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
               </div>
 
               {/* Spice Level */}
-              <div className="flex items-center justify-between p-2.5 rounded-xl bg-[#112338] border border-[#1E3A5F] text-xs">
+              <div className="flex items-center justify-between p-2.5 rounded-xl bg-black/20 border border-white/10 text-xs">
                 <span className="text-stone-300 font-bold uppercase tracking-wider">Spice Profile:</span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setSpiceLevel(1)}
                     className={`px-2 py-1 rounded text-xs ${
-                      spiceLevel === 1 ? 'bg-[#9B1B1E] text-white font-bold' : 'text-stone-400'
+                      spiceLevel === 1 ? 'bg-[#0F1712] text-white font-bold' : 'text-stone-400'
                     }`}
                   >
                     Mild 🌶️
@@ -763,7 +783,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     type="button"
                     onClick={() => setSpiceLevel(2)}
                     className={`px-2 py-1 rounded text-xs ${
-                      spiceLevel === 2 ? 'bg-[#9B1B1E] text-white font-bold' : 'text-stone-400'
+                      spiceLevel === 2 ? 'bg-[#0F1712] text-white font-bold' : 'text-stone-400'
                     }`}
                   >
                     Medium 🌶️🌶️
@@ -772,7 +792,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     type="button"
                     onClick={() => setSpiceLevel(3)}
                     className={`px-2 py-1 rounded text-xs ${
-                      spiceLevel === 3 ? 'bg-[#9B1B1E] text-white font-bold' : 'text-stone-400'
+                      spiceLevel === 3 ? 'bg-[#0F1712] text-white font-bold' : 'text-stone-400'
                     }`}
                   >
                     Fiery 🌶️🌶️🌶️
@@ -781,7 +801,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
               </div>
 
               {/* Form Actions */}
-              <div className="pt-4 flex items-center justify-end gap-3 border-t border-[#1E3A5F]">
+              <div className="pt-4 flex items-center justify-end gap-3 border-t border-white/10">
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
@@ -793,13 +813,13 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#9B1B1E] to-[#B22222] hover:from-[#B22222] hover:to-[#9B1B1E] text-white text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+                  className="px-6 py-2.5 rounded-xl bg-[#E5A93C] hover:bg-white text-black text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 cursor-pointer transition-all disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span>Saving to Kitchen...</span>
                   ) : (
                     <>
-                      <Check className="w-4 h-4 text-[#D49B44]" />
+                      <Check className="w-4 h-4 text-black" />
                       <span>Save &amp; Publish Item</span>
                     </>
                   )}

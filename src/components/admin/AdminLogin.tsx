@@ -21,20 +21,24 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBackTo
     setIsLoading(true);
 
     try {
-      // Mock login since there is no backend server
-      await new Promise(resolve => setTimeout(resolve, 800));
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
 
-      if (username && password) {
-        const mockUser = { username: username, name: 'System Admin', role: 'Super Admin' };
-        const mockToken = 'mock-jwt-token-123';
-        
-        localStorage.setItem('ipc_admin_token', mockToken);
-        localStorage.setItem('ipc_admin_user', JSON.stringify(mockUser));
+      const data = await response.json();
 
-        onLoginSuccess(mockToken, mockUser);
-      } else {
-        throw new Error('Please enter a username and password.');
+      if (!response.ok) {
+        throw new Error(data.error || 'Login failed. Please check credentials.');
       }
+
+      localStorage.setItem('ipc_admin_token', data.token);
+      localStorage.setItem('ipc_admin_user', JSON.stringify(data.user));
+
+      onLoginSuccess(data.token, data.user);
     } catch (err: any) {
       setErrorMessage(err.message || 'Unable to connect to station server.');
     } finally {
@@ -108,6 +112,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBackTo
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter staff username"
+                  autoComplete="off"
                   required
                   className="w-full pl-10 pr-4 py-3 bg-[#112338] border border-[#1E3A5F] focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44] rounded-xl text-white placeholder-stone-500 text-sm font-sans transition-colors outline-none"
                 />
@@ -129,6 +134,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess, onBackTo
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter password"
+                  autoComplete="new-password"
                   required
                   className="w-full pl-10 pr-11 py-3 bg-[#112338] border border-[#1E3A5F] focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44] rounded-xl text-white placeholder-stone-500 text-sm font-sans transition-colors outline-none"
                 />

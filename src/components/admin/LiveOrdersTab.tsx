@@ -117,7 +117,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
   return (
     <div className="space-y-6">
       {/* Search and Filters Bar */}
-      <div className="bg-[#112338] border border-[#1E3A5F] rounded-2xl p-4 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-lg">
+      <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-xl">
         {/* Search */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -126,7 +126,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
             placeholder="Search by order #, customer name, phone..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-[#0D1B2A] border border-[#1E3A5F] rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#D49B44]"
+            className="w-full pl-10 pr-4 py-2.5 bg-black/20 border border-white/10 rounded-xl text-white placeholder-stone-400 text-sm focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all"
           />
         </div>
 
@@ -144,8 +144,8 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
               onClick={() => setFilterStatus(tab.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all border ${
                 filterStatus === tab.id
-                  ? 'bg-[#9B1B1E] text-white border-[#DE2428]'
-                  : 'bg-[#0D1B2A] text-stone-300 hover:text-white border-[#1E3A5F]'
+                  ? 'bg-[#9B1B1E] text-white border-[#DE2428] shadow-lg shadow-[#9B1B1E]/20'
+                  : 'bg-black/20 text-stone-300 hover:text-white border-white/10 hover:border-white/20'
               }`}
             >
               {tab.label}
@@ -156,7 +156,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
           <button
             onClick={onRefresh}
             disabled={isLoading}
-            className="p-2 rounded-lg bg-[#0D1B2A] border border-[#1E3A5F] text-stone-300 hover:text-white hover:bg-white/5 transition-all ml-1 disabled:opacity-50"
+            className="p-2 rounded-lg bg-black/20 border border-white/10 text-stone-300 hover:text-white hover:bg-white/5 transition-all ml-1 disabled:opacity-50"
             title="Refresh Orders"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin text-[#D49B44]' : ''}`} />
@@ -166,8 +166,8 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
 
       {/* Orders List */}
       {filteredOrders.length === 0 ? (
-        <div className="bg-[#112338] border border-[#1E3A5F] rounded-3xl p-12 text-center text-stone-400">
-          <ShoppingBag className="w-12 h-12 text-stone-600 mx-auto mb-3" />
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-12 text-center text-stone-400 shadow-xl">
+          <ShoppingBag className="w-12 h-12 text-stone-500 mx-auto mb-3 opacity-50" />
           <h4 className="text-lg font-bold text-white font-serif">No orders match your filter</h4>
           <p className="text-xs text-stone-400 mt-1">
             New orders from website highway travelers will appear here in real time.
@@ -184,16 +184,16 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
             return (
               <div
                 key={order.orderId}
-                className="bg-[#112338] border border-[#1E3A5F] hover:border-[#D49B44]/50 rounded-2xl p-5 shadow-xl transition-all flex flex-col justify-between relative overflow-hidden"
+                className="bg-white/5 backdrop-blur-md border border-white/10 hover:border-[#D49B44]/50 rounded-2xl p-5 shadow-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)] transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
               >
                 {/* Top Row: Order ID, Type, Time */}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-base text-white tracking-wider">
+                      <span className="font-mono font-bold text-base text-white tracking-wider group-hover:text-[#D49B44] transition-colors">
                         #{order.orderId}
                       </span>
-                      <span className="flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-[#162942] border border-[#1E3A5F] text-stone-300">
+                      <span className="flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 text-stone-300 backdrop-blur-sm">
                         {getOrderTypeIcon(order.orderType)}
                         <span>{order.orderType}</span>
                       </span>
@@ -209,7 +209,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
                   </div>
 
                   {/* Customer Info */}
-                  <div className="flex items-center justify-between text-xs text-stone-300 mb-3 pb-3 border-b border-[#1E3A5F]/60">
+                  <div className="flex items-center justify-between text-xs text-stone-300 mb-3 pb-3 border-b border-white/10">
                     <div>
                       <strong className="text-white font-semibold text-sm block">
                         {order.customerName}
@@ -227,7 +227,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
                   </div>
 
                   {/* Order Items */}
-                  <div className="space-y-1.5 mb-4 bg-[#0D1B2A]/70 p-3 rounded-xl border border-[#1E3A5F]/40">
+                  <div className="space-y-1.5 mb-4 bg-black/20 p-3 rounded-xl border border-white/5">
                     {order.items.map((item, idx) => (
                       <div
                         key={idx}
@@ -248,7 +248,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
                 </div>
 
                 {/* Actions Row */}
-                <div className="pt-2 border-t border-[#1E3A5F]/60 flex items-center justify-between gap-2">
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
                   {/* Quick Action Button */}
                   <div className="flex items-center gap-1.5 flex-wrap">
                     {order.status === 'Preparing Fresh' && (
@@ -266,7 +266,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
                       <button
                         disabled={isUpdating}
                         onClick={() => handleStatusChange(order.orderId, 'Completed')}
-                        className="px-3 py-1.5 rounded-lg bg-[#0B192C] hover:bg-[#162942] border border-[#1E3A5F] text-stone-200 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1"
+                        className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-stone-200 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1 backdrop-blur-md"
                       >
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Complete Order</span>
@@ -285,7 +285,7 @@ export const LiveOrdersTab: React.FC<LiveOrdersTabProps> = ({
                       value={order.status}
                       disabled={isUpdating}
                       onChange={(e) => handleStatusChange(order.orderId, e.target.value)}
-                      className="text-xs bg-[#0D1B2A] border border-[#1E3A5F] rounded-lg px-2 py-1.5 text-stone-300 focus:outline-none focus:border-[#D49B44]"
+                      className="text-xs bg-black/30 border border-white/10 rounded-lg px-2 py-1.5 text-stone-300 focus:outline-none focus:border-[#D49B44] focus:ring-1 focus:ring-[#D49B44]/50 transition-all cursor-pointer backdrop-blur-md"
                     >
                       {STATUS_OPTIONS.map((status) => (
                         <option key={status} value={status}>
