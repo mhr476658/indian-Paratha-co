@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin = () => {} }) => {
               </a>
 
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1BkF6H7jeR/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition-colors border border-white/10"
