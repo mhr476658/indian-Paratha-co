@@ -113,24 +113,7 @@ export const TodaysSpecial: React.FC<TodaysSpecialProps> = ({ onOrderSpecial, on
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-6 border-t border-white/10">
-                <button
-                  onClick={() => onOrderSpecial(specialItem)}
-                  className="w-full sm:w-auto flex-1 py-4 px-8 rounded-full bg-white hover:bg-[#E5A93C] text-black font-bold text-xs sm:text-sm uppercase tracking-widest shadow-xl flex items-center justify-center gap-2 active:scale-95 transition-all cursor-pointer"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Order Combo Now • ₹499</span>
-                </button>
 
-                <button
-                  onClick={onViewMenu}
-                  className="w-full sm:w-auto px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-colors cursor-pointer"
-                >
-                  <span>Explore Menu</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              </div>
             </div>
           </div>
         </div>
