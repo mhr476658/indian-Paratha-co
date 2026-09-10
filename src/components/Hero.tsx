@@ -196,26 +196,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
             </div>
           </div>
         </div>
-
-        {/* BOTTOM ROW: VALUE STRIP CARDS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-white/10 text-xs text-white/80">
-          <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <Flame className="w-4 h-4 text-[#E5A93C] shrink-0" />
-            <span className="font-medium text-xs text-white">100% Whole Wheat</span>
-          </div>
-          <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <Coffee className="w-4 h-4 text-[#E5A93C] shrink-0" />
-            <span className="font-medium text-xs text-white">Clay Kulhad Chai</span>
-          </div>
-          <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <Sparkles className="w-4 h-4 text-[#E5A93C] shrink-0" />
-            <span className="font-medium text-xs text-white">Patented Parathzzaa®</span>
-          </div>
-          <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <ShieldCheck className="w-4 h-4 text-[#E5A93C] shrink-0" />
-            <span className="font-medium text-xs text-white">100% Pure Veg</span>
-          </div>
-        </div>
       </div>
     </section>
   );

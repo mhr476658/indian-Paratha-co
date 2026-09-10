@@ -5,7 +5,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { QuickActions } from './components/QuickActions';
 import { SignatureDishes } from './components/SignatureDishes';
 import { TodaysSpecial } from './components/TodaysSpecial';
 import { MadeFresh } from './components/MadeFresh';
@@ -206,12 +205,6 @@ export default function App() {
         <Hero
           onExploreMenu={() => scrollToSection('menu')}
           onOrderNow={() => setIsCartOpen(true)}
-        />
-
-        {/* 2. Quick Highway Action Grid */}
-        <QuickActions
-          onExploreMenu={() => scrollToSection('menu')}
-          onOpenOrderModal={() => setIsCartOpen(true)}
         />
 
         {/* 4. Signature Food Grid (Parathzzaa®, Amritsari Makhan, Kulhad Chai, Dum Biryani) */}
