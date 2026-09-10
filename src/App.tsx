@@ -173,30 +173,22 @@ export default function App() {
   // Render Admin Login View
   if (currentView === 'admin-login') {
     return (
-      <div className="min-h-screen bg-black flex justify-center w-full">
-        <div className="w-full max-w-[480px] bg-[#080D0A] text-white font-sans antialiased selection:bg-[#E5A93C] selection:text-black relative overflow-x-hidden overflow-y-auto shadow-2xl border-x border-white/5 min-h-screen">
-          <AdminLogin
-            onLoginSuccess={handleLoginSuccess}
-            onBackToSite={handleViewCustomerSite}
-          />
-        </div>
-      </div>
+      <AdminLogin
+        onLoginSuccess={handleLoginSuccess}
+        onBackToSite={handleViewCustomerSite}
+      />
     );
   }
 
   // Render Admin Dashboard View
   if (currentView === 'admin-dashboard' && adminToken && adminUser) {
     return (
-      <div className="min-h-screen bg-black flex justify-center w-full">
-        <div className="w-full max-w-[480px] bg-[#080D0A] text-white font-sans antialiased selection:bg-[#E5A93C] selection:text-black relative overflow-x-hidden overflow-y-auto shadow-2xl border-x border-white/5 min-h-screen">
-          <AdminDashboard
-            token={adminToken}
-            user={adminUser}
-            onLogout={handleLogout}
-            onViewWebsite={handleViewCustomerSite}
-          />
-        </div>
-      </div>
+      <AdminDashboard
+        token={adminToken}
+        user={adminUser}
+        onLogout={handleLogout}
+        onViewWebsite={handleViewCustomerSite}
+      />
     );
   }
 
