@@ -20,6 +20,7 @@ import {
   Image as ImageIcon,
   Check,
   X,
+  Edit2,
 } from 'lucide-react';
 
 interface MenuManagerTabProps {
@@ -84,6 +85,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [togglingId, setTogglingId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
   const [allItems, setAllItems] = useState<MenuItem[]>(() => menuStore.getAllItems());
 
   // Add Item Modal State
@@ -160,6 +162,26 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
     setPairing('');
     setFormError(null);
     setFormSuccess(null);
+    setEditingItemId(null);
+  };
+
+  const handleEditClick = (item: MenuItem) => {
+    setEditingItemId(item.id);
+    setName(item.name || '');
+    setHindiName(item.hindiName || '');
+    setCategory((item.category as MenuCategoryId) || 'PARATHAS');
+    setPrice(String(item.price || 180));
+    setDescription(item.description || '');
+    setImage(item.image || '');
+    setIsVegetarian(item.isVegetarian ?? true);
+    setIsSignature(item.isSignature ?? false);
+    setIsBestseller(item.isBestseller ?? false);
+    setIsNew(item.isNew ?? false);
+    setSpiceLevel((item.spiceLevel as 1 | 2 | 3) || 1);
+    setPairing(item.pairing || '');
+    setFormError(null);
+    setFormSuccess(null);
+    setIsAddModalOpen(true);
   };
 
   const handleCreateMenuItem = async (e: React.FormEvent) => {
@@ -201,8 +223,11 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
     try {
       // Call server if token is present
       const authToken = token || localStorage.getItem('ipc_admin_token') || 'ipc-default-session-token';
-      const res = await fetch('/api/admin/menu/items', {
-        method: 'POST',
+      const url = editingItemId ? `/api/admin/menu/items/${editingItemId}` : '/api/admin/menu/items';
+      const method = editingItemId ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${authToken}`,
@@ -217,14 +242,14 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
       const resData = await res.json();
       const createdItem: MenuItem = resData.item || {
-        id: `custom-${Date.now()}`,
+        id: editingItemId || `custom-${Date.now()}`,
         ...payload,
       };
 
       // Add to client menuStore
       menuStore.addCustomItem(createdItem);
 
-      setFormSuccess(`"${createdItem.name}" has been added to the menu!`);
+      setFormSuccess(`"${createdItem.name}" has been ${editingItemId ? 'updated' : 'added'}!`);
       setTimeout(() => {
         setIsAddModalOpen(false);
         handleResetForm();
@@ -233,11 +258,11 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
       console.warn('API error, falling back to local store:', err);
       // Fallback: save to client store directly
       const fallbackItem: MenuItem = {
-        id: `custom-${Date.now()}`,
+        id: editingItemId || `custom-${Date.now()}`,
         ...payload,
       };
       menuStore.addCustomItem(fallbackItem);
-      setFormSuccess(`"${fallbackItem.name}" added to menu!`);
+      setFormSuccess(`"${fallbackItem.name}" ${editingItemId ? 'updated' : 'added'}!`);
       setTimeout(() => {
         setIsAddModalOpen(false);
         handleResetForm();
@@ -435,14 +460,24 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     {item.name}
                   </h4>
                   {isCustom && (
-                    <button
-                      onClick={() => handleDeleteItem(item.id, item.name)}
-                      disabled={isDeleting}
-                      className="text-stone-400 hover:text-rose-400 p-1 transition-colors cursor-pointer"
-                      title="Remove this item"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                    <div className="flex gap-1">
+                      <button
+                        onClick={() => handleEditClick(item)}
+                        disabled={isDeleting}
+                        className="text-stone-400 hover:text-amber-400 p-1 transition-colors cursor-pointer"
+                        title="Edit this item"
+                      >
+                        <Edit2 className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => handleDeleteItem(item.id, item.name)}
+                        disabled={isDeleting}
+                        className="text-stone-400 hover:text-rose-400 p-1 transition-colors cursor-pointer"
+                        title="Remove this item"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   )}
                 </div>
 
@@ -534,7 +569,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                 <span>Highway Kitchen Operations</span>
               </div>
               <h3 className="font-serif text-2xl font-black text-white">
-                Add New Menu Item
+                {editingItemId ? 'Edit Menu Item' : 'Add New Menu Item'}
               </h3>
               <p className="text-xs text-stone-300 mt-1">
                 Enter culinary details below. This item will immediately appear in the customer menu and admin live stock tracking.

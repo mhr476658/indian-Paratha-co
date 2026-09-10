@@ -532,6 +532,32 @@ app.post('/api/admin/menu/items', verifyAdminAuth, (req, res) => {
   });
 });
 
+// Admin Update Custom Menu Item
+app.put('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
+  const { itemId } = req.params;
+  const updates = req.body;
+  
+  const index = customMenuItems.findIndex((i) => i.id === itemId);
+  if (index === -1) {
+    res.status(404).json({ error: 'Item not found in custom items list.' });
+    return;
+  }
+
+  // Update item
+  customMenuItems[index] = {
+    ...customMenuItems[index],
+    ...updates,
+    id: itemId, // ensure ID doesn't change
+  };
+
+  res.json({
+    success: true,
+    message: 'Menu item updated successfully.',
+    item: customMenuItems[index],
+    customMenuItems,
+  });
+});
+
 // Admin Delete Custom Menu Item
 app.delete('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
   const { itemId } = req.params;
