@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "menuItems": {
+      "description": "Dynamic custom menu items added via the admin dashboard",
+      "fields": {
+        "name": { "type": "string", "description": "Display name of the dish" },
+        "hindiName": { "type": "string", "description": "Optional Hindi or regional script name" },
+        "category": { "type": "string", "description": "Menu category (e.g. PARATHAS, PARATHZZAA, HOT BLENDS)" },
+        "price": { "type": "number", "description": "Price in INR" },
+        "description": { "type": "string", "description": "Culinary description" },
+        "image": { "type": "string", "description": "Image URL" },
+        "isVegetarian": { "type": "boolean", "description": "Pure vegetarian indicator" },
+        "isSignature": { "type": "boolean", "description": "IPC Chef Signature flag" },
+        "isBestseller": { "type": "boolean", "description": "Bestseller badge flag" },
+        "isNew": { "type": "boolean", "description": "New item badge flag" },
+        "spiceLevel": { "type": "number", "description": "Spice level from 1 to 3" },
+        "pairing": { "type": "string", "description": "Highway culinary pairing suggestion" },
+        "allergens": { "type": "array", "description": "Allergens list (e.g. Dairy, Gluten)" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      }
+    },
+    "orders": {
+      "description": "Customer food and highway pitstop orders",
+      "fields": {
+        "orderId": { "type": "string", "description": "Human readable order ID" },
+        "customerName": { "type": "string", "description": "Customer full name" },
+        "customerPhone": { "type": "string", "description": "Contact telephone number" },
+        "orderType": { "type": "string", "description": "TAKEAWAY, DINE_IN, or ROAD_TRIP_PICKUP" },
+        "status": { "type": "string", "description": "Order status (RECEIVED, PREPARING, READY, COMPLETED, CANCELLED)" },
+        "items": { "type": "array", "description": "Array of ordered items with quantity and price" },
+        "totalAmount": { "type": "number", "description": "Total order amount in INR" },
+        "vehicleNumber": { "type": "string", "description": "Optional car/bike registration for carhop service" },
+        "highwayEta": { "type": "string", "description": "Estimated arrival time on NH7" },
+        "createdAt": { "type": "string", "description": "Order creation timestamp" }
+      }
+    },
+    "franchiseInquiries": {
+      "description": "Highway & Urban IPC Franchise Applications",
+      "fields": {
+        "name": { "type": "string", "description": "Applicant full name" },
+        "phone": { "type": "string", "description": "Contact number" },
+        "email": { "type": "string", "description": "Email address" },
+        "city": { "type": "string", "description": "Target city or highway location" },
+        "highwayStretch": { "type": "string", "description": "Proposed highway corridor" },
+        "investmentCapacity": { "type": "string", "description": "Investment tier" },
+        "experience": { "type": "string", "description": "Hospitality or retail background" },
+        "status": { "type": "string", "description": "Lead review status" },
+        "createdAt": { "type": "string", "description": "Submission timestamp" }
+      }
+    },
+    "storeSettings": {
+      "description": "Highway kitchen operations, prep times, alerts, and 86'd stock tracking",
+      "fields": {
+        "isOpen": { "type": "boolean", "description": "Kitchen accept orders status" },
+        "prepTimeMinutes": { "type": "number", "description": "Estimated kitchen prep time in minutes" },
+        "specialNotice": { "type": "string", "description": "Kitchen special banner notice" },
+        "highwayAlert": { "type": "string", "description": "NH7 highway traffic or weather notice" },
+        "unavailableItemIds": { "type": "array", "description": "Array of 86'd (sold out) item IDs" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" }
+      }
+    }
+  }
+}

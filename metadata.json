@@ -1,0 +1,6 @@
+{
+  "name": "Indian Paratha Company",
+  "description": "Indian Paratha Company — authentic Indian parathas, chai, wholesome vegetarian food and innovative Parathzzaa® in a premium modern dining experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

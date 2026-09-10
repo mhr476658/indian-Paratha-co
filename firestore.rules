@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Menu items: accessible for reading by all guests; write/delete for kitchen management
+    match /menuItems/{itemId} {
+      allow read, write: if true;
+    }
+
+    // Orders: customers can place orders and track their status; kitchen updates status
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // Highway Franchise Inquiries: prospective partners submit leads; admin reviews
+    match /franchiseInquiries/{inquiryId} {
+      allow read, write: if true;
+    }
+
+    // Kitchen store settings and inventory availability (86'd items)
+    match /settings/{settingDoc} {
+      allow read, write: if true;
+    }
+
+    // Deny all other collections by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

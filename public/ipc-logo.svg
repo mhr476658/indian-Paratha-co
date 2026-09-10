@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&amp;display=swap');
+      .serif-bold {
+        font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        font-weight: 900;
+      }
+      .sans-bold {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        font-weight: 800;
+      }
+    </style>
+    
+    <!-- Path for curved PARATHA text -->
+    <path id="paratha-curve-shadow" d="M 125,278 Q 300,196 475,278" fill="none" />
+    <path id="paratha-curve" d="M 125,270 Q 300,188 475,270" fill="none" />
+    
+    <!-- Subtle drop shadow for rolling pin -->
+    <filter id="belanShadow" x="-10%" y="-20%" width="120%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- OUTER NAVY SHIELD -->
+  <path
+    d="M 300,24 
+       C 318,24 438,128 496,280 
+       C 504,300 504,310 496,330 
+       C 438,482 318,586 300,586 
+       C 282,586 162,482 104,330 
+       C 96,310 96,300 104,280 
+       C 162,128 282,24 300,24 Z"
+    fill="#0C2340"
+  />
+
+  <!-- INNER IVORY / CREAM BORDER -->
+  <path
+    d="M 300,38 
+       C 314,38 426,136 480,284 
+       C 487,301 487,309 480,326 
+       C 426,474 314,572 300,572 
+       C 286,572 174,474 120,326 
+       C 113,309 113,301 120,284 
+       C 174,136 286,38 300,38 Z"
+    fill="#DF2227"
+    stroke="#FFFDF6"
+    stroke-width="12"
+    stroke-linejoin="round"
+  />
+
+  <!-- RED INNER SHIELD FILL (Crisp overlay) -->
+  <path
+    d="M 300,44 
+       C 313,44 422,139 474,285 
+       C 480,301 480,309 474,325 
+       C 422,471 313,566 300,566 
+       C 287,566 178,471 126,325 
+       C 120,309 120,301 126,285 
+       C 178,139 287,44 300,44 Z"
+    fill="#DF2227"
+  />
+
+  <!-- TOP WORD: INDIAN -->
+  <text
+    x="300"
+    y="142"
+    text-anchor="middle"
+    fill="#0C2340"
+    class="serif-bold"
+    font-size="34"
+    letter-spacing="5"
+  >
+    INDIAN
+  </text>
+
+  <!-- ARCHED 'PARATHA' - 3D NAVY BLOCK SHADOW -->
+  <text class="serif-bold" font-size="62" letter-spacing="3.5" fill="#0C2340">
+    <textPath href="#paratha-curve-shadow" startOffset="50%" textAnchor="middle">
+      PARATHA
+    </textPath>
+  </text>
+  
+  <!-- ARCHED 'PARATHA' - MAIN CREAM TEXT -->
+  <text class="serif-bold" font-size="62" letter-spacing="3.5" fill="#FFFDF6">
+    <textPath href="#paratha-curve" startOffset="50%" textAnchor="middle">
+      PARATHA
+    </textPath>
+  </text>
+
+  <!-- ROLLING PIN (BELAN) UNDERLAY SHADOW BAR -->
+  <rect
+    x="74"
+    y="312"
+    width="452"
+    height="18"
+    rx="9"
+    fill="#5C6D82"
+    opacity="0.5"
+  />
+
+  <!-- AUTHENTIC WOODEN BELAN (ROLLING PIN) -->
+  <g filter="url(#belanShadow)">
+    <!-- Left Handle Extension -->
+    <!-- Handle Knob -->
+    <circle cx="94" cy="310" r="13" fill="#0C2340" stroke="#FFFDF6" stroke-width="2.5" />
+    <!-- Handle Neck -->
+    <path
+      d="M 94,304 L 140,301 L 140,319 L 94,316 Z"
+      fill="#0C2340"
+      stroke="#FFFDF6"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <!-- Handle Collar Ring -->
+    <rect x="134" y="297" width="8" height="26" rx="4" fill="#0C2340" stroke="#FFFDF6" stroke-width="2" />
+
+    <!-- Right Handle Extension -->
+    <!-- Handle Knob -->
+    <circle cx="506" cy="310" r="13" fill="#0C2340" stroke="#FFFDF6" stroke-width="2.5" />
+    <!-- Handle Neck -->
+    <path
+      d="M 506,304 L 460,301 L 460,319 L 506,316 Z"
+      fill="#0C2340"
+      stroke="#FFFDF6"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <!-- Handle Collar Ring -->
+    <rect x="458" y="297" width="8" height="26" rx="4" fill="#0C2340" stroke="#FFFDF6" stroke-width="2" />
+
+    <!-- Main Central Barrel / Cartouche -->
+    <rect
+      x="138"
+      y="280"
+      width="324"
+      height="60"
+      rx="30"
+      fill="#0C2340"
+      stroke="#FFFDF6"
+      stroke-width="3"
+    />
+    
+    <!-- Word 'COMPANY' Inside Rolling Pin -->
+    <text
+      x="300"
+      y="322"
+      text-anchor="middle"
+      fill="#FFFDF6"
+      class="serif-bold"
+      font-size="33"
+      letter-spacing="5"
+    >
+      COMPANY
+    </text>
+  </g>
+
+  <!-- BOTTOM TEXT: CHAI, PARATHA -->
+  <text
+    x="300"
+    y="395"
+    text-anchor="middle"
+    fill="#FFFDF6"
+    class="serif-bold"
+    font-size="22"
+    letter-spacing="2.5"
+  >
+    CHAI, PARATHA
+  </text>
+
+  <!-- BOTTOM LINE: FLANKING DARTS & "& MORE" -->
+  <!-- Left tapered dart -->
+  <polygon points="186,423 226,419 226,427" fill="#FFFDF6" />
+  
+  <!-- & MORE Text -->
+  <text
+    x="300"
+    y="429"
+    text-anchor="middle"
+    fill="#FFFDF6"
+    class="serif-bold"
+    font-size="19"
+    letter-spacing="3"
+  >
+    &amp; MORE
+  </text>
+  
+  <!-- Right tapered dart -->
+  <polygon points="414,423 374,419 374,427" fill="#FFFDF6" />
+</svg>
