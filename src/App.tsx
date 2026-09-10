@@ -298,12 +298,12 @@ export default function App() {
               </button>
             </div>
             
-            <div className="flex-1 overflow-auto custom-scrollbar">
-              <div className="min-w-[1000px] w-full h-full mx-auto flex justify-center items-start">
+            <div className="flex-1 overflow-auto custom-scrollbar flex justify-center py-4 sm:py-8">
+              <div className="min-w-[800px] w-[95%] md:w-[85%] max-w-6xl h-full mx-auto flex justify-center items-start">
                 <img 
                   src="/physical-menu.jpg" 
                   alt="Indian Paratha Company Menu" 
-                  className="w-full h-auto object-contain" 
+                  className="w-full h-auto object-contain rounded-xl shadow-2xl" 
                   style={{ imageRendering: 'high-quality' }}
                 />
               </div>
