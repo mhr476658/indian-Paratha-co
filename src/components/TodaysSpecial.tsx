@@ -43,31 +43,6 @@ export const TodaysSpecial: React.FC<TodaysSpecialProps> = ({ onOrderSpecial, on
                 className="w-full h-full object-cover object-center filter brightness-95 hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F1712] via-transparent to-black/50" />
-
-              {/* Special Badge */}
-              <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
-                <span className="px-3.5 py-1.5 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest shadow-xl flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#E5A93C]" />
-                  <span>TODAY'S SIGNATURE SPECIAL</span>
-                </span>
-                <span className="px-3 py-1 rounded-full bg-black/75 text-[#E5A93C] text-[11px] font-mono font-bold tracking-wider backdrop-blur-md border border-[#E5A93C]/40 w-fit">
-                  Save ₹180 • Highway Bestseller
-                </span>
-              </div>
-
-              {/* Price Callout */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/15 flex items-center justify-between z-10">
-                <div>
-                  <span className="text-[10px] font-mono text-white/60 uppercase tracking-widest block">Special Combo Deal</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-sans font-bold text-[#E5A93C]">₹{specialItem.price}</span>
-                    <span className="text-sm text-white/50 line-through">₹680</span>
-                  </div>
-                </div>
-                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
-                  27% OFF
-                </span>
-              </div>
             </div>
 
             {/* Right Details & Action */}
