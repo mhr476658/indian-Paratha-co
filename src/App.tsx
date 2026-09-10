@@ -22,7 +22,7 @@ import { AdminDashboard } from './components/admin/AdminDashboard';
 import { MoreHubModal, MoreTab } from './components/more/MoreHubModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CartItem, MenuItem } from './types';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, X } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<'customer' | 'admin-login' | 'admin-dashboard'>('customer');
@@ -42,6 +42,7 @@ export default function App() {
   const [moreDefaultTab, setMoreDefaultTab] = useState<MoreTab>('amenities');
   const [selectedItemDetail, setSelectedItemDetail] = useState<MenuItem | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isMenuImageModalOpen, setIsMenuImageModalOpen] = useState(false);
 
   // Cart total count
   const cartCount = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
@@ -203,7 +204,7 @@ export default function App() {
       <main id="main-content" className="relative z-10">
         {/* 1. Full-Screen Cinematic Hero with Restaurant Wooden Chalet Facade */}
         <Hero
-          onExploreMenu={() => scrollToSection('menu')}
+          onExploreMenu={() => setIsMenuImageModalOpen(true)}
           onOrderNow={() => setIsCartOpen(true)}
         />
 
@@ -211,7 +212,7 @@ export default function App() {
         <SignatureDishes
           onAddToCart={handleAddToCart}
           onSelectItemDetail={(item) => setSelectedItemDetail(item)}
-          onViewAllMenu={() => scrollToSection('menu')}
+          onViewAllMenu={() => setIsMenuImageModalOpen(true)}
         />
 
         {/* 5. Today's Special Highway Feast Promotional Combo */}
@@ -221,10 +222,10 @@ export default function App() {
         />
 
         {/* 6. Made Fresh Kitchen Craft & Purity Philosophy */}
-        <MadeFresh onExploreMenu={() => scrollToSection('menu')} />
+        <MadeFresh onExploreMenu={() => setIsMenuImageModalOpen(true)} />
 
         {/* 9. The IPC Story & Highway Sanctuary Heritage */}
-        <RestaurantStory onExploreMenu={() => scrollToSection('menu')} />
+        <RestaurantStory onExploreMenu={() => setIsMenuImageModalOpen(true)} />
 
         {/* Highway Merchandise / Products */}
         <Products onOrderNow={() => setIsCartOpen(true)} />
@@ -269,12 +270,44 @@ export default function App() {
         onClearCart={handleClearCart}
       />
 
-      {/* Rich Item Details Modal with Spice and Quantity Selector */}
-      <ItemDetailModal
-        item={selectedItemDetail}
-        onClose={() => setSelectedItemDetail(null)}
-        onAddToCart={handleAddToCart}
-      />
+      {/* Item Detail Modal */}
+      {selectedItemDetail && (
+        <ItemDetailModal
+          item={selectedItemDetail}
+          onClose={() => setSelectedItemDetail(null)}
+          onAddToCart={handleAddToCart}
+        />
+      )}
+
+      {/* Physical Menu Image Modal */}
+      {isMenuImageModalOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8" 
+          onClick={() => setIsMenuImageModalOpen(false)}
+        >
+          <div 
+            className="relative max-w-5xl w-full max-h-[90vh] bg-[#0F1712] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="absolute top-4 right-4 z-10 flex gap-2">
+              <button
+                onClick={() => setIsMenuImageModalOpen(false)}
+                className="w-10 h-10 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center border border-white/20 transition-colors shadow-lg backdrop-blur-md"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto p-2 sm:p-6 custom-scrollbar">
+              <img 
+                src="/physical-menu.jpg" 
+                alt="Indian Paratha Company Menu" 
+                className="w-full h-auto object-contain rounded-xl shadow-lg border border-white/5" 
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* More Highway Hub Modal (Amenities, Route ETA, Biker Meets, Hacks, Bulk Catering) */}
       <MoreHubModal
