@@ -44,9 +44,6 @@ npm install
 
 Create a `.env` file in the root directory (you can copy `.env.example` as a template) and add your required keys, including your Gemini API key and Firebase configuration:
 
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-```
 
 ### 4. Run the Development Server
 
