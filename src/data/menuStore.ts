@@ -7,6 +7,7 @@ import {
 } from '../services/firestoreService';
 
 const STORAGE_KEY = 'ipc_custom_menu_items';
+const DELETED_STORAGE_KEY = 'ipc_deleted_menu_items';
 
 // Load saved custom items from localStorage as instant fallback
 const loadInitialCustomItems = (): MenuItem[] => {
@@ -21,7 +22,19 @@ const loadInitialCustomItems = (): MenuItem[] => {
   }
 };
 
+const loadDeletedItems = (): string[] => {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(DELETED_STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch (err) {
+    return [];
+  }
+};
+
 let customItems: MenuItem[] = loadInitialCustomItems();
+let deletedItemIds: string[] = loadDeletedItems();
 let listeners: Array<() => void> = [];
 
 const notifyListeners = () => {
@@ -29,20 +42,30 @@ const notifyListeners = () => {
 };
 
 export const menuStore = {
-  // Get combined menu items: custom items first + base menu items
+  // Get combined menu items: custom items first + active base menu items
   getAllItems(): MenuItem[] {
-    return [...customItems, ...ALL_MENU_ITEMS];
+    const customIds = new Set(customItems.map((i) => i.id));
+    const activeBaseItems = ALL_MENU_ITEMS.filter(
+      (i) => !customIds.has(i.id) && !deletedItemIds.includes(i.id)
+    );
+    return [...customItems, ...activeBaseItems];
   },
 
   getCustomItems(): MenuItem[] {
     return customItems;
   },
 
-  setCustomItems(items: MenuItem[]) {
+  setCustomItems(items: MenuItem[], deletedIds?: string[]) {
     customItems = items;
+    if (deletedIds) {
+      deletedItemIds = deletedIds;
+    }
     if (typeof window !== 'undefined') {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+        if (deletedIds) {
+          localStorage.setItem(DELETED_STORAGE_KEY, JSON.stringify(deletedIds));
+        }
       } catch (err) {
         console.error('Error saving custom menu items to localStorage:', err);
       }
@@ -73,9 +96,14 @@ export const menuStore = {
   async removeCustomItem(itemId: string) {
     // Update local state immediately
     customItems = customItems.filter((i) => i.id !== itemId);
+    if (!deletedItemIds.includes(itemId)) {
+      deletedItemIds = [...deletedItemIds, itemId];
+    }
+
     if (typeof window !== 'undefined') {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(customItems));
+        localStorage.setItem(DELETED_STORAGE_KEY, JSON.stringify(deletedItemIds));
       } catch (err) {
         console.error('Error saving custom menu items:', err);
       }
@@ -103,6 +131,8 @@ export const menuStore = {
 
     subscribeToMenuItems((firestoreItems) => {
       if (firestoreItems && Array.isArray(firestoreItems)) {
+        // Ideally we also sync deleted items from firestore if we extend it,
+        // but for now we just sync custom items.
         this.setCustomItems(firestoreItems);
       }
     });

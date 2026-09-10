@@ -9,10 +9,10 @@ import {
   updateOrderStatusInFirestore,
   subscribeToFranchiseInquiries,
   updateFranchiseInquiryStatusInFirestore,
-  subscribeToStoreSettings,
   updateStoreSettingsInFirestore,
   toggleStockInFirestore,
 } from '../../services/firestoreService';
+import { menuStore } from '../../data/menuStore';
 import {
   LayoutDashboard,
   UtensilsCrossed,
@@ -77,6 +77,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       }
 
       setDashboardData(data);
+      
+      // Sync menu store with server
+      if (data.customMenuItems || data.deletedItemIds) {
+        menuStore.setCustomItems(data.customMenuItems || [], data.deletedItemIds || []);
+      }
     } catch (err: any) {
       setError(err.message || 'Error loading dashboard');
     } finally {

@@ -120,6 +120,9 @@ const unavailableItemIds = new Set();
 // Dynamic custom menu items added via Admin Dashboard
 let customMenuItems = [];
 
+// Track items explicitly deleted (especially base hardcoded ones)
+const deletedItemIds = new Set();
+
 // Admin Auth Credentials
 const ADMIN_CREDENTIALS = {
   username: 'admin',
@@ -360,6 +363,7 @@ app.get('/api/admin/dashboard', verifyAdminAuth, (req, res) => {
     storeSettings,
     unavailableItemIds: Array.from(unavailableItemIds),
     customMenuItems,
+    deletedItemIds: Array.from(deletedItemIds),
     serverTime: new Date().toISOString(),
   });
 });
@@ -461,6 +465,7 @@ app.get('/api/menu/items', (req, res) => {
     success: true,
     customMenuItems,
     unavailableItemIds: Array.from(unavailableItemIds),
+    deletedItemIds: Array.from(deletedItemIds),
   });
 });
 
@@ -539,7 +544,19 @@ app.put('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
   
   const index = customMenuItems.findIndex((i) => i.id === itemId);
   if (index === -1) {
-    res.status(404).json({ error: 'Item not found in custom items list.' });
+    // If not in custom items, it means they are editing a base hardcoded item.
+    // Add it as a custom item to override the base item.
+    const newItem = {
+      ...updates,
+      id: itemId,
+    };
+    customMenuItems.unshift(newItem);
+    res.json({
+      success: true,
+      message: 'Menu item customized successfully.',
+      item: newItem,
+      customMenuItems,
+    });
     return;
   }
 
@@ -561,13 +578,10 @@ app.put('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
 // Admin Delete Custom Menu Item
 app.delete('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
   const { itemId } = req.params;
-  const initialLength = customMenuItems.length;
   customMenuItems = customMenuItems.filter((i) => i.id !== itemId);
-
-  if (customMenuItems.length === initialLength) {
-    res.status(404).json({ error: 'Item not found in custom items list.' });
-    return;
-  }
+  
+  // Track as deleted so clients hide it
+  deletedItemIds.add(itemId);
 
   // Also remove from unavailable set if present
   unavailableItemIds.delete(itemId);
@@ -576,6 +590,7 @@ app.delete('/api/admin/menu/items/:itemId', verifyAdminAuth, (req, res) => {
     success: true,
     message: 'Menu item removed successfully.',
     customMenuItems,
+    deletedItemIds: Array.from(deletedItemIds),
   });
 });
 

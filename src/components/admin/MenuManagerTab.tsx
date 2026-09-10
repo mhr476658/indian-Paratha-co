@@ -96,7 +96,6 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
   // Form Fields
   const [name, setName] = useState('');
-  const [hindiName, setHindiName] = useState('');
   const [category, setCategory] = useState<MenuCategoryId>('PARATHAS');
   const [price, setPrice] = useState<string>('180');
   const [description, setDescription] = useState('');
@@ -132,8 +131,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
     const matchesSearch =
       (item.name || '').toLowerCase().includes(q) ||
       (item.description || '').toLowerCase().includes(q) ||
-      (item.category || '').toLowerCase().includes(q) ||
-      Boolean(item.hindiName && item.hindiName.includes(searchQuery));
+      (item.category || '').toLowerCase().includes(q);
 
     return matchesCategory && matchesSearch;
   });
@@ -149,7 +147,6 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
   const handleResetForm = () => {
     setName('');
-    setHindiName('');
     setCategory('PARATHAS');
     setPrice('180');
     setDescription('');
@@ -168,7 +165,6 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
   const handleEditClick = (item: MenuItem) => {
     setEditingItemId(item.id);
     setName(item.name || '');
-    setHindiName(item.hindiName || '');
     setCategory((item.category as MenuCategoryId) || 'PARATHAS');
     setPrice(String(item.price || 180));
     setDescription(item.description || '');
@@ -203,7 +199,6 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
     const payload = {
       name: name.trim(),
-      hindiName: hindiName.trim() || undefined,
       category,
       price: numPrice,
       description:
@@ -456,38 +451,30 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
 
                 {/* Title & Description */}
                 <div className="flex items-start justify-between gap-2">
-                  <h4 className="font-serif font-bold text-white text-base mb-1 line-clamp-1">
+                  <h4 className="font-serif font-bold text-white text-base mb-1 line-clamp-1 flex-1 pr-2">
                     {item.name}
                   </h4>
-                  {isCustom && (
-                    <div className="flex gap-1">
-                      <button
-                        onClick={() => handleEditClick(item)}
-                        disabled={isDeleting}
-                        className="text-stone-400 hover:text-amber-400 p-1 transition-colors cursor-pointer"
-                        title="Edit this item"
-                      >
-                        <Edit2 className="w-3.5 h-3.5" />
-                      </button>
-                      <button
-                        onClick={() => handleDeleteItem(item.id, item.name)}
-                        disabled={isDeleting}
-                        className="text-stone-400 hover:text-rose-400 p-1 transition-colors cursor-pointer"
-                        title="Remove this item"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  )}
+                  <div className="flex gap-1">
+                    <button
+                      onClick={() => handleEditClick(item)}
+                      disabled={isDeleting}
+                      className="text-stone-400 hover:text-amber-400 p-1 transition-colors cursor-pointer"
+                      title="Edit this item"
+                    >
+                      <Edit2 className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      onClick={() => handleDeleteItem(item.id, item.name)}
+                      disabled={isDeleting}
+                      className="text-stone-400 hover:text-rose-400 p-1 transition-colors cursor-pointer"
+                      title="Remove this item"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
 
-                {item.hindiName && (
-                  <p className="text-[#D49B44] text-[11px] font-medium mb-1">
-                    {item.hindiName}
-                  </p>
-                )}
-
-                <p className="text-stone-400 text-xs line-clamp-2 mb-3">
+                <p className="text-stone-400 text-xs line-clamp-2 mb-3 mt-2">
                   {item.description}
                 </p>
 
@@ -593,7 +580,7 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
             <form onSubmit={handleCreateMenuItem} className="space-y-4">
               {/* Item Name & Hindi Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block text-xs font-bold text-stone-200 uppercase tracking-wider mb-1.5">
                     Item Name *
                   </label>
@@ -603,19 +590,6 @@ export const MenuManagerTab: React.FC<MenuManagerTabProps> = ({
                     placeholder="e.g. Amritsari Paneer Kulcha Paratha"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-stone-200 uppercase tracking-wider mb-1.5">
-                    Regional / Hindi Name (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. अमृतसर पनीर कुलचा पराठा"
-                    value={hindiName}
-                    onChange={(e) => setHindiName(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-[#112338] border border-[#1E3A5F] rounded-xl text-white text-sm focus:outline-none focus:border-[#D49B44]"
                   />
                 </div>
