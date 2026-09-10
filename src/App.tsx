@@ -212,7 +212,7 @@ export default function App() {
         <SignatureDishes
           onAddToCart={handleAddToCart}
           onSelectItemDetail={(item) => setSelectedItemDetail(item)}
-          onViewAllMenu={() => setIsMenuImageModalOpen(true)}
+          onViewFullMenu={() => setIsMenuImageModalOpen(true)}
         />
 
         {/* 5. Today's Special Highway Feast Promotional Combo */}
