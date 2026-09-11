@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { SignatureDishes } from './components/SignatureDishes';
-import { TodaysSpecial } from './components/TodaysSpecial';
+
 import { MadeFresh } from './components/MadeFresh';
 import { RestaurantStory } from './components/RestaurantStory';
 import { Products } from './components/Products';
@@ -119,11 +119,7 @@ export default function App() {
           onViewFullMenu={() => setIsMenuImageModalOpen(true)}
         />
 
-        {/* 5. Today's Special Highway Feast Promotional Combo */}
-        <TodaysSpecial
-          onAddComboToCart={handleAddToCart}
-          onOrderNow={() => setIsCartOpen(true)}
-        />
+
 
         {/* 6. Made Fresh Kitchen Craft & Purity Philosophy */}
         <MadeFresh onExploreMenu={() => setIsMenuImageModalOpen(true)} />
