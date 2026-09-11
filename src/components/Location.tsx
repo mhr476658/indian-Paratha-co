@@ -144,15 +144,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                   </a>
                 </div>
 
-                {/* ORDER NOW BUTTON */}
-                <button
-                  id="loc-order-now-btn"
-                  onClick={onOrderNow}
-                  className="w-full py-3.5 px-5 bg-black/60 hover:bg-black/80 text-white font-bold text-xs uppercase tracking-wider rounded-full transition-all duration-200 shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 border border-white/15 hover:border-[#E5A93C]"
-                >
-                  <ShoppingBag className="w-4 h-4 text-[#E5A93C]" />
-                  <span>Order Takeaway Pickup</span>
-                </button>
+
               </div>
             </div>
           </div>

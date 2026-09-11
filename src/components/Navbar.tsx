@@ -119,20 +119,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* 3. Right Actions & Order Pill (MATCHING REFERENCE IMAGE "Booking ↗" BUTTON) */}
           <div className="flex items-center gap-3">
 
-            {/* Cart Button */}
-            <button
-              id="desktop-cart-btn"
-              onClick={onOpenCart}
-              className="relative p-2.5 text-white/90 hover:text-white transition-colors rounded-full bg-white/10 hover:bg-white/20 border border-white/15 cursor-pointer shadow-md"
-              aria-label={`Cart with ${cartCount} items`}
-            >
-              <ShoppingBag className="w-4 h-4 text-[#E5A93C]" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#E5A93C] text-black text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#080D0A]">
-                  {cartCount}
-                </span>
-              )}
-            </button>
 
 
 
