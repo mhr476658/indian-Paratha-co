@@ -263,14 +263,6 @@ export const Franchise: React.FC = () => {
               <span>WhatsApp Us</span>
             </a>
           </div>
-
-          <button
-            id="btn-open-general-inquiry"
-            onClick={() => handleOpenModal()}
-            className="px-8 py-3.5 bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-widest rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
-          >
-            SUBMIT FRANCHISE INQUIRY
-          </button>
         </div>
       </div>
 
