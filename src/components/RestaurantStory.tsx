@@ -61,11 +61,11 @@ export const RestaurantStory: React.FC = () => {
               A Highway Sanctuary for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#F5E6CC] to-[#E5A93C]">True Food Lovers</span>
             </h2>
 
-            <p className="text-white/90 text-sm sm:text-base font-sans leading-relaxed mb-5">
+            <p className="text-white/90 text-sm sm:text-base font-sans leading-relaxed mb-5 text-justify">
               Founded in 2014 along the scenic Bengaluru–Hyderabad highway corridor, Indian Paratha Company was born out of a simple, uncompromising vision: to create an unpretentious culinary destination where travelers could pause their journey and relish authentic, soulful Indian food crafted without shortcuts.
             </p>
 
-            <p className="text-white/70 text-xs sm:text-sm font-sans leading-relaxed mb-6">
+            <p className="text-white/70 text-xs sm:text-sm font-sans leading-relaxed mb-6 text-justify">
               We replaced industrial refried oils and refined maida with stone-ground 100% whole wheat flour, cold-pressed oils, and fresh cultured white butter. Our kitchens are open hearths where guests can witness every paratha rolled, stuffed, and roasted to golden perfection.
             </p>
 
