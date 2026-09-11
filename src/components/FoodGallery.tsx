@@ -69,11 +69,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-8',
-    title: 'Warm Evening Ambience & Lanterns',
-    category: 'restaurant',
-    categoryLabel: 'Restaurant Atmosphere',
-    image: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1200&auto=format&fit=crop&q=85',
-    caption: 'Warm ambient amber lanterns illuminating wooden beams and dinner tables.',
+    title: 'Veg Manchurian with Strawberry Milkshake',
+    category: 'food',
+    categoryLabel: 'Signature Food',
+    image: '/veg-manchurian-milkshake.png',
+    caption: 'Delicious Veg Manchurian served with a refreshing Strawberry Milkshake.',
   },
 ];
 
