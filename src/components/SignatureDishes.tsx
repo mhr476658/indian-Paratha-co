@@ -203,10 +203,7 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
 
                 {/* Quick Info Overlay */}
                 <div className="absolute bottom-3 left-4 right-4 z-10">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <span className="text-2xl sm:text-3xl font-sans font-bold text-[#E5A93C] drop-shadow-md">
-                      ₹{dish.price}
-                    </span>
+                  <div className="flex items-baseline justify-end gap-2">
                     <span className="text-[11px] font-mono text-white/80 bg-black/70 px-2.5 py-0.5 rounded-md backdrop-blur-sm border border-white/10">
                       Live Griddled
                     </span>
