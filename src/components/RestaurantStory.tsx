@@ -15,7 +15,7 @@ export const RestaurantStory: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&auto=format&fit=crop&q=90"
+                src="/restaurant-story.png"
                 alt="Indian Paratha Company rustic chalet facade and kitchen"
                 className="w-full h-[420px] sm:h-[500px] object-cover object-center filter brightness-[0.85] contrast-[1.2]"
               />
