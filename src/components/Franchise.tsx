@@ -41,58 +41,29 @@ export const Franchise: React.FC = () => {
     setErrorMessage(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMessage(null);
+    
+    const message = `*New Franchise Inquiry*\n\n` +
+      `*Name:* ${formState.fullName}\n` +
+      `*Phone:* ${formState.phone}\n` +
+      `*Email:* ${formState.email}\n` +
+      `*City/State:* ${formState.city}\n` +
+      `*Model Preference:* ${formState.model}\n` +
+      `*Notes:* ${formState.notes}`;
 
-    try {
-      const response = await fetch('/api/franchise-inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
-      });
-
-      const data = await response.json();
-      const finalId = data.inquiryId || `FRAN-${Math.floor(10000 + Math.random() * 90000)}`;
-
-      // Save to Cloud Firestore
-      await saveFranchiseInquiryToFirestore({
-        id: finalId,
-        name: formState.fullName,
-        phone: formState.phone,
-        email: formState.email,
-        city: formState.city,
-        highwayStretch: 'NH7 Corridor',
-        investmentCapacity: formState.model,
-        experience: formState.notes,
-        status: 'NEW',
-        createdAt: new Date().toISOString(),
-      });
-
-      setSubmitSuccess(finalId);
-    } catch (err: any) {
-      const fallbackId = `FRAN-${Math.floor(10000 + Math.random() * 90000)}`;
-      try {
-        await saveFranchiseInquiryToFirestore({
-          id: fallbackId,
-          name: formState.fullName,
-          phone: formState.phone,
-          email: formState.email,
-          city: formState.city,
-          highwayStretch: 'NH7 Corridor',
-          investmentCapacity: formState.model,
-          experience: formState.notes,
-          status: 'NEW',
-          createdAt: new Date().toISOString(),
-        });
-      } catch (e) {
-        // Ignore fallback firestore errors
-      }
-      setSubmitSuccess(fallbackId);
-    } finally {
-      setIsSubmitting(false);
-    }
+    const whatsappUrl = `https://wa.me/919880883061?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setIsModalOpen(false);
+    setFormState({
+      fullName: '',
+      phone: '',
+      email: '',
+      city: '',
+      model: 'HIGHWAY CONSERVATORY',
+      notes: '',
+    });
   };
 
   return (
