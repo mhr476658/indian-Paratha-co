@@ -53,11 +53,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-6',
-    title: 'Cheesy Loaded French Fries',
+    title: 'Grilled Paneer Tikka With Mint Chutney',
     category: 'food',
     categoryLabel: 'Signature Food',
-    image: '/loaded-fries.png',
-    caption: 'Crispy golden fries loaded with melted cheese and zesty toppings.',
+    image: '/paneer-tikka-chutney.png',
+    caption: 'Soft, flavorful grilled paneer tikka served with a cooling mint chutney and a refreshing beverage.',
   },
   {
     id: 'gal-7',
