@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FRANCHISE_MODELS, FRANCHISE_SUPPORT_LIST, FRANCHISE_CONTACT } from '../data/franchise';
 import { FranchiseModel } from '../types';
 import { IPCLogo } from './IPCLogo';
-import { saveFranchiseInquiryToFirestore } from '../services/firestoreService';
 import {
   Building2,
   CheckCircle,
