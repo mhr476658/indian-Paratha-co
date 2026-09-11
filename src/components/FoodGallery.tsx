@@ -48,7 +48,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
     title: 'Outdoor Garden & Biker Patio Courtyard',
     category: 'patio',
     categoryLabel: 'Outdoor Patio',
-    image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=1200&auto=format&fit=crop&q=85',
+    image: '/outdoor-patio-real.png',
     caption: 'Spacious open-air patio seating surrounded by rustic stone and Devanahalli greenery.',
   },
   {
