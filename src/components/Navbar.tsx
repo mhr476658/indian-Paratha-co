@@ -134,15 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Admin Access Button */}
-            <button
-              onClick={onOpenAdmin}
-              className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white border border-white/15 transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-lg cursor-pointer"
-              aria-label="Admin Access"
-              title="Admin Access"
-            >
-              <Shield className="w-4 h-4" />
-            </button>
+
 
 
             {/* Mobile Hamburger Toggle */}
@@ -196,16 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Order Online Now</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAdmin();
-              }}
-              className="w-full py-2.5 rounded-full bg-white/5 text-white/70 hover:text-white font-medium text-xs flex items-center justify-center gap-2 border border-white/10"
-            >
-              <Shield className="w-3.5 h-3.5 text-[#E5A93C]" />
-              <span>Staff / Management Portal</span>
-            </button>
+
           </div>
         </div>
       )}

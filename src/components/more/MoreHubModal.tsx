@@ -95,20 +95,6 @@ export const MoreHubModal: React.FC<MoreHubModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            {onOpenAdmin && (
-              <button
-                onClick={() => {
-                  onClose();
-                  onOpenAdmin();
-                }}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#112338] hover:bg-[#162A45] border border-[#1E3A5F] text-stone-300 hover:text-[#D49B44] text-xs font-semibold transition-colors"
-                title="Staff Portal / Admin Login"
-              >
-                <Shield className="w-3.5 h-3.5 text-[#D49B44]" />
-                <span>Staff Portal</span>
-              </button>
-            )}
-
             <button
               onClick={onClose}
               className="w-9 h-9 rounded-full bg-[#112338] hover:bg-[#1E3A5F] text-stone-300 hover:text-white flex items-center justify-center border border-[#1E3A5F] transition-colors"
