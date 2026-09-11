@@ -13,6 +13,7 @@ import {
   X,
   Sparkles,
   ArrowUpRight,
+  MessageCircle,
 } from 'lucide-react';
 
 export const Franchise: React.FC = () => {
@@ -253,13 +254,13 @@ export const Franchise: React.FC = () => {
             </a>
 
             <a
-              href={`https://${FRANCHISE_CONTACT.website}`}
+              href={`https://wa.me/919880883061`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 p-3 bg-black/30 rounded-2xl hover:bg-black/50 transition-colors border border-white/10"
+              className="flex items-center justify-center gap-2 p-3 bg-[#25D366]/20 rounded-2xl hover:bg-[#25D366]/40 transition-colors border border-[#25D366]/30"
             >
-              <Globe className="w-4 h-4 text-[#E5A93C]" />
-              <span>{FRANCHISE_CONTACT.website}</span>
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <span>WhatsApp Us</span>
             </a>
           </div>
 
