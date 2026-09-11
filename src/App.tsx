@@ -197,15 +197,12 @@ export default function App() {
               </button>
             </div>
             
-            <div className="flex-1 overflow-auto custom-scrollbar flex justify-center py-4 sm:py-8">
-              <div className="min-w-[800px] w-[95%] md:w-[85%] max-w-6xl h-full mx-auto flex justify-center items-start">
-                <img 
-                  src="/physical-menu.jpg" 
-                  alt="Indian Paratha Company Menu" 
-                  className="w-full h-auto object-contain rounded-xl shadow-2xl" 
-                  style={{ imageRendering: 'high-quality' }}
-                />
-              </div>
+            <div className="flex-1 w-full h-full p-4 sm:p-8 flex justify-center">
+              <iframe 
+                src="/menu.pdf#toolbar=0" 
+                title="Indian Paratha Company Menu" 
+                className="w-full max-w-6xl h-full rounded-xl shadow-2xl border-0 bg-white" 
+              />
             </div>
           </div>
         </div>
