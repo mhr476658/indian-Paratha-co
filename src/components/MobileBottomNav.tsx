@@ -16,11 +16,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   onOpenCart,
 }) => {
   const handleOrderClick = () => {
-    if (onOpenCart) {
-      onOpenCart();
-    } else if (onOpenOrderModal) {
-      onOpenOrderModal();
-    }
+    scrollToSection('products');
   };
 
   const scrollToSection = (id: string) => {
