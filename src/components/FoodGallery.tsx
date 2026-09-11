@@ -61,7 +61,7 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-7',
-    title: 'Sealed Clay Dum Biryani Handi',
+    title: 'Veg Dum Biryani',
     category: 'kitchen',
     categoryLabel: 'Chef & Kitchen',
     image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=1200&auto=format&fit=crop&q=85',
