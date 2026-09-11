@@ -47,7 +47,7 @@ export const SIGNATURE_DISHES: (MenuItem & { chefNote?: string; rating: number; 
   },
   {
     id: 'chai-kulhad-adrak',
-    name: 'Clay Kulhad Ginger Cardamom Chai',
+    name: 'Ginger Cardamom Chai',
     hindiName: 'कुल्हड़ अदरक इलायची चाय',
     category: 'HOT BLENDS',
     price: 80,
