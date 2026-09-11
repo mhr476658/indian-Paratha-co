@@ -53,11 +53,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-6',
-    title: 'Amritsari Stuffed Paratha with Makhan',
+    title: 'Cheesy Loaded French Fries',
     category: 'food',
     categoryLabel: 'Signature Food',
-    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=1200&auto=format&fit=crop&q=85',
-    caption: 'Crusty golden paratha crowned with a melting dollop of fresh churned white butter.',
+    image: '/loaded-fries.png',
+    caption: 'Crispy golden fries loaded with melted cheese and zesty toppings.',
   },
   {
     id: 'gal-7',
