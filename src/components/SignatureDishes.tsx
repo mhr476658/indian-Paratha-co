@@ -65,7 +65,7 @@ export const SIGNATURE_DISHES: (MenuItem & { chefNote?: string; rating: number; 
   },
   {
     id: 'biryani-awadhi-dum',
-    name: 'Shahi Awadhi Veg Dum Biryani',
+    name: 'Veg Dum Biryani',
     hindiName: 'शाही अवधी वेज दम बिरयानी',
     category: 'RICE',
     price: 320,
