@@ -27,7 +27,6 @@ interface MoreHubModalProps {
   onClose: () => void;
   defaultTab?: MoreTab;
   onOpenOrder?: () => void;
-  onOpenAdmin?: () => void;
 }
 
 export const MoreHubModal: React.FC<MoreHubModalProps> = ({
@@ -35,7 +34,6 @@ export const MoreHubModal: React.FC<MoreHubModalProps> = ({
   onClose,
   defaultTab = 'amenities',
   onOpenOrder,
-  onOpenAdmin,
 }) => {
   const [activeTab, setActiveTab] = useState<MoreTab>(defaultTab);
 

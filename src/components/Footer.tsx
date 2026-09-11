@@ -2,11 +2,7 @@ import React from 'react';
 import { IPCLogo } from './IPCLogo';
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube, ExternalLink, ArrowUp, Shield, MessageCircle } from 'lucide-react';
 
-interface FooterProps {
-  onOpenAdmin?: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenAdmin = () => {} }) => {
+export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -154,14 +150,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin = () => {} }) => {
           </div>
 
           <div className="flex items-center gap-6 flex-wrap justify-center">
-            <button
-              onClick={onOpenAdmin}
-              className="hover:text-[#E5A93C] transition-colors flex items-center gap-1.5 text-white/70 cursor-pointer"
-            >
-              <Shield className="w-3.5 h-3.5 text-[#E5A93C]" />
-              <span>Station Admin Portal</span>
-            </button>
-            <span>•</span>
             <a href="#privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </a>

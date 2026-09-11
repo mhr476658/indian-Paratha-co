@@ -7,7 +7,6 @@ interface MobileBottomNavProps {
   onOpenMoreMenu?: () => void;
   cartCount: number;
   onOpenCart?: () => void;
-  onOpenAdmin?: () => void;
 }
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({

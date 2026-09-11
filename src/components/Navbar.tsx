@@ -8,7 +8,6 @@ interface NavbarProps {
   cartCount: number;
   onOpenSearch?: () => void;
   onOpenOrderModal?: () => void;
-  onOpenAdmin?: () => void;
   onOpenMore?: () => void;
 }
 
@@ -17,7 +16,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   cartCount,
   onOpenSearch = () => {},
   onOpenOrderModal = () => {},
-  onOpenAdmin = () => {},
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

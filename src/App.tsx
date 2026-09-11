@@ -17,24 +17,12 @@ import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { CartDrawer } from './components/CartDrawer';
 import { ItemDetailModal } from './components/ItemDetailModal';
-import { AdminLogin } from './components/admin/AdminLogin';
-import { AdminDashboard } from './components/admin/AdminDashboard';
 import { MoreHubModal, MoreTab } from './components/more/MoreHubModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CartItem, MenuItem } from './types';
 import { CheckCircle, X } from 'lucide-react';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'customer' | 'admin-login' | 'admin-dashboard'>('customer');
-  const [adminToken, setAdminToken] = useState<string | null>(() => localStorage.getItem('ipc_admin_token'));
-  const [adminUser, setAdminUser] = useState<any>(() => {
-    try {
-      const saved = localStorage.getItem('ipc_admin_user');
-      return saved ? JSON.parse(saved) : null;
-    } catch {
-      return null;
-    }
-  });
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -47,68 +35,6 @@ export default function App() {
   // Cart total count
   const cartCount = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
 
-  // Check URL hash on load and hash changes for deep linking to #admin or #admin-login
-  useEffect(() => {
-    const checkHash = () => {
-      const hash = window.location.hash;
-      if (hash === '#admin' || hash === '#dashboard') {
-        if (adminToken && adminUser) {
-          setCurrentView('admin-dashboard');
-        } else {
-          setCurrentView('admin-login');
-        }
-      } else if (hash === '#admin-login' || hash === '#login') {
-        setCurrentView('admin-login');
-      }
-    };
-
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
-    return () => window.removeEventListener('hashchange', checkHash);
-  }, [adminToken, adminUser]);
-
-  const handleOpenAdmin = () => {
-    if (adminToken && adminUser) {
-      setCurrentView('admin-dashboard');
-      window.location.hash = '#admin';
-    } else {
-      setCurrentView('admin-login');
-      window.location.hash = '#admin-login';
-    }
-  };
-
-  const handleLoginSuccess = (token: string, user: any) => {
-    setAdminToken(token);
-    setAdminUser(user);
-    setCurrentView('admin-dashboard');
-    window.location.hash = '#admin';
-  };
-
-  const handleLogout = async () => {
-    try {
-      if (adminToken) {
-        await fetch('/api/admin/logout', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${adminToken}` },
-        });
-      }
-    } catch (e) {
-      // ignore
-    }
-    localStorage.removeItem('ipc_admin_token');
-    localStorage.removeItem('ipc_admin_user');
-    setAdminToken(null);
-    setAdminUser(null);
-    setCurrentView('admin-login');
-    window.location.hash = '#admin-login';
-  };
-
-  const handleViewCustomerSite = () => {
-    setCurrentView('customer');
-    if (window.location.hash.startsWith('#admin')) {
-      window.location.hash = '#home';
-    }
-  };
 
   // Add Item to Cart
   const handleAddToCart = (item: MenuItem) => {
@@ -164,27 +90,6 @@ export default function App() {
     }
   };
 
-  // Render Admin Login View
-  if (currentView === 'admin-login') {
-    return (
-      <AdminLogin
-        onLoginSuccess={handleLoginSuccess}
-        onBackToSite={handleViewCustomerSite}
-      />
-    );
-  }
-
-  // Render Admin Dashboard View
-  if (currentView === 'admin-dashboard' && adminToken && adminUser) {
-    return (
-      <AdminDashboard
-        token={adminToken}
-        user={adminUser}
-        onLogout={handleLogout}
-        onViewWebsite={handleViewCustomerSite}
-      />
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#080D0A] text-white font-sans antialiased selection:bg-[#E5A93C] selection:text-black relative overflow-x-hidden overflow-y-auto">
@@ -193,7 +98,6 @@ export default function App() {
       <Navbar
         onOpenCart={() => setIsCartOpen(true)}
         cartCount={cartCount}
-        onOpenAdmin={handleOpenAdmin}
         onOpenMore={() => {
           setMoreDefaultTab('amenities');
           setIsMoreOpen(true);
@@ -243,7 +147,7 @@ export default function App() {
 
       {/* Footer */}
       <div className="relative z-10">
-        <Footer onOpenAdmin={handleOpenAdmin} />
+        <Footer />
       </div>
 
       {/* Floating Highway WhatsApp Quick Desk with subtle ping pulse */}
@@ -253,7 +157,6 @@ export default function App() {
       <MobileBottomNav
         cartCount={cartCount}
         onOpenCart={() => setIsCartOpen(true)}
-        onOpenAdmin={handleOpenAdmin}
         onOpenMoreMenu={() => {
           setMoreDefaultTab('amenities');
           setIsMoreOpen(true);
@@ -318,7 +221,6 @@ export default function App() {
         onClose={() => setIsMoreOpen(false)}
         defaultTab={moreDefaultTab}
         onOpenOrder={() => setIsCartOpen(true)}
-        onOpenAdmin={handleOpenAdmin}
       />
 
       {/* Toast Notification */}
