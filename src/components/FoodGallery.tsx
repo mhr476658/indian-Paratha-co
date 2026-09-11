@@ -29,11 +29,11 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: 'gal-3',
-    title: 'Live Tawa Paratha Griddling',
-    category: 'kitchen',
-    categoryLabel: 'Chef & Kitchen',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&auto=format&fit=crop&q=85',
-    caption: 'Master ustaad rolling whole wheat parathas over blazing cast-iron hearths.',
+    title: 'Paratha Platter With Badam Lassi',
+    category: 'food',
+    categoryLabel: 'Signature Food',
+    image: '/paratha-platter-lassi.png',
+    caption: 'A delicious assortment of stuffed parathas served with our signature rich Badam Lassi.',
   },
   {
     id: 'gal-4',
