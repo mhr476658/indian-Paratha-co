@@ -18,6 +18,7 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { ItemDetailModal } from './components/ItemDetailModal';
 import { MoreHubModal, MoreTab } from './components/more/MoreHubModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { AdminPortalModal } from './components/AdminPortalModal';
 import { MenuItem } from './types';
 import { X } from 'lucide-react';
 
@@ -25,9 +26,38 @@ export default function App() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [moreDefaultTab, setMoreDefaultTab] = useState<MoreTab>('amenities');
   const [selectedItemDetail, setSelectedItemDetail] = useState<MenuItem | null>(null);
   const [isMenuImageModalOpen, setIsMenuImageModalOpen] = useState(false);
+
+  // Check URL pathname or query for admin route on mount and popstate
+  useEffect(() => {
+    const checkAdminRoute = () => {
+      const path = window.location.pathname.toLowerCase();
+      const search = window.location.search.toLowerCase();
+      if (
+        path.includes('/admin') ||
+        path.includes('/api/admin/login') ||
+        search.includes('admin=true') ||
+        search.includes('admin=1')
+      ) {
+        setIsAdminOpen(true);
+      }
+    };
+
+    checkAdminRoute();
+    window.addEventListener('popstate', checkAdminRoute);
+    return () => window.removeEventListener('popstate', checkAdminRoute);
+  }, []);
+
+  const handleCloseAdmin = () => {
+    setIsAdminOpen(false);
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('admin')) {
+      window.history.pushState(null, '', '/');
+    }
+  };
 
   // Smooth Scroll Helper
   const scrollToSection = (sectionId: string) => {
@@ -90,8 +120,14 @@ export default function App() {
 
       {/* Footer */}
       <div className="relative z-10">
-        <Footer />
+        <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
       </div>
+
+      {/* Admin Command Center Portal Modal */}
+      <AdminPortalModal
+        isOpen={isAdminOpen}
+        onClose={handleCloseAdmin}
+      />
 
       {/* Floating Highway WhatsApp Quick Desk with subtle ping pulse */}
       <FloatingWhatsApp />

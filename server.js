@@ -482,6 +482,23 @@ const verifyAdminAuth = (req, res, next) => {
   next();
 };
 
+// Handle GET requests to /api/admin/login or /admin so browser navigation opens the Admin Portal seamlessly
+app.get(['/api/admin/login', '/admin', '/admin/login'], (req, res, next) => {
+  // If requesting JSON directly (e.g. from curl or API client)
+  if (req.headers.accept && req.headers.accept.includes('application/json')) {
+    res.json({
+      status: 'active',
+      portal: 'Indian Paratha Company Highway Station Command',
+      message: 'Send a POST request with { username, password } to /api/admin/login to authenticate.',
+      loginEndpoint: '/api/admin/login',
+      method: 'POST',
+    });
+    return;
+  }
+  // Browser navigation: redirect to root with admin modal parameter
+  res.redirect('/?admin=true');
+});
+
 // Admin Login with Rate Limiting & Timing Safe Check
 app.post('/api/admin/login', loginLimiter, (req, res) => {
   const { username, password } = req.body || {};
@@ -921,7 +938,10 @@ app.use((err, req, res, next) => {
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        hmr: process.env.DISABLE_HMR === 'true' ? false : undefined,
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);

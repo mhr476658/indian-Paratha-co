@@ -61,6 +61,17 @@
       ]
     }
     </script>
+    <!-- Suppress benign development WebSocket/HMR disconnect noise in sandboxed preview -->
+    <script>
+      window.addEventListener('unhandledrejection', function(e) {
+        var reason = e && (e.reason || e);
+        var msg = typeof reason === 'string' ? reason : (reason && reason.message) || '';
+        if (msg.indexOf('WebSocket') !== -1 || msg.indexOf('websocket') !== -1 || msg.indexOf('[vite]') !== -1) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+    </script>
   </head>
   <body class="bg-[#080D0A] text-white antialiased selection:bg-[#E5A93C] selection:text-black min-h-screen">
     <div id="root"></div>
