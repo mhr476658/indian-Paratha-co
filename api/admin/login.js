@@ -10,13 +10,23 @@ export default function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    return res.status(200).json({
-      status: 'active',
-      portal: 'Indian Paratha Company Highway Station Command',
-      message: 'Send a POST request with { username, password } to authenticate.',
-      loginEndpoint: '/api/admin/login',
-      method: 'POST',
-    });
+    // If format=json is explicitly requested via query param
+    if (req.query && req.query.format === 'json') {
+      return res.status(200).json({
+        status: 'active',
+        portal: 'Indian Paratha Company Highway Station Command',
+        message: 'Send a POST request with { username, password } to authenticate.',
+        loginEndpoint: '/api/admin/login',
+        method: 'POST',
+      });
+    }
+
+    // Direct browser visits to /api/admin/login automatically redirect to the Admin Portal UI
+    if (typeof res.redirect === 'function') {
+      return res.redirect(302, '/?admin=true');
+    }
+    res.writeHead(302, { Location: '/?admin=true' });
+    return res.end();
   }
 
   if (req.method === 'POST') {

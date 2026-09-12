@@ -483,9 +483,8 @@ const verifyAdminAuth = (req, res, next) => {
 };
 
 // Handle GET requests to /api/admin/login or /admin so browser navigation opens the Admin Portal seamlessly
-app.get(['/api/admin/login', '/admin', '/admin/login'], (req, res, next) => {
-  // If requesting JSON directly (e.g. from curl or API client)
-  if (req.headers.accept && req.headers.accept.includes('application/json')) {
+app.get(['/api/admin/login', '/admin', '/admin/login'], (req, res) => {
+  if (req.query && req.query.format === 'json') {
     res.json({
       status: 'active',
       portal: 'Indian Paratha Company Highway Station Command',
@@ -496,7 +495,7 @@ app.get(['/api/admin/login', '/admin', '/admin/login'], (req, res, next) => {
     return;
   }
   // Browser navigation: redirect to root with admin modal parameter
-  res.redirect('/?admin=true');
+  res.redirect(302, '/?admin=true');
 });
 
 // Admin Login with Rate Limiting & Timing Safe Check
