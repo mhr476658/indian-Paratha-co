@@ -25,6 +25,7 @@ import {
   Flame,
 } from 'lucide-react';
 import { ALL_MENU_ITEMS } from '../data/menu';
+import { adminStore } from '../lib/adminStore';
 
 interface AdminPortalModalProps {
   isOpen: boolean;
@@ -60,21 +61,11 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const fetchDashboard = async (authToken: string) => {
     setIsRefreshing(true);
     try {
-      const res = await fetch('/api/admin/dashboard', {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      });
-      if (res.ok) {
-        const data = await res.json();
+      const data = await adminStore.getDashboard(authToken);
+      if (data) {
         setDashboardData(data);
-      } else if (res.status === 401) {
-        // Token expired
-        setToken(null);
-        localStorage.removeItem('ipc_admin_token');
-        setLoginError('Session expired. Please log in again.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to load admin dashboard:', err);
     } finally {
       setIsRefreshing(false);
@@ -93,41 +84,19 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
     setIsLoading(true);
 
     try {
-      const res = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username: username.trim(), password: password.trim() }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.token) {
-        setToken(data.token);
-        localStorage.setItem('ipc_admin_token', data.token);
-        fetchDashboard(data.token);
-      } else {
-        setLoginError(data.error || 'Invalid credentials. Please verify username and password.');
+      const { token: sessionToken } = await adminStore.login(username, password);
+      if (sessionToken) {
+        setToken(sessionToken);
+        fetchDashboard(sessionToken);
       }
-    } catch (err) {
-      setLoginError('Unable to connect to server. Please check your network.');
+    } catch (err: any) {
+      setLoginError(err.message || 'Invalid credentials. Please verify username and password.');
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleLogout = async () => {
-    if (token) {
-      try {
-        await fetch('/api/admin/logout', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${token}` },
-        });
-      } catch (e) {
-        // ignore
-      }
-    }
     setToken(null);
     setDashboardData(null);
     localStorage.removeItem('ipc_admin_token');
@@ -137,18 +106,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const handleUpdateOrderStatus = async (orderId: string, newStatus: string) => {
     if (!token) return;
     try {
-      const res = await fetch(`/api/admin/orders/${orderId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
-      if (res.ok) {
-        showSuccessBanner(`Order ${orderId} updated to ${newStatus}`);
-        fetchDashboard(token);
-      }
+      await adminStore.updateOrderStatus(token, orderId, newStatus);
+      showSuccessBanner(`Order #${orderId} updated to "${newStatus}"`);
+      fetchDashboard(token);
     } catch (err) {
       console.error(err);
     }
@@ -158,18 +118,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const handleUpdateFranchiseStatus = async (inquiryId: string, newStatus: string) => {
     if (!token) return;
     try {
-      const res = await fetch(`/api/admin/franchise/${inquiryId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
-      if (res.ok) {
-        showSuccessBanner(`Franchise lead ${inquiryId} updated to ${newStatus}`);
-        fetchDashboard(token);
-      }
+      await adminStore.updateFranchiseStatus(token, inquiryId, newStatus);
+      showSuccessBanner(`Franchise lead #${inquiryId} updated to "${newStatus}"`);
+      fetchDashboard(token);
     } catch (err) {
       console.error(err);
     }
@@ -179,18 +130,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
   const handleToggleStock = async (itemId: string, itemName: string, isAvailable: boolean) => {
     if (!token) return;
     try {
-      const res = await fetch('/api/admin/toggle-item-stock', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ itemId, itemName, isAvailable: !isAvailable }),
-      });
-      if (res.ok) {
-        showSuccessBanner(`${itemName} status updated.`);
-        fetchDashboard(token);
-      }
+      await adminStore.toggleStock(token, itemId, itemName, !isAvailable);
+      showSuccessBanner(`${itemName} is now marked ${!isAvailable ? '86’d (Out of Stock)' : 'In Stock'}.`);
+      fetchDashboard(token);
     } catch (err) {
       console.error(err);
     }
@@ -201,18 +143,9 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
     e.preventDefault();
     if (!token || !dashboardData?.storeSettings) return;
     try {
-      const res = await fetch('/api/admin/settings', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(dashboardData.storeSettings),
-      });
-      if (res.ok) {
-        showSuccessBanner('Operational store settings saved.');
-        fetchDashboard(token);
-      }
+      await adminStore.saveSettings(token, dashboardData.storeSettings);
+      showSuccessBanner('Operational station settings saved successfully.');
+      fetchDashboard(token);
     } catch (err) {
       console.error(err);
     }
@@ -223,29 +156,20 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
     e.preventDefault();
     if (!token || !newItem.name || !newItem.price) return;
     try {
-      const res = await fetch('/api/admin/menu/items', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(newItem),
+      await adminStore.addMenuItem(token, newItem);
+      showSuccessBanner(`"${newItem.name}" added to highway menu catalog.`);
+      setNewItem({
+        name: '',
+        hindiName: '',
+        category: 'PARATHAS',
+        price: 180,
+        description: '',
+        isVegetarian: true,
+        isSignature: false,
+        spiceLevel: 1,
       });
-      if (res.ok) {
-        showSuccessBanner(`"${newItem.name}" added to menu successfully.`);
-        setNewItem({
-          name: '',
-          hindiName: '',
-          category: 'PARATHAS',
-          price: 180,
-          description: '',
-          isVegetarian: true,
-          isSignature: false,
-          spiceLevel: 1,
-        });
-        setActiveTab('inventory');
-        fetchDashboard(token);
-      }
+      setActiveTab('inventory');
+      fetchDashboard(token);
     } catch (err) {
       console.error(err);
     }
