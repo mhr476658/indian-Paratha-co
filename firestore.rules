@@ -1,29 +1,65 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Menu items: accessible for reading by all guests; write/delete for kitchen management
+
+    // Helper functions for security validation
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.admin == true ||
+        request.auth.token.role == 'admin' ||
+        request.auth.token.email.matches('.*@indianparathacompany\\.com$')
+      );
+    }
+
+    function isValidString(val, minLen, maxLen) {
+      return val is string && val.size() >= minLen && val.size() <= maxLen;
+    }
+
+    function isValidNumber(val, minVal, maxVal) {
+      return (val is int || val is float) && val >= minVal && val <= maxVal;
+    }
+
+    // Menu items: Public read, writes restricted to authenticated administrators
     match /menuItems/{itemId} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if isAdmin();
     }
 
-    // Orders: customers can place orders and track their status; kitchen updates status
+    // Orders: Anyone can submit valid order; updates/deletions restricted to staff/admin
     match /orders/{orderId} {
-      allow read, write: if true;
+      allow create: if request.resource.data.keys().hasAll(['orderId', 'items', 'total'])
+        && isValidString(request.resource.data.orderId, 3, 64)
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0
+        && isValidNumber(request.resource.data.total, 0, 100000);
+      allow read: if isAdmin() || (isAuthenticated() && request.auth.uid == resource.data.userId);
+      allow update, delete: if isAdmin();
     }
 
-    // Highway Franchise Inquiries: prospective partners submit leads; admin reviews
+    // Highway Franchise Inquiries: Public submission with validation; management read-only to staff
     match /franchiseInquiries/{inquiryId} {
-      allow read, write: if true;
+      allow create: if request.resource.data.keys().hasAll(['fullName', 'phone', 'email', 'city'])
+        && isValidString(request.resource.data.fullName, 2, 100)
+        && isValidString(request.resource.data.phone, 8, 20)
+        && isValidString(request.resource.data.email, 5, 120)
+        && isValidString(request.resource.data.city, 2, 100);
+      allow read, update, delete: if isAdmin();
     }
 
-    // Kitchen store settings and inventory availability (86'd items)
+    // Kitchen store settings and operational flags: Public read, admin-only write
     match /settings/{settingDoc} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if isAdmin();
     }
 
-    // Deny all other collections by default
+    // Deny all other collections and arbitrary writes by default
     match /{document=**} {
       allow read, write: if false;
     }
   }
 }
+
