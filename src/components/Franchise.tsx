@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FRANCHISE_MODELS, FRANCHISE_SUPPORT_LIST, FRANCHISE_CONTACT } from '../data/franchise';
 import { FranchiseModel } from '../types';
 import { IPCLogo } from './IPCLogo';
+import { adminStore } from '../lib/adminStore';
 import {
   Building2,
   CheckCircle,
@@ -43,6 +44,16 @@ export const Franchise: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Save lead to admin dashboard and server
+    adminStore.submitFranchiseInquiry({
+      fullName: formState.fullName,
+      phone: formState.phone,
+      email: formState.email,
+      city: formState.city,
+      model: formState.model,
+      notes: formState.notes,
+    }).catch(err => console.error('Failed to submit franchise lead:', err));
+
     const message = `*New Franchise Inquiry*\n\n` +
       `*Name:* ${formState.fullName}\n` +
       `*Phone:* ${formState.phone}\n` +

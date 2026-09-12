@@ -334,4 +334,94 @@ export const adminStore = {
     };
     setLocal('ipc_custom_menu_items', [newDish, ...customItems]);
   },
+
+  // Public Submission: Franchise Inquiries (persists to backend + local admin store)
+  async submitFranchiseInquiry(lead: {
+    fullName: string;
+    phone: string;
+    email: string;
+    city: string;
+    model: string;
+    notes?: string;
+  }): Promise<FranchiseLead> {
+    const newLead: FranchiseLead = {
+      id: `FR-${Math.floor(100 + Math.random() * 900)}`,
+      fullName: lead.fullName,
+      phone: lead.phone,
+      email: lead.email,
+      city: lead.city,
+      model: lead.model,
+      status: 'New',
+      notes: lead.notes,
+      timestamp: new Date().toISOString(),
+    };
+
+    // 1. Save to local admin storage first so it's guaranteed visible in the dashboard
+    const existing = getLocal<FranchiseLead[]>('ipc_admin_franchise', DEFAULT_FRANCHISE_LEADS);
+    setLocal('ipc_admin_franchise', [newLead, ...existing]);
+
+    // 2. Also send to backend server if available
+    try {
+      await fetch('/api/franchise-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead),
+      });
+    } catch (e) {
+      // ignore
+    }
+
+    return newLead;
+  },
+
+  // Public Submission: Orders & Product Purchases (persists to backend + local admin store)
+  async submitOrder(orderData: {
+    customerName?: string;
+    phone?: string;
+    vehicleNumber?: string;
+    orderType?: 'Dine-In' | 'Takeaway' | 'Highway Curbside';
+    items: OrderItem[];
+    total: number;
+    notes?: string;
+  }): Promise<AdminOrder> {
+    const newOrder: AdminOrder = {
+      orderId: `IPC-${Math.floor(8800 + Math.random() * 1100)}`,
+      customerName: orderData.customerName || 'Highway Customer',
+      phone: orderData.phone || '+91 98808 83061',
+      vehicleNumber: orderData.vehicleNumber,
+      orderType: orderData.orderType || 'Takeaway',
+      items: orderData.items,
+      total: orderData.total,
+      status: 'Pending',
+      timestamp: new Date().toISOString(),
+      notes: orderData.notes,
+    };
+
+    // 1. Save to local admin storage first so it's immediately in KDS & admin dashboard
+    const existing = getLocal<AdminOrder[]>('ipc_admin_orders', DEFAULT_ORDERS);
+    setLocal('ipc_admin_orders', [newOrder, ...existing]);
+
+    // 2. Also send to backend server if available
+    try {
+      await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customer: {
+            name: newOrder.customerName,
+            phone: newOrder.phone,
+            orderType: newOrder.orderType,
+            vehicle: newOrder.vehicleNumber,
+            notes: newOrder.notes,
+          },
+          items: newOrder.items,
+          total: newOrder.total,
+        }),
+      });
+    } catch (e) {
+      // ignore
+    }
+
+    return newOrder;
+  },
 };

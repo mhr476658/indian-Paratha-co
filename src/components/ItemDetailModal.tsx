@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem } from '../types';
+import { adminStore } from '../lib/adminStore';
 import { X, Plus, Minus, Sparkles, Flame, Check, MessageCircle, ShoppingBag } from 'lucide-react';
 
 interface ItemDetailModalProps {
@@ -171,6 +172,23 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => {
+                adminStore.submitOrder({
+                  customerName: 'Highway Food Lover',
+                  phone: '+91 98808 83061',
+                  orderType: 'Takeaway',
+                  items: [
+                    {
+                      id: item.id,
+                      name: item.name,
+                      price: item.price,
+                      quantity: quantity,
+                    },
+                  ],
+                  total: item.price * quantity,
+                  notes: `Direct Order via WhatsApp: ${item.name} x${quantity}`,
+                }).catch((err) => console.error(err));
+              }}
               className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-white text-[#25D366]" />

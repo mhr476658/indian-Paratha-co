@@ -415,7 +415,7 @@ const handleOrderCreation = (req, res) => {
 app.post('/api/order', sensitiveActionLimiter, handleOrderCreation);
 app.post('/api/orders', sensitiveActionLimiter, handleOrderCreation);
 
-app.post('/api/franchise-inquiry', sensitiveActionLimiter, (req, res) => {
+const handleFranchiseSubmission = (req, res) => {
   const { fullName, phone, email, city, model, notes } = req.body || {};
 
   const cleanName = sanitizeString(fullName, 100);
@@ -453,7 +453,10 @@ app.post('/api/franchise-inquiry', sensitiveActionLimiter, (req, res) => {
       phone: '+91 98808 83061',
     },
   });
-});
+};
+
+app.post('/api/franchise-inquiry', sensitiveActionLimiter, handleFranchiseSubmission);
+app.post('/api/franchise', sensitiveActionLimiter, handleFranchiseSubmission);
 
 // ==========================================
 // ADMIN DASHBOARD & AUTHENTICATION ROUTES

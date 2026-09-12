@@ -1,7 +1,26 @@
 import React from 'react';
 import { ShoppingBag } from 'lucide-react';
+import { adminStore } from '../lib/adminStore';
 
 export const Products: React.FC = () => {
+  const handleProductOrder = () => {
+    adminStore.submitOrder({
+      customerName: 'Highway Product Customer',
+      phone: '+91 98808 83061',
+      orderType: 'Takeaway',
+      items: [
+        {
+          id: 'prod-tea-blend',
+          name: 'IPC Premium Tea Blend (100% Upper Assam Granules)',
+          price: 299,
+          quantity: 1,
+        },
+      ],
+      total: 299,
+      notes: 'Highway Merchandise Order: IPC Premium Tea Blend via WhatsApp',
+    }).catch((err) => console.error('Failed to log product order:', err));
+  };
+
   return (
     <section id="products" className="py-20 sm:py-28 bg-[#080D0A] text-white relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,6 +59,7 @@ export const Products: React.FC = () => {
               href={`https://wa.me/919880883061?text=${encodeURIComponent("Hello Indian Paratha Company,\nI would like to order:\n• IPC Premium Tea Blend\nPlease confirm availability and delivery details.")}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleProductOrder}
               className="w-full py-3.5 bg-white hover:bg-[#E5A93C] text-black font-bold uppercase tracking-wider text-xs rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg cursor-pointer"
             >
               <ShoppingBag className="w-4 h-4" />
