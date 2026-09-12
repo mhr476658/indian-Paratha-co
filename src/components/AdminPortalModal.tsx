@@ -271,7 +271,8 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder="e.g. admin"
+                    placeholder="Enter username"
+                    autoComplete="username"
                     className="w-full bg-[#141E17] border border-white/15 focus:border-[#E5A93C] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition-colors"
                   />
                 </div>
@@ -287,6 +288,7 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter password"
+                    autoComplete="current-password"
                     className="w-full bg-[#141E17] border border-white/15 focus:border-[#E5A93C] rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-white/30 outline-none transition-colors"
                   />
                 </div>
@@ -309,20 +311,6 @@ export const AdminPortalModal: React.FC<AdminPortalModalProps> = ({ isOpen, onCl
                   </>
                 )}
               </button>
-
-              {/* Quick Auto-Fill Demo Credentials Helper */}
-              <div className="pt-2 border-t border-white/10 text-center">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setUsername('admin');
-                    setPassword('password123');
-                  }}
-                  className="text-xs text-[#E5A93C] hover:underline font-mono bg-white/5 px-3 py-1.5 rounded-lg border border-[#E5A93C]/30 hover:bg-[#E5A93C]/10 transition-colors"
-                >
-                  Fill Default Credentials (admin / password123)
-                </button>
-              </div>
             </form>
           </div>
         ) : (
