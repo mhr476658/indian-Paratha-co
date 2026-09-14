@@ -134,8 +134,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#E5A93C] shrink-0" />
-                <a href="mailto:info@franchise-ready.in" className="hover:text-white transition-colors">
-                  info@franchise-ready.in
+                <a href="mailto:info@indianparathacompany.org" className="hover:text-white transition-colors">
+                  info@indianparathacompany.org
                 </a>
               </li>
             </ul>

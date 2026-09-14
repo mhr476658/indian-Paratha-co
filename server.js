@@ -334,7 +334,7 @@ app.get('/api/config', (req, res) => {
     tagline: 'Chai, Paratha & More',
     googleMapsUrl: 'https://maps.app.goo.gl/eGoErW1qTr9gxwAAA?g_st=aw',
     franchiseContact: {
-      email: 'info@franchise-ready.in',
+      email: 'info@indianparathacompany.org',
       phone: '+91 98808 83061',
       website: 'www.franchiseready.in',
     },
@@ -449,7 +449,7 @@ const handleFranchiseSubmission = (req, res) => {
     inquiryId,
     message: 'Thank you for your interest in Indian Paratha Company. Our franchise team will contact you within 24 hours.',
     contactDetails: {
-      email: 'info@franchise-ready.in',
+      email: 'info@indianparathacompany.org',
       phone: '+91 98808 83061',
     },
   });

@@ -50,7 +50,7 @@ export const FRANCHISE_SUPPORT_LIST = [
 ];
 
 export const FRANCHISE_CONTACT = {
-  email: 'info@franchise-ready.in',
+  email: 'info@indianparathacompany.org',
   phone: '+91 98808 83061',
   phoneClean: '+919880883061',
   whatsappUrl: 'https://wa.me/919880883061?text=Hello%20Indian%20Paratha%20Company!%20I%20am%20interested%20in%20a%20franchise%20partnership.',
