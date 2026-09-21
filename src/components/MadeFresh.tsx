@@ -64,7 +64,7 @@ export const MadeFresh: React.FC<MadeFreshProps> = ({ onExploreMenu }) => {
             MADE FRESH. SERVED HOT.
           </h2>
 
-          <p className="text-white/70 text-sm sm:text-base font-sans max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/70 text-sm sm:text-base font-sans max-w-2xl mx-auto leading-relaxed text-justify">
             We believe roadside dining should never compromise on purity or culinary craftsmanship. From grain to griddle, every step celebrates wholesome Indian heritage.
           </p>
         </div>

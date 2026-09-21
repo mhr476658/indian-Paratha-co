@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
             </h1>
 
             {/* Sub-text */}
-            <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl font-sans font-normal leading-relaxed mb-6 sm:mb-8 text-left">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl font-sans font-normal leading-relaxed mb-6 sm:mb-8 text-justify">
               Authentic Indian flavors, 100% whole-wheat tawa parathas layered with pure desi ghee, our patented Parathzzaa®, and slow-brewed kulhad chai in a botanical conservatory atmosphere.
             </p>
 
