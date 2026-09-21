@@ -196,11 +196,14 @@ export const FoodGallery: React.FC = () => {
 
         {/* Fullscreen Lightbox Modal */}
         {lightboxIndex !== null && (
-          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
+          <div 
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
+            onClick={closeLightbox}
+          >
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 p-3 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-colors z-[110] shadow-2xl cursor-pointer"
               aria-label="Close lightbox"
             >
               <X className="w-6 h-6" />
@@ -208,38 +211,41 @@ export const FoodGallery: React.FC = () => {
 
             {/* Navigation Left */}
             <button
-              onClick={prevPhoto}
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
+              onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+              className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-colors z-[110] cursor-pointer"
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
 
             {/* Navigation Right */}
             <button
-              onClick={nextPhoto}
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
+              onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+              className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md transition-colors z-[110] cursor-pointer"
               aria-label="Next image"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
 
             {/* Active Image & Description */}
-            <div className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center text-center">
+            <div 
+              className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center text-center px-8 sm:px-0 mt-8 sm:mt-0 relative z-[105]"
+              onClick={(e) => e.stopPropagation()}
+            >
               <img
                 src={filteredPhotos[lightboxIndex].image}
                 alt={filteredPhotos[lightboxIndex].title}
-                className="max-h-[65vh] w-auto max-w-full rounded-2xl shadow-2xl object-contain mb-4 border border-white/20"
+                className="max-h-[60vh] sm:max-h-[65vh] w-auto max-w-full rounded-2xl shadow-2xl object-contain mb-4 border border-white/20"
               />
 
               <div className="text-stone-200 max-w-xl">
                 <span className="text-xs font-mono uppercase text-[#D4AF37] tracking-widest font-bold block mb-1">
                   {filteredPhotos[lightboxIndex].categoryLabel} ({lightboxIndex + 1} of {filteredPhotos.length})
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                <h3 className="font-serif text-lg sm:text-2xl font-bold text-white mb-2">
                   {filteredPhotos[lightboxIndex].title}
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-300 font-sans">
+                <p className="text-[11px] sm:text-sm text-stone-300 font-sans px-2">
                   {filteredPhotos[lightboxIndex].caption}
                 </p>
               </div>
