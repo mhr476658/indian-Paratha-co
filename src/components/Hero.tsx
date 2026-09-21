@@ -64,27 +64,27 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
             </p>
 
             {/* Action Buttons Group */}
-            <div className="flex flex-wrap items-center gap-6 w-full sm:w-auto">
-              {/* Primary CTA (Red Text, No Bg) */}
+            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+              {/* Primary CTA */}
               <button
                 id="hero-explore-menu-btn"
                 onClick={onExploreMenu}
-                className="py-3.5 sm:py-4 text-[#e41c24] font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:text-white cursor-pointer bg-transparent"
+                className="px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#e41c24] hover:text-white shadow-xl cursor-pointer"
               >
-                <UtensilsCrossed className="w-5 h-5" />
+                <UtensilsCrossed className="w-4 h-4" />
                 <span>Explore Menu</span>
-                <ArrowUpRight className="w-5 h-5 font-bold" />
+                <ArrowUpRight className="w-4 h-4 font-bold" />
               </button>
 
-              {/* WhatsApp Order CTA (Glass/Outline) */}
+              {/* WhatsApp Order CTA */}
               <a
                 id="hero-whatsapp-order-btn"
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-transparent text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#0b192c]/40 border border-white/20 backdrop-blur-md cursor-pointer"
+                className="group px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:scale-105 active:scale-95 shadow-xl cursor-pointer border border-transparent"
               >
-                <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-white" />
                 <span>Quick WhatsApp</span>
               </a>
             </div>
