@@ -60,7 +60,7 @@ export const Products: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleProductOrder}
-              className="w-full py-3.5 bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold uppercase tracking-wider text-xs rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+              className="w-full py-3.5 bg-[#e41c24] hover:bg-[#c9171e] text-white font-bold uppercase tracking-wider text-xs rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg cursor-pointer"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Add to Order</span>

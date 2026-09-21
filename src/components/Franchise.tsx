@@ -96,7 +96,7 @@ export const Franchise: React.FC = () => {
           </div>
 
           <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3">
-            OWN A SLICE OF <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0b192c] via-[#F5E6CC] to-[#e41c24]">IPC</span>
+            OWN A SLICE OF IPC
           </h2>
 
           <h3 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-[#e41c24] mb-4">
