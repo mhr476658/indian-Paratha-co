@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
               <button
                 id="hero-explore-menu-btn"
                 onClick={onExploreMenu}
-                className="py-3.5 sm:py-4 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:text-[#e41c24] cursor-pointer"
+                className="px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#e41c24] hover:text-white shadow-xl cursor-pointer"
               >
                 <UtensilsCrossed className="w-4 h-4" />
                 <span>Explore Menu</span>
@@ -82,9 +82,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 border border-white/20 backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl cursor-pointer"
+                className="group px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:scale-105 active:scale-95 shadow-xl cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-white" />
                 <span>Quick WhatsApp</span>
               </a>
             </div>
