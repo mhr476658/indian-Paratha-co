@@ -147,7 +147,7 @@ export const FoodGallery: React.FC = () => {
               onClick={() => setSelectedFilter(tab.id as any)}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                 selectedFilter === tab.id
-                  ? 'bg-gradient-to-r from-[#F3E5AB] via-[#E6CA85] to-[#D4AF37] text-black shadow-lg scale-105 font-black'
+                  ? 'bg-gradient-to-r from-[#F3E5AB] via-[#E6CA85] to-[#D4AF37] text-white shadow-lg scale-105 font-black'
                   : 'bg-[#121620] text-slate-300 hover:text-white border border-white/10 hover:border-white/30'
               }`}
             >
@@ -200,7 +200,7 @@ export const FoodGallery: React.FC = () => {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+              className="absolute top-6 right-6 p-3 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
               aria-label="Close lightbox"
             >
               <X className="w-6 h-6" />
@@ -209,7 +209,7 @@ export const FoodGallery: React.FC = () => {
             {/* Navigation Left */}
             <button
               onClick={prevPhoto}
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -218,7 +218,7 @@ export const FoodGallery: React.FC = () => {
             {/* Navigation Right */}
             <button
               onClick={nextPhoto}
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3.5 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
               aria-label="Next image"
             >
               <ChevronRight className="w-6 h-6" />

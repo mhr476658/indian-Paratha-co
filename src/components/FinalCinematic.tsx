@@ -48,7 +48,7 @@ export const FinalCinematic: React.FC<FinalCinematicProps> = ({
           <button
             id="final-explore-menu-btn"
             onClick={onExploreMenu}
-            className="w-full sm:w-auto px-7 py-3.5 bg-transparent hover:bg-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-stone-300 hover:border-[#D49B44] transition-all flex items-center justify-center gap-2 active:scale-95"
+            className="w-full sm:w-auto px-7 py-3.5 bg-transparent hover:bg-[#0b192c]/10 text-white text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-stone-300 hover:border-[#D49B44] transition-all flex items-center justify-center gap-2 active:scale-95"
           >
             <UtensilsCrossed className="w-4 h-4 text-[#D49B44]" />
             <span>EXPLORE MENU</span>

@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { SignatureDishes } from './components/SignatureDishes';
+
 
 import { MadeFresh } from './components/MadeFresh';
 import { RestaurantStory } from './components/RestaurantStory';
@@ -71,7 +71,7 @@ export default function App() {
 
 
   return (
-    <div className="min-h-screen bg-[#080D0A] text-white font-sans antialiased selection:bg-[#E5A93C] selection:text-black relative overflow-x-hidden overflow-y-auto">
+    <div className="min-h-screen bg-[#0b192c] text-white font-sans antialiased selection:bg-[#e41c24] selection:text-white relative overflow-x-hidden overflow-y-auto">
 
       {/* Top Fixed Navbar */}
       <Navbar
@@ -91,12 +91,7 @@ export default function App() {
           onOrderNow={() => setIsCartOpen(true)}
         />
 
-        {/* 4. Signature Food Grid (Parathzzaa®, Amritsari Makhan, Kulhad Chai, Dum Biryani) */}
-        <SignatureDishes
-          onAddToCart={() => {}}
-          onSelectItemDetail={(item) => setSelectedItemDetail(item)}
-          onViewFullMenu={() => setIsMenuImageModalOpen(true)}
-        />
+
 
         {/* 6. Made Fresh Kitchen Craft & Purity Philosophy */}
         <MadeFresh onExploreMenu={() => setIsMenuImageModalOpen(true)} />
@@ -158,7 +153,7 @@ export default function App() {
           onClick={() => setIsMenuImageModalOpen(false)}
         >
           <div 
-            className="relative w-full h-full bg-[#0F1712] flex flex-col" 
+            className="relative w-full h-full bg-[#0b192c] flex flex-col" 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="absolute top-4 right-4 z-10 flex gap-2">
@@ -174,7 +169,7 @@ export default function App() {
               <iframe 
                 src="/menu.pdf#toolbar=0" 
                 title="Indian Paratha Company Menu" 
-                className="w-full max-w-6xl h-full rounded-xl shadow-2xl border-0 bg-white" 
+                className="w-full max-w-6xl h-full rounded-xl shadow-2xl border-0 bg-[#0b192c]" 
               />
             </div>
           </div>

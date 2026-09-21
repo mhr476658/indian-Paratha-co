@@ -45,7 +45,7 @@ export const WhyIPC: React.FC = () => {
           {WHY_IPC_ITEMS.map((card) => (
             <div
               key={card.number}
-              className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-center bg-white rounded-2xl p-6 sm:p-7 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-center bg-[#0b192c] rounded-2xl p-6 sm:p-7 border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
             >
               <div>
                 {/* Number & Icon header */}

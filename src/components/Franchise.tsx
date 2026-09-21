@@ -77,9 +77,9 @@ export const Franchise: React.FC = () => {
   };
 
   return (
-    <section id="franchise" className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10">
+    <section id="franchise" className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#E5A93C]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#e41c24]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#2E4434]/25 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -88,18 +88,18 @@ export const Franchise: React.FC = () => {
           <IPCLogo variant="light" size="lg" badgeOnly={true} className="mb-4 drop-shadow-xl" />
 
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[2px] bg-[#E5A93C]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#E5A93C]">
+            <span className="w-6 h-[2px] bg-[#e41c24]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#e41c24]">
               PARTNER WITH A LEGACY
             </span>
-            <span className="w-6 h-[2px] bg-[#E5A93C]" />
+            <span className="w-6 h-[2px] bg-[#e41c24]" />
           </div>
 
           <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3">
-            OWN A SLICE OF <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">IPC</span>
+            OWN A SLICE OF <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0b192c] via-[#F5E6CC] to-[#e41c24]">IPC</span>
           </h2>
 
-          <h3 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-[#E5A93C] mb-4">
+          <h3 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-[#e41c24] mb-4">
             Join the Indian Paratha Company journey.
           </h3>
 
@@ -115,14 +115,14 @@ export const Franchise: React.FC = () => {
             <div
               key={model.id}
               id={`franchise-card-${model.id}`}
-              className="bg-[#0F1712]/95 border border-white/15 hover:border-white/40 rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-2xl transition-all duration-300 group hover:-translate-y-1.5 backdrop-blur-xl"
+              className="bg-[#0b192c]/95 border border-white/15 hover:border-white/40 rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-2xl transition-all duration-300 group hover:-translate-y-1.5 backdrop-blur-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[#E5A93C]">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0b192c]/10 border border-white/15 flex items-center justify-center text-[#e41c24]">
                     <Building2 className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#E5A93C] bg-black/60 px-3 py-1 rounded-full border border-white/15">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#e41c24] bg-black/60 px-3 py-1 rounded-full border border-white/15">
                     {model.badge}
                   </span>
                 </div>
@@ -144,7 +144,7 @@ export const Franchise: React.FC = () => {
 
                   <div className="flex items-center justify-between text-xs sm:text-sm pt-2 border-t border-white/10">
                     <span className="text-white/60 font-sans">Setup Cost</span>
-                    <strong className="text-[#E5A93C] font-bold">{model.setupCost}</strong>
+                    <strong className="text-[#e41c24] font-bold">{model.setupCost}</strong>
                   </div>
 
                   <div className="flex items-center justify-between text-xs sm:text-sm pt-2 border-t border-white/10">
@@ -162,7 +162,7 @@ export const Franchise: React.FC = () => {
                 <div className="space-y-2 mb-6">
                   {model.features.map((feat, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-white/80 font-sans">
-                      <CheckCircle className="w-4 h-4 text-[#E5A93C] shrink-0 mt-0.5" />
+                      <CheckCircle className="w-4 h-4 text-[#e41c24] shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -173,7 +173,7 @@ export const Franchise: React.FC = () => {
               <button
                 id={`btn-enquire-${model.id}`}
                 onClick={() => handleOpenModal(model)}
-                className="w-full py-3.5 bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-200 shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-200 shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>EXPLORE FRANCHISE</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -183,9 +183,9 @@ export const Franchise: React.FC = () => {
         </div>
 
         {/* 360-Degree Comprehensive Franchise Support */}
-        <div className="bg-[#0F1712]/95 border border-white/15 rounded-3xl p-7 sm:p-10 max-w-5xl mx-auto mb-16 shadow-2xl backdrop-blur-xl">
+        <div className="bg-[#0b192c]/95 border border-white/15 rounded-3xl p-7 sm:p-10 max-w-5xl mx-auto mb-16 shadow-2xl backdrop-blur-xl">
           <div className="flex items-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-[#E5A93C]" />
+            <Sparkles className="w-5 h-5 text-[#e41c24]" />
             <h4 className="font-sans text-xl sm:text-2xl font-bold text-white">
               Comprehensive Partner Support
             </h4>
@@ -201,7 +201,7 @@ export const Franchise: React.FC = () => {
                 key={idx}
                 className="flex items-center gap-2.5 p-3 rounded-2xl bg-black/40 border border-white/10 text-xs sm:text-sm text-white/80"
               >
-                <div className="w-2 h-2 rounded-full bg-[#E5A93C] shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#e41c24] shrink-0" />
                 <span>{support}</span>
               </div>
             ))}
@@ -209,8 +209,8 @@ export const Franchise: React.FC = () => {
         </div>
 
         {/* Verified Franchise Contact Box */}
-        <div className="max-w-3xl mx-auto bg-[#0F1712]/95 border border-white/15 rounded-3xl p-6 sm:p-8 text-center shadow-xl backdrop-blur-xl">
-          <span className="text-[11px] uppercase font-mono font-bold tracking-widest text-[#E5A93C] block mb-2">
+        <div className="max-w-3xl mx-auto bg-[#0b192c]/95 border border-white/15 rounded-3xl p-6 sm:p-8 text-center shadow-xl backdrop-blur-xl">
+          <span className="text-[11px] uppercase font-mono font-bold tracking-widest text-[#e41c24] block mb-2">
             OFFICIAL FRANCHISE REPRESENTATION
           </span>
           <h4 className="font-sans text-xl sm:text-2xl font-bold text-white mb-4">
@@ -222,7 +222,7 @@ export const Franchise: React.FC = () => {
               href={`mailto:${FRANCHISE_CONTACT.email}`}
               className="flex items-center justify-center gap-2 p-3 bg-black/30 rounded-2xl hover:bg-black/50 transition-colors border border-white/10"
             >
-              <Mail className="w-4 h-4 text-[#E5A93C]" />
+              <Mail className="w-4 h-4 text-[#e41c24]" />
               <span>{FRANCHISE_CONTACT.email}</span>
             </a>
 
@@ -230,7 +230,7 @@ export const Franchise: React.FC = () => {
               href={`tel:${FRANCHISE_CONTACT.phoneClean}`}
               className="flex items-center justify-center gap-2 p-3 bg-black/30 rounded-2xl hover:bg-black/50 transition-colors border border-white/10"
             >
-              <Phone className="w-4 h-4 text-[#E5A93C]" />
+              <Phone className="w-4 h-4 text-[#e41c24]" />
               <span>{FRANCHISE_CONTACT.phone}</span>
             </a>
 
@@ -250,10 +250,10 @@ export const Franchise: React.FC = () => {
       {/* Modal Inquiry Form */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#0F1712] border border-white/20 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
+          <div className="bg-[#0b192c] border border-white/20 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative">
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-white/60 hover:text-white rounded-full bg-white/10 cursor-pointer"
+              className="absolute top-4 right-4 p-2 text-white/60 hover:text-white rounded-full bg-[#0b192c]/10 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -287,7 +287,7 @@ export const Franchise: React.FC = () => {
                     required
                     value={formState.fullName}
                     onChange={(e) => setFormState({ ...formState, fullName: e.target.value })}
-                    className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                    className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                     placeholder="e.g. Rajesh Kumar"
                   />
                 </div>
@@ -300,7 +300,7 @@ export const Franchise: React.FC = () => {
                       required
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -311,7 +311,7 @@ export const Franchise: React.FC = () => {
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                       placeholder="rajesh@example.com"
                     />
                   </div>
@@ -325,7 +325,7 @@ export const Franchise: React.FC = () => {
                       required
                       value={formState.city}
                       onChange={(e) => setFormState({ ...formState, city: e.target.value })}
-                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                       placeholder="e.g. Hyderabad / NH44"
                     />
                   </div>
@@ -334,7 +334,7 @@ export const Franchise: React.FC = () => {
                     <select
                       value={formState.model}
                       onChange={(e) => setFormState({ ...formState, model: e.target.value })}
-                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                      className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                     >
                       <option value="HIGHWAY CONSERVATORY">Highway Conservatory Flagship</option>
                       <option value="URBAN EXPRESS">Urban Highway Express</option>
@@ -348,7 +348,7 @@ export const Franchise: React.FC = () => {
                     rows={3}
                     value={formState.notes}
                     onChange={(e) => setFormState({ ...formState, notes: e.target.value })}
-                    className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#E5A93C]"
+                    className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e41c24]"
                     placeholder="Tell us about your proposed highway land or retail location..."
                   />
                 </div>
@@ -356,7 +356,7 @@ export const Franchise: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-full bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-widest shadow-xl flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 rounded-full bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs uppercase tracking-widest shadow-xl flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? 'Submitting...' : 'Send Franchise Application'}</span>

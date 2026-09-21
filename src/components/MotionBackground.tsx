@@ -6,6 +6,6 @@ import React from 'react';
  */
 export const MotionBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#080D0A] via-[#0F1712] to-[#080D0A]" />
+    <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-t from-[#0b192c] via-[#0F1712] to-[#080D0A]" />
   );
 };

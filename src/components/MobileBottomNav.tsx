@@ -31,7 +31,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   return (
     <nav
       id="mobile-fixed-bottom-bar"
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#080D0A]/95 backdrop-blur-2xl border-t border-white/10 px-2 py-1.5 shadow-[0_-8px_30px_rgba(0,0,0,0.9)]"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0b192c]/95 backdrop-blur-2xl border-t border-white/10 px-2 py-1.5 shadow-[0_-8px_30px_rgba(0,0,0,0.9)]"
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 6px)' }}
       aria-label="Mobile Navigation"
     >
@@ -41,7 +41,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           id="mob-bottom-home"
           onClick={() => scrollToSection('home')}
           className={`flex flex-col items-center justify-center w-full min-h-[44px] py-1 transition-colors cursor-pointer ${
-            activeSection === 'home' ? 'text-[#E5A93C]' : 'text-white/60 hover:text-white'
+            activeSection === 'home' ? 'text-[#e41c24]' : 'text-white/60 hover:text-white'
           }`}
           aria-label="Home"
         >
@@ -54,7 +54,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           <button
             id="mob-bottom-order-prominent"
             onClick={handleOrderClick}
-            className="w-14 h-14 rounded-full bg-white text-black hover:bg-[#E5A93C] flex flex-col items-center justify-center shadow-[0_6px_25px_rgba(0,0,0,0.7)] border-2 border-[#080D0A] active:scale-90 transition-transform cursor-pointer"
+            className="w-14 h-14 rounded-full bg-[#0b192c] text-white hover:bg-[#e41c24] flex flex-col items-center justify-center shadow-[0_6px_25px_rgba(0,0,0,0.7)] border-2 border-[#080D0A] active:scale-90 transition-transform cursor-pointer"
             aria-label={`Order food online (${cartCount} items)`}
           >
             <div className="relative">
@@ -73,7 +73,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <button
           id="mob-bottom-franchise"
           onClick={() => scrollToSection('franchise')}
-          className="flex flex-col items-center justify-center w-full min-h-[44px] py-1 text-white/60 hover:text-[#E5A93C] transition-colors cursor-pointer"
+          className="flex flex-col items-center justify-center w-full min-h-[44px] py-1 text-white/60 hover:text-[#e41c24] transition-colors cursor-pointer"
           aria-label="Franchise Opportunities"
         >
           <Store className="w-5 h-5 mb-0.5" />
@@ -84,7 +84,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <button
           id="mob-bottom-location"
           onClick={() => scrollToSection('location')}
-          className="flex flex-col items-center justify-center w-full min-h-[44px] py-1 text-white/60 hover:text-[#E5A93C] transition-colors cursor-pointer"
+          className="flex flex-col items-center justify-center w-full min-h-[44px] py-1 text-white/60 hover:text-[#e41c24] transition-colors cursor-pointer"
           aria-label="Location and Directions"
         >
           <MapPin className="w-5 h-5 mb-0.5" />

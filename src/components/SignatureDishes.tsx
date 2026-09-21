@@ -126,10 +126,10 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
   return (
     <section
       id="signature-dishes"
-      className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden"
     >
       {/* Background Ambience & Warm Amber Flares */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#E5A93C]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#e41c24]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-[#2E4434]/25 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -137,14 +137,14 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.28em] text-[#E5A93C]">
+              <span className="w-8 h-[1.5px] bg-[#e41c24]" />
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.28em] text-[#e41c24]">
                 HANDCRAFTED CULINARY ICONS
               </span>
             </div>
 
             <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
-              Signature <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">Highway Dishes</span>
+              Signature <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0b192c] via-[#F5E6CC] to-[#e41c24]">Highway Dishes</span>
             </h2>
 
             <p className="text-white/70 text-sm sm:text-base font-sans mt-3 leading-relaxed">
@@ -155,7 +155,7 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
           <button
             id="view-all-signatures-btn"
             onClick={onViewFullMenu}
-            className="px-6 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-widest transition-all duration-200 hover:bg-[#E5A93C] flex items-center justify-center gap-2 w-fit cursor-pointer shadow-lg hover:scale-105"
+            className="px-6 py-3.5 rounded-full bg-[#0b192c] text-white font-bold text-xs uppercase tracking-widest transition-all duration-200 hover:bg-[#e41c24] flex items-center justify-center gap-2 w-fit cursor-pointer shadow-lg hover:scale-105"
           >
             <span>Explore Full 40+ Menu</span>
             <ArrowRight className="w-4 h-4 font-bold" />
@@ -167,7 +167,7 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
           {SIGNATURE_DISHES.map((dish) => (
             <div
               key={dish.id}
-              className="rounded-3xl bg-[#0F1712]/95 border border-white/15 hover:border-[#E5A93C]/70 shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-xl"
+              className="rounded-3xl bg-[#0b192c]/95 border border-white/15 hover:border-[#e41c24]/70 shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-xl"
             >
               {/* Image & Badges Container */}
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-black/40">
@@ -185,17 +185,17 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
                   <div className="flex items-center gap-1.5">
                     {/* Pure Veg Badge */}
-                    <span className="p-1 rounded-md bg-white/95 border border-emerald-600 flex items-center justify-center shadow-md">
+                    <span className="p-1 rounded-md bg-[#0b192c]/95 border border-emerald-600 flex items-center justify-center shadow-md">
                       <span className="w-2 h-2 rounded-full bg-emerald-600" />
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#E5A93C] text-[10px] font-mono font-bold tracking-wider uppercase border border-[#E5A93C]/40">
+                    <span className="px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#e41c24] text-[10px] font-mono font-bold tracking-wider uppercase border border-[#e41c24]/40">
                       {dish.category}
                     </span>
                   </div>
 
                   {/* Rating Badge */}
                   <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-xs font-bold border border-white/10 shadow-md">
-                    <Star className="w-3.5 h-3.5 fill-[#E5A93C] text-[#E5A93C]" />
+                    <Star className="w-3.5 h-3.5 fill-[#e41c24] text-[#e41c24]" />
                     <span>{dish.rating}</span>
                     <span className="text-[10px] text-white/50">({dish.reviewCount})</span>
                   </div>
@@ -214,12 +214,12 @@ export const SignatureDishes: React.FC<SignatureDishesProps> = ({
               {/* Content Body */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-[#E5A93C] transition-colors leading-snug">
+                  <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-[#e41c24] transition-colors leading-snug">
                     {dish.name}
                   </h3>
 
                   {dish.hindiName && (
-                    <p className="text-[#E5A93C] text-xs font-serif italic mb-3 opacity-90">
+                    <p className="text-[#e41c24] text-xs font-serif italic mb-3 opacity-90">
                       {dish.hindiName}
                     </p>
                   )}

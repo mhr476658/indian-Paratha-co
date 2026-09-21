@@ -14,8 +14,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenCart,
   cartCount,
-  onOpenSearch = () => {},
-  onOpenOrderModal = () => {},
+  onOpenSearch = () => { },
+  onOpenOrderModal = () => { },
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(window.scrollY > 20);
 
       // Simple active tab detector
-      const sections = ['home', 'parathzzaa', 'products', 'location', 'franchise'];
+      const sections = ['home', 'products', 'location', 'franchise'];
       const scrollPos = window.scrollY + 120;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -50,7 +50,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Parathzzaa®', href: '#signature-dishes' },
     { label: 'Products', href: '#products' },
     { label: 'Location', href: '#location' },
     { label: 'Franchise', href: '#franchise' },
@@ -76,10 +75,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     <>
       <header
         id="main-header"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#080D0A]/90 backdrop-blur-2xl border-b border-white/10 py-3 shadow-2xl'
-            : 'bg-gradient-to-b from-[#080D0A]/90 via-[#080D0A]/50 to-transparent py-4 sm:py-5'
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white border-b border-black/10 ${
+          isScrolled ? 'py-3 shadow-sm backdrop-blur-2xl bg-white/95' : 'py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -91,11 +88,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Indian Paratha Company Home"
           >
-            <IPCLogo variant="light" size="header" />
+            <IPCLogo variant="dark" size="header" />
           </a>
 
           {/* 2. Center Floating Pill Navigation Bar (EXACT REPLICA FROM REFERENCE IMAGE) */}
-          <nav className="hidden lg:flex items-center p-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/15 shadow-2xl space-x-1">
+          <nav className="hidden lg:flex items-center p-1.5 rounded-full bg-black/5 backdrop-blur-xl border border-black/10 shadow-sm space-x-1">
             {navLinks.map((link) => {
               const isActive = activeTab === link.label;
               return (
@@ -104,11 +101,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   id={`desktop-nav-${link.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.label)}
-                  className={`px-6 py-2.5 rounded-full text-base font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-white text-black shadow-lg scale-100'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
+                  className={`px-6 py-2.5 rounded-full text-base font-semibold tracking-wide transition-all duration-200 cursor-pointer ${isActive
+                      ? 'bg-[#0b192c] text-white shadow-md scale-100'
+                      : 'text-black/70 hover:text-black hover:bg-black/5'
+                    }`}
                 >
                   {link.label}
                 </a>
@@ -127,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="mobile-menu-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-white hover:text-[#E5A93C] transition-colors rounded-full bg-white/10 border border-white/15"
+              className="lg:hidden p-2 text-white hover:text-[#e41c24] transition-colors rounded-full bg-[#0b192c]/10 border border-white/15"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -138,12 +134,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#080D0A]/95 backdrop-blur-3xl lg:hidden flex flex-col justify-between p-6 animate-fadeIn pt-24">
+        <div className="fixed inset-0 z-50 bg-[#0b192c]/95 backdrop-blur-3xl lg:hidden flex flex-col justify-between p-6 animate-fadeIn pt-24">
           <div className="flex items-center justify-between pb-6 border-b border-white/10">
             <IPCLogo variant="light" size="header" />
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-full bg-white/10 text-white"
+              className="p-2 rounded-full bg-[#0b192c]/10 text-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -155,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.label)}
-                className="text-lg font-semibold text-white/90 hover:text-[#E5A93C] py-2 px-4 rounded-2xl hover:bg-white/5 transition-all flex items-center justify-between"
+                className="text-lg font-semibold text-white/90 hover:text-[#e41c24] py-2 px-4 rounded-2xl hover:bg-[#0b192c]/5 transition-all flex items-center justify-between"
               >
                 <span>{link.label}</span>
                 <ArrowUpRight className="w-4 h-4 text-white/40" />
@@ -169,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenOrderModal();
               }}
-              className="w-full py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl"
+              className="w-full py-3.5 rounded-full bg-[#0b192c] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl"
             >
               <span>Order Online Now</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -76,7 +76,7 @@ export const Gallery: React.FC = () => {
               className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-200 ${
                 activeFilter === cat
                   ? 'bg-[#0B192C] text-[#D49B44] shadow-md'
-                  : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
+                  : 'bg-[#0b192c] text-stone-600 hover:bg-stone-100 border border-stone-200'
               }`}
             >
               {cat}
@@ -106,7 +106,7 @@ export const Gallery: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-[#0b192c]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 sm:p-4 text-white">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] uppercase font-bold tracking-widest text-[#D49B44]">
                       {item.category}
@@ -134,7 +134,7 @@ export const Gallery: React.FC = () => {
           <button
             id="lightbox-close-btn"
             onClick={() => setActiveItem(null)}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
             aria-label="Close image preview"
           >
             <X className="w-6 h-6" />
@@ -147,7 +147,7 @@ export const Gallery: React.FC = () => {
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -160,7 +160,7 @@ export const Gallery: React.FC = () => {
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-20"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white transition-colors z-20"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />

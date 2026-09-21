@@ -40,7 +40,7 @@ export const Testimonials: React.FC = () => {
         </div>
 
         {/* Testimonial Card Display */}
-        <div className="relative bg-white rounded-3xl p-8 sm:p-14 border border-stone-200/90 shadow-xl max-w-3xl mx-auto">
+        <div className="relative bg-[#0b192c] rounded-3xl p-8 sm:p-14 border border-stone-200/90 shadow-xl max-w-3xl mx-auto">
           {/* Decorative Quote Icon */}
           <div className="w-12 h-12 rounded-full bg-[#FAF6F0] border border-stone-200 flex items-center justify-center text-[#9B1B1E] mb-6 mx-auto sm:mx-0">
             <Quote className="w-6 h-6" />

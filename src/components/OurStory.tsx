@@ -19,9 +19,9 @@ export const OurStory: React.FC = () => {
   };
 
   return (
-    <section id="story" className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10">
+    <section id="story" className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10">
       {/* Subtle background radial light */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#E5A93C]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#e41c24]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#2E4434]/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -30,11 +30,11 @@ export const OurStory: React.FC = () => {
           <IPCLogo variant="light" size="lg" badgeOnly={true} className="mb-4 drop-shadow-xl" />
 
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[1.5px] bg-[#E5A93C]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#E5A93C]">
+            <span className="w-6 h-[1.5px] bg-[#e41c24]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.3em] text-[#e41c24]">
               OUR STORY &amp; HERITAGE
             </span>
-            <span className="w-6 h-[1.5px] bg-[#E5A93C]" />
+            <span className="w-6 h-[1.5px] bg-[#e41c24]" />
           </div>
 
           <h2 className="font-sans text-3xl sm:text-5xl font-bold tracking-tight text-white mb-6">
@@ -48,7 +48,7 @@ export const OurStory: React.FC = () => {
           </p>
 
           <p className="text-white/60 text-sm sm:text-base font-sans mt-3">
-            The brand grew along <strong className="text-[#E5A93C]">NH7</strong> and became a beloved destination
+            The brand grew along <strong className="text-[#e41c24]">NH7</strong> and became a beloved destination
             for travellers, families, bikers, corporates, and food lovers.
           </p>
         </div>
@@ -56,7 +56,7 @@ export const OurStory: React.FC = () => {
         {/* Vertical Timeline */}
         <div className="relative">
           {/* Vertical Center Track on Desktop, Left Track on Mobile */}
-          <div className="absolute top-2 bottom-2 left-6 sm:left-1/2 -ml-[1px] w-[2px] bg-gradient-to-b from-[#E5A93C] via-[#2E4434] to-[#E5A93C]/40" />
+          <div className="absolute top-2 bottom-2 left-6 sm:left-1/2 -ml-[1px] w-[2px] bg-gradient-to-b from-[#e41c24] via-[#2E4434] to-[#e41c24]/40" />
 
           <div className="space-y-10 sm:space-y-16">
             {STORY_TIMELINE.map((item, index) => {
@@ -70,7 +70,7 @@ export const OurStory: React.FC = () => {
                   }`}
                 >
                   {/* Timeline Badge Node */}
-                  <div className="absolute left-6 sm:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#080D0A] border-2 border-[#E5A93C] text-[#E5A93C] shadow-[0_0_15px_rgba(229,169,60,0.4)] z-20">
+                  <div className="absolute left-6 sm:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#0b192c] border-2 border-[#e41c24] text-[#e41c24] shadow-[0_0_15px_rgba(229,169,60,0.4)] z-20">
                     {getIcon(item.yearOrPhase)}
                   </div>
 
@@ -80,19 +80,19 @@ export const OurStory: React.FC = () => {
                       isEven ? 'sm:pr-12 sm:text-right' : 'sm:pl-12 sm:text-left'
                     }`}
                   >
-                    <div className="bg-[#0F1712]/95 backdrop-blur-xl border border-white/15 hover:border-[#E5A93C]/60 p-6 sm:p-7 rounded-3xl shadow-xl transition-all duration-300 group">
+                    <div className="bg-[#0b192c]/95 backdrop-blur-xl border border-white/15 hover:border-[#e41c24]/60 p-6 sm:p-7 rounded-3xl shadow-xl transition-all duration-300 group">
                       {/* Year / Phase Badge */}
                       <div
                         className={`inline-block px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3 ${
                           item.yearOrPhase === '2014'
-                            ? 'bg-white text-black'
-                            : 'bg-[#E5A93C]/20 text-[#E5A93C] border border-[#E5A93C]/30'
+                            ? 'bg-[#0b192c] text-white'
+                            : 'bg-[#e41c24]/20 text-[#e41c24] border border-[#e41c24]/30'
                         }`}
                       >
                         {item.yearOrPhase}
                       </div>
 
-                      <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-[#E5A93C] transition-colors">
+                      <h3 className="font-sans text-xl sm:text-2xl font-bold text-white mb-1 group-hover:text-[#e41c24] transition-colors">
                         {item.title}
                       </h3>
 
@@ -104,7 +104,7 @@ export const OurStory: React.FC = () => {
                         {item.description}
                       </p>
 
-                      <div className="mt-4 pt-3 border-t border-white/10 text-xs font-medium text-[#E5A93C] flex items-center gap-1.5 justify-start sm:justify-start">
+                      <div className="mt-4 pt-3 border-t border-white/10 text-xs font-medium text-[#e41c24] flex items-center gap-1.5 justify-start sm:justify-start">
                         <span>✦</span>
                         <span>{item.highlight}</span>
                       </div>

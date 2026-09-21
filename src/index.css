@@ -1,22 +1,48 @@
 @import "tailwindcss";
 
+@theme {
+  --color-amber-50: #fef2f2;
+  --color-amber-100: #fee2e2;
+  --color-amber-200: #fecaca;
+  --color-amber-300: #fca5a5;
+  --color-amber-400: #f87171;
+  --color-amber-500: #e41c24;
+  --color-amber-600: #c9171e;
+  --color-amber-700: #a41117;
+  --color-amber-800: #861014;
+  --color-amber-900: #6f1215;
+  --color-amber-950: #3d070a;
+
+  --color-emerald-50: #f0f4fa;
+  --color-emerald-100: #e0eaf4;
+  --color-emerald-200: #c2d5e9;
+  --color-emerald-300: #93b7d8;
+  --color-emerald-400: #5f93c3;
+  --color-emerald-500: #3a75ad;
+  --color-emerald-600: #295c8e;
+  --color-emerald-700: #224a73;
+  --color-emerald-800: #1f4061;
+  --color-emerald-900: #0b1b30;
+  --color-emerald-950: #071221;
+}
+
 @layer base {
   :root {
     --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --bg-base: #080D0A;
-    --bg-surface: #0F1712;
-    --bg-elevated: #16221A;
-    --bg-card: rgba(15, 23, 18, 0.88);
-    --bg-modal: #0D140F;
-    --text-primary: #FFFFFF;
-    --text-muted: #9BB0A0;
-    --border-subtle: rgba(229, 169, 60, 0.22);
-    --color-amber: #E5A93C;
-    --color-amber-bright: #F2B84B;
-    --color-moss: #2E4434;
-    --glass-bg: rgba(15, 23, 18, 0.82);
-    --nav-bg: rgba(8, 13, 10, 0.85);
+    --bg-base: #071221;
+    --bg-surface: #0b1b30;
+    --bg-elevated: #112540;
+    --bg-card: rgba(11, 27, 48, 0.88);
+    --bg-modal: #071221;
+    --text-primary: #FDFBF2;
+    --text-muted: #93b7d8;
+    --border-subtle: rgba(228, 28, 36, 0.22);
+    --color-amber: #e41c24;
+    --color-amber-bright: #f23d44;
+    --color-moss: #0b1b30;
+    --glass-bg: rgba(7, 18, 33, 0.82);
+    --nav-bg: rgba(7, 18, 33, 0.85);
   }
 
   html {
@@ -34,7 +60,10 @@
     transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  h1, h2, h3, .font-serif-luxury {
+  h1,
+  h2,
+  h3,
+  .font-serif-luxury {
     font-family: var(--font-serif);
   }
 }
@@ -68,7 +97,7 @@
 
 /* Metallic Warm Amber & Sunlight Gradients */
 .amber-shimmer-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5E6CC 30%, #E5A93C 70%, #C68A2E 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5E6CC 30%, #e41c24 70%, #C68A2E 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -82,7 +111,9 @@
 }
 
 /* Animations and 3D Disabled globally */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   animation: none !important;
   transition: none !important;
   transform-style: flat !important;

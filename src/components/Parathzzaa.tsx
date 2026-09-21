@@ -35,18 +35,18 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
   return (
     <section
       id="parathzzaa"
-      className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10"
     >
       {/* Dramatic ambient glow */}
-      <div className="absolute top-10 left-1/3 w-96 h-96 bg-[#E5A93C]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-10 left-1/3 w-96 h-96 bg-[#e41c24]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#2E4434]/25 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 mb-3 shadow-xl backdrop-blur-md">
-            <Pizza className="w-3.5 h-3.5 text-[#E5A93C]" />
-            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-[#E5A93C]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0b192c]/10 border border-white/20 mb-3 shadow-xl backdrop-blur-md">
+            <Pizza className="w-3.5 h-3.5 text-[#e41c24]" />
+            <span className="text-[11px] font-mono font-bold uppercase tracking-[0.25em] text-[#e41c24]">
               TRADEMARK CULINARY BREAKTHROUGH
             </span>
           </div>
@@ -55,7 +55,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
             PARATHZZAA®
           </h2>
 
-          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#E5A93C] mb-4 font-mono">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#e41c24] mb-4 font-mono">
             WHERE PARATHA MEETS PIZZA.
           </h3>
 
@@ -67,7 +67,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
         </div>
 
         {/* Featured Interactive Showcase */}
-        <div className="bg-[#0F1712]/95 border border-white/15 rounded-3xl p-6 sm:p-10 shadow-2xl mb-12 backdrop-blur-xl">
+        <div className="bg-[#0b192c]/95 border border-white/15 rounded-3xl p-6 sm:p-10 shadow-2xl mb-12 backdrop-blur-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Big Product Visual */}
             <div className="lg:col-span-6 relative group">
@@ -80,20 +80,20 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
-                <div className="absolute top-4 left-4 bg-white text-black text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
+                <div className="absolute top-4 left-4 bg-[#0b192c] text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
                   Original Recipe
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
                   <div>
-                    <span className="text-xs text-[#E5A93C] font-semibold tracking-wider uppercase block font-mono">
+                    <span className="text-xs text-[#e41c24] font-semibold tracking-wider uppercase block font-mono">
                       Whole Wheat Crust
                     </span>
                     <span className="font-sans text-2xl font-bold text-white">
                       {selectedItem.name}
                     </span>
                   </div>
-                  <span className="font-sans text-3xl font-bold text-[#E5A93C]">
+                  <span className="font-sans text-3xl font-bold text-[#e41c24]">
                     ₹{selectedItem.price}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
             {/* Interactive Details & Add CTA */}
             <div className="lg:col-span-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold tracking-widest text-[#E5A93C] uppercase font-mono">
+                <span className="text-xs font-bold tracking-widest text-[#e41c24] uppercase font-mono">
                   ACTIVE SELECTION
                 </span>
               </div>
@@ -112,7 +112,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
                 {selectedItem.name}
               </h4>
 
-              <p className="text-[#E5A93C] text-xs uppercase tracking-widest font-semibold mb-4 font-mono">
+              <p className="text-[#e41c24] text-xs uppercase tracking-widest font-semibold mb-4 font-mono">
                 {selectedItem.toppingHighlight}
               </p>
 
@@ -142,11 +142,11 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
                 <button
                   id={`parathzzaa-add-${selectedItem.id}`}
                   onClick={() => handleAdd(selectedItem)}
-                  className="flex-1 py-4 px-6 bg-white hover:bg-[#E5A93C] text-black font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full transition-all duration-200 shadow-xl flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                  className="flex-1 py-4 px-6 bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full transition-all duration-200 shadow-xl flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
                 >
                   {addedIds[selectedItem.id] ? (
                     <>
-                      <Check className="w-5 h-5 text-black" />
+                      <Check className="w-5 h-5 text-white" />
                       <span>Added to Order</span>
                     </>
                   ) : (
@@ -167,7 +167,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
             <h4 className="text-xs uppercase font-bold tracking-[0.25em] text-white/60 font-mono">
               ALL 9 CHEF CREATIONS (TAP TO PREVIEW)
             </h4>
-            <span className="text-xs text-[#E5A93C] hidden sm:block font-mono">Scroll to explore flavors</span>
+            <span className="text-xs text-[#e41c24] hidden sm:block font-mono">Scroll to explore flavors</span>
           </div>
 
           <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-9 gap-3 overflow-x-auto no-scrollbar pb-4 snap-x">
@@ -180,8 +180,8 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
                   onClick={() => setSelectedItem(pz)}
                   className={`min-w-[150px] sm:min-w-0 p-3 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between shrink-0 snap-start cursor-pointer ${
                     isSelected
-                      ? 'bg-white/15 border-white ring-2 ring-white/50 shadow-xl scale-105'
-                      : 'bg-[#0F1712] border-white/10 hover:border-white/30'
+                      ? 'bg-[#0b192c]/15 border-white ring-2 ring-white/50 shadow-xl scale-105'
+                      : 'bg-[#0b192c] border-white/10 hover:border-white/30'
                   }`}
                 >
                   <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 bg-black">
@@ -195,9 +195,9 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
                   <div className="font-sans font-bold text-xs text-white truncate">
                     {pz.name.replace(' Parathzzaa', '')}
                   </div>
-                  <div className="text-xs font-semibold text-[#E5A93C] mt-1 flex items-center justify-between">
+                  <div className="text-xs font-semibold text-[#e41c24] mt-1 flex items-center justify-between">
                     <span>₹{pz.price}</span>
-                    {pz.isSpicy && <Flame className="w-3 h-3 text-[#E5A93C] inline" />}
+                    {pz.isSpicy && <Flame className="w-3 h-3 text-[#e41c24] inline" />}
                   </div>
                 </button>
               );
@@ -210,7 +210,7 @@ export const Parathzzaa: React.FC<ParathzzaaProps> = ({ onAddToCart, onExploreFu
           <button
             id="view-all-parathzzaa-btn"
             onClick={onExploreFullMenu}
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white hover:text-[#E5A93C] text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-white/20 hover:border-[#E5A93C] transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0b192c]/5 hover:bg-[#0b192c]/10 text-white hover:text-[#e41c24] text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-white/20 hover:border-[#e41c24] transition-all duration-300 cursor-pointer"
           >
             <span>VIEW ALL PARATHZZAA IN FULL MENU</span>
             <ArrowUpRight className="w-4 h-4" />

@@ -44,24 +44,24 @@ export const MadeFresh: React.FC<MadeFreshProps> = ({ onExploreMenu }) => {
   return (
     <section
       id="made-fresh"
-      className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10"
     >
       {/* Texture & Warm Glow */}
-      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#E5A93C]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#e41c24]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-0 right-10 w-[500px] h-[500px] bg-[#2E4434]/25 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Editorial Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 mb-4 shadow-xl backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-[#E5A93C]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#E5A93C]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0b192c]/10 border border-white/20 mb-4 shadow-xl backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-[#e41c24]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#e41c24]">
               OUR KITCHEN PHILOSOPHY
             </span>
           </div>
 
-          <h2 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 leading-none">
-            MADE FRESH. <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">SERVED HOT.</span>
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 leading-none whitespace-nowrap">
+            MADE FRESH. SERVED HOT.
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base font-sans max-w-2xl mx-auto leading-relaxed">
@@ -74,21 +74,21 @@ export const MadeFresh: React.FC<MadeFreshProps> = ({ onExploreMenu }) => {
           {pillars.map((pillar) => (
             <div
               key={pillar.number}
-              className="p-7 sm:p-8 rounded-3xl bg-[#0F1712]/95 border border-white/15 hover:border-[#E5A93C]/70 shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between group backdrop-blur-xl"
+              className="p-7 sm:p-8 rounded-3xl bg-[#0b192c]/95 border border-white/15 hover:border-[#e41c24]/70 shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between group backdrop-blur-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-3xl">{pillar.icon}</span>
-                  <span className="font-mono text-xs font-bold tracking-widest text-[#E5A93C] bg-black/60 px-2.5 py-1 rounded-full border border-white/10">
+                  <span className="font-mono text-xs font-bold tracking-widest text-[#e41c24] bg-black/60 px-2.5 py-1 rounded-full border border-white/10">
                     {pillar.number}
                   </span>
                 </div>
 
-                <h3 className="font-sans text-xl font-bold text-white mb-1 group-hover:text-[#E5A93C] transition-colors">
+                <h3 className="font-sans text-xl font-bold text-white mb-1 group-hover:text-[#e41c24] transition-colors">
                   {pillar.title}
                 </h3>
 
-                <p className="text-[#E5A93C] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+                <p className="text-[#e41c24] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
                   {pillar.subtitle}
                 </p>
 
@@ -98,7 +98,7 @@ export const MadeFresh: React.FC<MadeFreshProps> = ({ onExploreMenu }) => {
               </div>
 
               <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-white/80 group-hover:text-white">
-                <CheckCircle2 className="w-4 h-4 text-[#E5A93C]" />
+                <CheckCircle2 className="w-4 h-4 text-[#e41c24]" />
                 <span>100% Guaranteed Purity</span>
               </div>
             </div>

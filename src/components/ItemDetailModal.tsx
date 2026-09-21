@@ -63,7 +63,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
             alt={item.name}
             className="w-full h-full object-cover filter brightness-95"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1C130D] via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1C130D] via-transparent to-[#0b192c]/20" />
 
           {/* Badges */}
           <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -127,7 +127,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold"
+                className="w-8 h-8 rounded-lg bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white flex items-center justify-center font-bold"
                 aria-label="Decrease quantity"
               >
                 <Minus className="w-4 h-4" />
@@ -137,7 +137,7 @@ export const ItemDetailModal: React.FC<ItemDetailModalProps> = ({
               </span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold"
+                className="w-8 h-8 rounded-lg bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white flex items-center justify-center font-bold"
                 aria-label="Increase quantity"
               >
                 <Plus className="w-4 h-4" />

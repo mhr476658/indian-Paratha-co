@@ -14,7 +14,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
   return (
     <section
       id="location"
-      className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10"
     >
       <div id="visit-us" className="absolute -top-24 left-0" />
 
@@ -22,15 +22,15 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#E5A93C]">
+            <span className="w-8 h-[1.5px] bg-[#e41c24]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#e41c24]">
               ICONIC HIGHWAY SANCTUARY
             </span>
-            <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
+            <span className="w-8 h-[1.5px] bg-[#e41c24]" />
           </div>
 
           <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold text-white [word-spacing:0.25em] tracking-wider mb-3">
-            COME FIND US <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">ON NH7</span>
+            COME FIND US ON NH7
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base font-sans max-w-xl mx-auto leading-relaxed">
@@ -39,13 +39,13 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
         </div>
 
         {/* Location Showcase Card */}
-        <div className="bg-[#0F1712]/95 rounded-3xl border border-white/15 shadow-2xl overflow-hidden max-w-5xl mx-auto backdrop-blur-xl">
+        <div className="bg-[#0b192c]/95 rounded-3xl border border-white/15 shadow-2xl overflow-hidden max-w-5xl mx-auto backdrop-blur-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Visual Highway Route & Destination Summary */}
             <div className="lg:col-span-7 bg-[#142017]/50 p-8 sm:p-12 text-white relative flex flex-col justify-between overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-black text-[11px] font-mono font-bold uppercase tracking-wider mb-6 shadow-md">
-                  <MapPin className="w-3.5 h-3.5 text-[#E5A93C]" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0b192c] text-white text-[11px] font-mono font-bold uppercase tracking-wider mb-6 shadow-md">
+                  <MapPin className="w-3.5 h-3.5 text-[#e41c24]" />
                   <span>NH7 Highway Landmark</span>
                 </div>
 
@@ -53,7 +53,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                   Indian Paratha Company
                 </h3>
 
-                <p className="text-[#E5A93C] text-xs sm:text-sm font-mono font-semibold tracking-widest uppercase mb-4">
+                <p className="text-[#e41c24] text-xs sm:text-sm font-mono font-semibold tracking-widest uppercase mb-4">
                   Devanahalli, Bengaluru Highway
                 </p>
 
@@ -64,11 +64,11 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                 {/* Landmarks list */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-xs text-white/80">
                   <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-black/40 border border-white/10">
-                    <Compass className="w-4 h-4 text-[#E5A93C] shrink-0" />
+                    <Compass className="w-4 h-4 text-[#e41c24] shrink-0" />
                     <span>10 km from BLR Airport</span>
                   </div>
                   <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-black/40 border border-white/10">
-                    <Car className="w-4 h-4 text-[#E5A93C] shrink-0" />
+                    <Car className="w-4 h-4 text-[#e41c24] shrink-0" />
                     <span>Dedicated Highway Parking</span>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
               {/* Highway Route Badge & Timings */}
               <div className="relative z-10 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
                 <div className="flex items-center gap-2 text-white/70">
-                  <Clock className="w-4 h-4 text-[#E5A93C]" />
+                  <Clock className="w-4 h-4 text-[#e41c24]" />
                   <span>Open Daily: 7:00 AM – 11:30 PM</span>
                 </div>
                 <div className="flex items-center gap-2 text-emerald-400">
@@ -88,9 +88,9 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
             </div>
 
             {/* Address Details & Interactive Navigation Actions */}
-            <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between bg-[#0F1712]">
+            <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between bg-[#0b192c]">
               <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#E5A93C] block mb-2">
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#e41c24] block mb-2">
                   ADDRESS &amp; CONTACT
                 </span>
 
@@ -102,7 +102,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                   <p className="font-bold text-white">Indian Paratha Company (IPC)</p>
                   <p>NH7 (Bellary Road), Near Jain Temple,</p>
                   <p>Guttahalli, Devanahalli Taluk,</p>
-                  <p className="text-[#E5A93C] font-mono">Bengaluru, Karnataka 562110</p>
+                  <p className="text-[#e41c24] font-mono">Bengaluru, Karnataka 562110</p>
                 </div>
               </div>
 
@@ -114,7 +114,7 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                   href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 px-5 bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-wider rounded-full transition-all duration-200 shadow-xl flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                  className="w-full py-4 px-5 bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs uppercase tracking-wider rounded-full transition-all duration-200 shadow-xl flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
                   <Navigation className="w-4 h-4" />
                   <span>Get Directions on Google Maps</span>
@@ -126,9 +126,9 @@ export const Location: React.FC<LocationProps> = ({ onOrderNow }) => {
                   <a
                     id="loc-call-now-btn"
                     href={`tel:${phoneNumber}`}
-                    className="py-3 px-3 bg-white/10 hover:bg-white/15 text-white border border-white/15 font-bold text-xs uppercase tracking-wider rounded-full transition-all duration-200 shadow-sm flex items-center justify-center gap-2 active:scale-95 text-center cursor-pointer"
+                    className="py-3 px-3 bg-[#0b192c]/10 hover:bg-[#0b192c]/15 text-white border border-white/15 font-bold text-xs uppercase tracking-wider rounded-full transition-all duration-200 shadow-sm flex items-center justify-center gap-2 active:scale-95 text-center cursor-pointer"
                   >
-                    <Phone className="w-4 h-4 text-[#E5A93C] shrink-0" />
+                    <Phone className="w-4 h-4 text-[#e41c24] shrink-0" />
                     <span>Call Ahead</span>
                   </a>
 

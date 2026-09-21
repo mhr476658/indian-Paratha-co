@@ -59,24 +59,24 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
   return (
     <section
       id="more"
-      className="py-20 sm:py-28 bg-[#080D0A] text-white relative overflow-hidden border-t border-white/10"
+      className="py-20 sm:py-28 bg-[#0b192c] text-white relative overflow-hidden border-t border-white/10"
     >
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#E5A93C]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#e41c24]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#2E4434]/20 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.28em] text-[#E5A93C]">
+            <span className="w-8 h-[1.5px] bg-[#e41c24]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.28em] text-[#e41c24]">
               HIGHWAY HUB &amp; SERVICES
             </span>
-            <span className="w-8 h-[1.5px] bg-[#E5A93C]" />
+            <span className="w-8 h-[1.5px] bg-[#e41c24]" />
           </div>
 
           <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
-            More at <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5E6CC] to-[#E5A93C]">Indian Paratha Company</span>
+            More at <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0b192c] via-[#F5E6CC] to-[#e41c24]">Indian Paratha Company</span>
           </h2>
 
           <p className="text-white/70 text-sm sm:text-base font-sans max-w-xl mx-auto leading-relaxed">
@@ -93,14 +93,14 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
               <div
                 key={idx}
                 onClick={() => onOpenMoreTab(item.tab)}
-                className="group bg-[#0F1712]/95 rounded-3xl p-6 border border-white/15 hover:border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between backdrop-blur-xl"
+                className="group bg-[#0b192c]/95 rounded-3xl p-6 border border-white/15 hover:border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between backdrop-blur-xl"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 text-[#E5A93C] group-hover:bg-white group-hover:text-black flex items-center justify-center transition-colors mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0b192c]/10 border border-white/15 text-[#e41c24] group-hover:bg-[#0b192c] group-hover:text-white flex items-center justify-center transition-colors mb-4">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="font-sans text-lg font-bold text-white mb-2 group-hover:text-[#E5A93C] transition-colors">
+                  <h3 className="font-sans text-lg font-bold text-white mb-2 group-hover:text-[#e41c24] transition-colors">
                     {item.title}
                   </h3>
 
@@ -109,7 +109,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#E5A93C] group-hover:text-white font-mono">
+                <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#e41c24] group-hover:text-white font-mono">
                   <span>Explore Details</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -119,7 +119,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
         </div>
 
         {/* Destination & Location Showcase */}
-        <div className="bg-[#0F1712]/95 rounded-3xl border border-white/15 shadow-2xl overflow-hidden backdrop-blur-xl">
+        <div className="bg-[#0b192c]/95 rounded-3xl border border-white/15 shadow-2xl overflow-hidden backdrop-blur-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Visual Destination Column */}
             <div className="lg:col-span-7 p-8 sm:p-12 relative flex flex-col justify-between overflow-hidden bg-[#142017]/40">
@@ -131,11 +131,11 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080D0A] via-[#080D0A]/85 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b192c] via-[#080D0A]/85 to-transparent pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-black text-[11px] font-mono font-bold uppercase tracking-wider mb-5">
-                  <MapPin className="w-3.5 h-3.5 text-[#E5A93C]" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0b192c] text-white text-[11px] font-mono font-bold uppercase tracking-wider mb-5">
+                  <MapPin className="w-3.5 h-3.5 text-[#e41c24]" />
                   <span>Verified Destination</span>
                 </div>
 
@@ -143,7 +143,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                   Come Find Us on NH7
                 </h3>
 
-                <p className="text-[#E5A93C] text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 font-mono">
+                <p className="text-[#e41c24] text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 font-mono">
                   Bengaluru — Hyderabad Highway Corridor
                 </p>
 
@@ -158,7 +158,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-full bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all"
+                    className="px-5 py-2.5 rounded-full bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all"
                   >
                     <Navigation className="w-4 h-4" />
                     <span>Get Directions</span>
@@ -167,9 +167,9 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
 
                   <button
                     onClick={() => onOpenMoreTab('route-eta')}
-                    className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
+                    className="px-5 py-2.5 rounded-full bg-[#0b192c]/10 hover:bg-[#0b192c]/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-2 border border-white/20 transition-all cursor-pointer"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-[#E5A93C]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#e41c24]" />
                     <span>Calculate ETA</span>
                   </button>
                 </div>
@@ -178,7 +178,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
               {/* Station Info Chips */}
               <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 text-xs text-white/70 font-mono">
                 <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#E5A93C]" />
+                  <Clock className="w-4 h-4 text-[#e41c24]" />
                   <span>Open Daily: 7:00 AM – 11:30 PM</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -189,7 +189,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
             </div>
 
             {/* Quick Contact & Highway Help Desk */}
-            <div className="lg:col-span-5 bg-[#0F1712] p-8 sm:p-12 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-[#0b192c] p-8 sm:p-12 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-between">
               <div>
                 <h4 className="font-sans text-lg font-bold text-white mb-2">
                   Highway Help &amp; Advance Takeaways
@@ -202,11 +202,11 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                 <div className="space-y-3">
                   <a
                     href={`tel:${phoneNumber}`}
-                    className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#0b192c]/5 hover:bg-[#0b192c]/10 border border-white/10 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                        <Phone className="w-4 h-4 text-[#E5A93C]" />
+                      <div className="w-9 h-9 rounded-xl bg-[#0b192c]/10 text-white flex items-center justify-center">
+                        <Phone className="w-4 h-4 text-[#e41c24]" />
                       </div>
                       <div>
                         <span className="text-[11px] text-white/50 block uppercase font-medium font-mono">
@@ -215,7 +215,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
                         <span className="text-sm font-bold text-white font-mono">{phoneNumber}</span>
                       </div>
                     </div>
-                    <span className="text-xs font-semibold text-[#E5A93C] group-hover:translate-x-1 transition-transform font-mono">
+                    <span className="text-xs font-semibold text-[#e41c24] group-hover:translate-x-1 transition-transform font-mono">
                       Call
                     </span>
                   </a>
@@ -247,7 +247,7 @@ export const MoreSection: React.FC<MoreSectionProps> = ({
               <div className="mt-8 pt-6 border-t border-white/10">
                 <button
                   onClick={() => onOpenMoreTab('amenities')}
-                  className="w-full py-3.5 rounded-full bg-white hover:bg-[#E5A93C] text-black font-bold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all"
+                  className="w-full py-3.5 rounded-full bg-[#0b192c] hover:bg-[#e41c24] text-white font-bold text-xs uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all"
                 >
                   <span>Open Full Highway Hub</span>
                   <ArrowRight className="w-4 h-4" />
