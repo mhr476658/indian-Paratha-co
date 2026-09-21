@@ -123,10 +123,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="mobile-menu-toggle-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-white hover:text-[#e41c24] transition-colors rounded-full bg-[#0b192c]/10 border border-white/15"
+              className="lg:hidden p-2 text-[#0b192c] hover:text-[#e41c24] transition-colors rounded-full bg-black/5 hover:bg-black/10"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
