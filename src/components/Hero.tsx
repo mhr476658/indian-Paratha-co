@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
             </div>
 
             {/* Main Headline (MATCHING REFERENCE IMAGE TYPOGRAPHIC WEIGHT & SCALE) */}
-            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.04] mb-5 sm:mb-7 whitespace-nowrap">
+            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.04] mb-5 sm:mb-7">
               Savor Hot <span className="text-[#e41c24]">Handcrafted Parathas</span> &amp; Chai Today!
             </h1>
 

@@ -60,7 +60,7 @@ export const MadeFresh: React.FC<MadeFreshProps> = ({ onExploreMenu }) => {
             </span>
           </div>
 
-          <h2 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 leading-none whitespace-nowrap">
+          <h2 className="font-sans text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4 leading-none">
             MADE FRESH. SERVED HOT.
           </h2>
 
