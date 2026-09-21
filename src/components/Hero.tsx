@@ -1,67 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ArrowUpRight,
   UtensilsCrossed,
-  Sparkles,
-  Coffee,
   MessageCircle,
-  Flame,
-  ChevronRight,
-  ShieldCheck,
-  Star,
 } from 'lucide-react';
 
 interface HeroProps {
   onExploreMenu: () => void;
-  onOrderNow: () => void;
 }
 
-interface OrbitalFeature {
-  id: 'enchanting' | 'unique' | 'rejuvenate';
-  label: string;
-  tagline: string;
-  title: string;
-  description: string;
-  image: string;
-  badge: string;
-  badgeColor: string;
-}
-
-const ORBITAL_FEATURES: OrbitalFeature[] = [
-  {
-    id: 'enchanting',
-    label: 'Enchanting',
-    tagline: '100% Desi Ghee & Farm White Butter',
-    title: 'Heritage Amritsari Parathas',
-    description: 'Crisp whole-wheat flatbread griddled on cast-iron tawas, stuffed with spiced potatoes, paneer, and served with tangy Punjabi dahi.',
-    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=1000&auto=format&fit=crop&q=85',
-    badge: 'EST. 2014 NH7',
-    badgeColor: 'bg-[#e41c24] text-white',
-  },
-  {
-    id: 'unique',
-    label: 'Unique',
-    tagline: 'Patented Highway Innovation',
-    title: 'Signature Parathzzaa®',
-    description: 'The iconic fusion of layered flaky paratha base topped with rich makhani gravy, mozzarella, wood-smoked paneer tikka, and Italian herbs.',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1000&auto=format&fit=crop&q=85',
-    badge: 'IPC PATENTED',
-    badgeColor: 'bg-[#2E4434] text-white border border-white/20',
-  },
-  {
-    id: 'rejuvenate',
-    label: 'Rejuvenate',
-    tagline: 'Freshly Brewed Highway Tea',
-    title: 'Special Kulhad Adrak Chai',
-    description: 'Slow-simmered tea steeped with crushed fresh ginger, green cardamom, and lemongrass, served steaming hot in traditional earthen terracotta cups.',
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=1000&auto=format&fit=crop&q=85',
-    badge: 'EARTHEN POT',
-    badgeColor: 'bg-[#0b192c]/20 text-white',
-  },
-];
-
-export const Hero: React.FC<HeroProps> = ({ onExploreMenu, onOrderNow }) => {
-  const [selectedFeature, setSelectedFeature] = useState<OrbitalFeature>(ORBITAL_FEATURES[1]);
+export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
 
   const whatsappUrl =
     'https://wa.me/919880883061?text=Hello%20Indian%20Paratha%20Company!%20I%20would%20like%20to%20order%20or%20inquire%20about%20the%20menu.';
