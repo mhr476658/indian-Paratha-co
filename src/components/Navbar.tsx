@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(window.scrollY > 20);
 
       // Simple active tab detector
-      const sections = ['home', 'products', 'location', 'franchise'];
+      const sections = ['home', 'story', 'parathzzaa', 'franchise'];
       const scrollPos = window.scrollY + 120;
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -35,9 +35,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
             if (section === 'home') setActiveTab('Home');
-            else if (section === 'parathzzaa') setActiveTab('Parathzzaa®');
-            else if (section === 'products') setActiveTab('Products');
-            else if (section === 'location') setActiveTab('Location');
+            else if (section === 'story') setActiveTab('Our Story');
+            else if (section === 'parathzzaa') setActiveTab('Parathzzaa');
             else if (section === 'franchise') setActiveTab('Franchise');
             break;
           }
@@ -50,8 +49,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Products', href: '#products' },
-    { label: 'Location', href: '#location' },
+    { label: 'Our Story', href: '#story' },
+    { label: 'Parathzzaa', href: '#parathzzaa' },
     { label: 'Franchise', href: '#franchise' },
   ];
 

@@ -37,3 +37,5 @@ firebase_applet_config.xml
 *.sqlite3
 *.db
 
+
+.vite/

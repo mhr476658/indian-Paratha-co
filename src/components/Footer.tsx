@@ -13,8 +13,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Products', href: '#products' },
-    { label: 'Location', href: '#location' },
+    { label: 'Our Story', href: '#story' },
+    { label: 'Parathzzaa', href: '#parathzzaa' },
     { label: 'Franchise', href: '#franchise' },
   ];
 

@@ -3,7 +3,7 @@ import { IPCLogo } from './IPCLogo';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-[var(--color-navy)] py-24">
+    <section id="home" className="relative w-full min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-[var(--color-navy)] pt-32 pb-24 lg:pt-40">
       
       {/* Topographic Pattern Background overlay (using a simple SVG pattern or CSS) */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
@@ -14,19 +14,15 @@ export const Hero: React.FC = () => {
       />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] text-[var(--color-gold)] uppercase mb-16 tracking-wider">
+        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.9] text-[var(--color-gold)] uppercase mb-12 tracking-wider">
           A JOURNEY<br />OF FLAVOUR,<br />A PROMISE<br />OF FLAVOUR
         </h1>
 
         <div className="w-48 sm:w-64 mb-16 relative">
-           <img src="/ipc-logo.svg" alt="Indian Paratha Company Logo" className="w-full h-auto drop-shadow-2xl" />
+           <img src="/ipc_hero_logo.png" alt="Indian Paratha Company Logo" className="w-full h-auto drop-shadow-2xl" />
         </div>
 
-        <div className="flex flex-col items-center border-b border-[var(--border-subtle)] pb-6 mb-6 w-full max-w-md">
-          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-[var(--color-gold)] mb-4" style={{ transform: 'rotate(-2deg)' }}>
-            Manifesto
-          </h2>
-        </div>
+
         
         <p className="font-sans text-[var(--color-gold-light)] uppercase tracking-[0.3em] text-sm sm:text-base font-semibold">
           CHAI PARATHA & MORE

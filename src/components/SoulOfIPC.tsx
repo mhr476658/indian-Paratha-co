@@ -2,11 +2,11 @@ import React from 'react';
 
 export const SoulOfIPC: React.FC = () => {
   return (
-    <section className="w-full min-h-screen grid grid-cols-1 md:grid-cols-2 bg-[var(--color-navy)] text-[var(--text-primary)]">
-      
+    <section id="story" className="w-full min-h-screen grid grid-cols-1 md:grid-cols-2 bg-[var(--color-navy)] text-[var(--text-primary)]">
+
       {/* Left Content Column */}
       <div className="flex flex-col justify-center px-8 sm:px-16 lg:px-24 py-16 md:py-24 max-w-xl mx-auto md:ml-auto md:mr-0 text-center">
-        
+
         <div className="mb-12">
           <h2 className="font-display text-6xl sm:text-7xl lg:text-8xl text-[var(--color-gold)] leading-none uppercase">
             THE
@@ -19,7 +19,7 @@ export const SoulOfIPC: React.FC = () => {
           </h2>
         </div>
 
-        <div className="space-y-6 text-xs sm:text-sm lg:text-base leading-relaxed tracking-wide text-[var(--text-primary)]/90">
+        <div className="space-y-6 text-xs sm:text-sm lg:text-base leading-relaxed tracking-wide text-[var(--text-primary)]/90 text-justify">
           <p>
             From the heart of India, where spices tell stories. Where every meal is a melody, rich with old glories. We rise with the sun, kneading dreams with our hands. Serving warmth, love, and flavors so grand.
           </p>

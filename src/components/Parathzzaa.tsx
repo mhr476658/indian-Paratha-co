@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Parathzzaa: React.FC = () => {
   return (
-    <section className="w-full py-20 lg:py-32 bg-[var(--color-beige)] text-[var(--color-navy)] overflow-hidden relative">
+    <section id="parathzzaa" className="w-full py-20 lg:py-32 bg-[var(--color-beige)] text-[var(--color-navy)] overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
         
         {/* Top Heading */}
@@ -29,9 +29,8 @@ export const Parathzzaa: React.FC = () => {
           
           {/* Left/Bottom: Illustration/Image */}
           <div className="lg:col-span-8 relative flex justify-center lg:justify-start items-end lg:-ml-12 lg:-mb-32">
-             <div className="w-full max-w-2xl aspect-[4/3] bg-black/10 rounded-full flex items-center justify-center font-bold text-[var(--color-navy)]/30 border border-[var(--color-navy)]/20 shadow-2xl relative z-10">
-               {/* Replace with Giant Parathzza Illustration */}
-               Giant Parathzza Illustration
+             <div className="w-full max-w-2xl aspect-[4/3] rounded-[3rem] overflow-hidden border-4 border-[var(--color-navy)]/20 shadow-2xl relative z-10">
+               <img src="/delicious_parathzza.jpg" alt="Giant Parathzza" className="w-full h-full object-cover" />
              </div>
           </div>
 

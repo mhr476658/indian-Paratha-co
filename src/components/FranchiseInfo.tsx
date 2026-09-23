@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FranchiseInfo: React.FC = () => {
   return (
-    <div className="w-full bg-[var(--color-navy)] text-[var(--text-primary)] font-sans">
+    <div id="franchise" className="w-full bg-[var(--color-navy)] text-[var(--text-primary)] font-sans">
       
       {/* Section 1: Own a Slice of Success */}
       <section className="w-full py-20 lg:py-32 overflow-hidden border-b border-[var(--color-gold)]/20">
