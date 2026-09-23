@@ -1,0 +1,161 @@
+{
+  "source": "Uploaded IPC brochure PDF",
+  "assets": [
+    {
+      "file": "p1_img1.png",
+      "source_page": 1,
+      "width": 662,
+      "height": 654
+    },
+    {
+      "file": "p2_img1.png",
+      "source_page": 2,
+      "width": 3429,
+      "height": 2196
+    },
+    {
+      "file": "p3_img1.jpeg",
+      "source_page": 3,
+      "width": 1484,
+      "height": 2285
+    },
+    {
+      "file": "p3_img2.png",
+      "source_page": 3,
+      "width": 2480,
+      "height": 2058
+    },
+    {
+      "file": "p3_img3.png",
+      "source_page": 3,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p4_img1.png",
+      "source_page": 4,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p4_img2.jpeg",
+      "source_page": 4,
+      "width": 1344,
+      "height": 896
+    },
+    {
+      "file": "p4_img3.jpeg",
+      "source_page": 4,
+      "width": 1379,
+      "height": 920
+    },
+    {
+      "file": "p4_img4.jpeg",
+      "source_page": 4,
+      "width": 761,
+      "height": 1141
+    },
+    {
+      "file": "p4_img5.jpeg",
+      "source_page": 4,
+      "width": 1663,
+      "height": 1109
+    },
+    {
+      "file": "p4_img6.jpeg",
+      "source_page": 4,
+      "width": 1502,
+      "height": 1002
+    },
+    {
+      "file": "p5_img1.png",
+      "source_page": 5,
+      "width": 2515,
+      "height": 3160
+    },
+    {
+      "file": "p5_img2.png",
+      "source_page": 5,
+      "width": 2481,
+      "height": 3686
+    },
+    {
+      "file": "p5_img3.png",
+      "source_page": 5,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p6_img1.png",
+      "source_page": 6,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p6_img2.png",
+      "source_page": 6,
+      "width": 1289,
+      "height": 1100
+    },
+    {
+      "file": "p7_img1.png",
+      "source_page": 7,
+      "width": 2644,
+      "height": 1762
+    },
+    {
+      "file": "p7_img2.png",
+      "source_page": 7,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p8_img1.png",
+      "source_page": 8,
+      "width": 3228,
+      "height": 3250
+    },
+    {
+      "file": "p8_img2.png",
+      "source_page": 8,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p9_img1.png",
+      "source_page": 9,
+      "width": 2480,
+      "height": 2058
+    },
+    {
+      "file": "p9_img2.jpeg",
+      "source_page": 9,
+      "width": 1966,
+      "height": 2949
+    },
+    {
+      "file": "p10_img1.png",
+      "source_page": 10,
+      "width": 2480,
+      "height": 2058
+    },
+    {
+      "file": "p10_img2.png",
+      "source_page": 10,
+      "width": 2906,
+      "height": 2575
+    },
+    {
+      "file": "p10_img3.png",
+      "source_page": 10,
+      "width": 212,
+      "height": 84
+    },
+    {
+      "file": "p11_img1.png",
+      "source_page": 11,
+      "width": 662,
+      "height": 654
+    }
+  ]
+}
