@@ -28,21 +28,31 @@
 
 @layer base {
   :root {
-    --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --bg-base: #071221;
-    --bg-surface: #0b1b30;
-    --bg-elevated: #112540;
-    --bg-card: rgba(11, 27, 48, 0.88);
-    --bg-modal: #071221;
-    --text-primary: #FDFBF2;
-    --text-muted: #93b7d8;
-    --border-subtle: rgba(228, 28, 36, 0.22);
-    --color-amber: #e41c24;
-    --color-amber-bright: #f23d44;
-    --color-moss: #0b1b30;
-    --glass-bg: rgba(7, 18, 33, 0.82);
-    --nav-bg: rgba(7, 18, 33, 0.85);
+    --font-serif: 'Great Vibes', cursive;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    
+    /* New Palette based on brochure */
+    --color-navy: #1b2440;
+    --color-navy-dark: #12182b;
+    --color-beige: #f5ece0;
+    --color-gold: #c1945c;
+    --color-gold-light: #d4a971;
+
+    --bg-base: var(--color-navy);
+    --bg-surface: var(--color-navy-dark);
+    --bg-elevated: #242f52;
+    --bg-card: rgba(27, 36, 64, 0.88);
+    --bg-modal: var(--color-navy-dark);
+    
+    --text-primary: #f5ece0;
+    --text-muted: #9ba3b5;
+    --text-gold: var(--color-gold);
+    --text-dark: #1b2440;
+    
+    --border-subtle: rgba(193, 148, 92, 0.22);
+    --glass-bg: rgba(27, 36, 64, 0.82);
+    --nav-bg: rgba(18, 24, 43, 0.95);
   }
 
   html {
@@ -51,8 +61,8 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #080D0A;
-    color: #FFFFFF;
+    background-color: var(--color-navy);
+    color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
@@ -60,11 +70,14 @@
     transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  h1,
-  h2,
-  h3,
-  .font-serif-luxury {
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+  }
+
+  .font-script, .font-serif-luxury {
     font-family: var(--font-serif);
+    font-weight: 400;
   }
 }
 

@@ -1,97 +1,37 @@
 import React from 'react';
-import {
-  ArrowUpRight,
-  UtensilsCrossed,
-  MessageCircle,
-} from 'lucide-react';
+import { IPCLogo } from './IPCLogo';
 
-interface HeroProps {
-  onExploreMenu: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onExploreMenu }) => {
-
-  const whatsappUrl =
-    'https://wa.me/919880883061?text=Hello%20Indian%20Paratha%20Company!%20I%20would%20like%20to%20order%20or%20inquire%20about%20the%20menu.';
-
+export const Hero: React.FC = () => {
   return (
-    <section
-      id="home"
-      className="relative w-full min-h-[80svh] min-h-[500px] flex flex-col justify-between text-white overflow-hidden bg-transparent"
-    >
-      {/* ========================================================= */}
-      {/* 1. BOTANICAL CONSERVATORY & GLASSHOUSE BACKGROUND         */}
-      {/* ========================================================= */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Background Image Removed */}
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-[var(--color-navy)] py-24">
+      
+      {/* Topographic Pattern Background overlay (using a simple SVG pattern or CSS) */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" 
+           style={{
+             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c1945c' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+             backgroundSize: '400px'
+           }}
+      />
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col items-center">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] text-[var(--color-gold)] uppercase mb-16 tracking-wider">
+          A JOURNEY<br />OF FLAVOUR,<br />A PROMISE<br />OF FLAVOUR
+        </h1>
 
-        {/* Crisp Lighting & Focused Scrim Gradients for Maximum Image Clarity & Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b192c] via-transparent to-[#0b192c]/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b192c]/90 via-[#0b192c]/50 to-transparent" />
-
-        {/* Subtle Architectural Glow */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#e41c24]/10 rounded-full blur-[140px]" />
-      </div>
-
-      {/* Spacer for Top Floating Navbar */}
-      <div className="h-24 sm:h-28 w-full relative z-10" />
-
-      {/* ========================================================= */}
-      {/* 2. MAIN HERO CONTENT AREA                                */}
-      {/* ========================================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-between py-6 lg:py-10">
-
-        {/* MIDDLE / MAIN ROW: SPLIT LAYOUT (HEADLINE LEFT, CIRCULAR LENS RIGHT) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end my-auto pt-6 pb-4">
-          {/* LEFT COLUMN: HERO HEADLINE & ACTIONS */}
-          <div className="lg:col-span-12 flex flex-col items-start text-left">
-            {/* Heritage Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0b192c]/10 border border-white/20 backdrop-blur-xl mb-4 sm:mb-6 shadow-xl">
-              <span className="w-2 h-2 rounded-full bg-[#e41c24] animate-ping" />
-              <span className="text-[11px] font-sans font-semibold tracking-wider text-white uppercase">
-                NH7 DEVANAHALLI • 10 MIN TO BLR AIRPORT
-              </span>
-            </div>
-
-            {/* Main Headline (MATCHING REFERENCE IMAGE TYPOGRAPHIC WEIGHT & SCALE) */}
-            <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.04] mb-5 sm:mb-7">
-              Savor Hot <span className="text-[#e41c24]">Handcrafted Parathas</span> &amp; Chai Today!
-            </h1>
-
-            {/* Sub-text */}
-            <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl font-sans font-normal leading-relaxed mb-6 sm:mb-8 text-justify">
-              Authentic Indian flavors, 100% whole-wheat tawa parathas layered with pure desi ghee, our patented Parathzzaa®, and slow-brewed kulhad chai in a botanical conservatory atmosphere.
-            </p>
-
-            {/* Action Buttons Group */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
-              {/* Primary CTA */}
-              <button
-                id="hero-explore-menu-btn"
-                onClick={onExploreMenu}
-                className="px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#e41c24] hover:text-white shadow-xl cursor-pointer"
-              >
-                <UtensilsCrossed className="w-4 h-4" />
-                <span>Explore Menu</span>
-                <ArrowUpRight className="w-4 h-4 font-bold" />
-              </button>
-
-              {/* WhatsApp Order CTA */}
-              <a
-                id="hero-whatsapp-order-btn"
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-6 py-3.5 sm:px-7 sm:py-4 rounded-full bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2.5 transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:scale-105 active:scale-95 shadow-xl cursor-pointer border border-transparent"
-              >
-                <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-white" />
-                <span>Quick WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-
+        <div className="w-48 sm:w-64 mb-16 relative">
+           <img src="/ipc-logo.svg" alt="Indian Paratha Company Logo" className="w-full h-auto drop-shadow-2xl" />
         </div>
+
+        <div className="flex flex-col items-center border-b border-[var(--border-subtle)] pb-6 mb-6 w-full max-w-md">
+          <h2 className="font-script text-5xl sm:text-6xl md:text-7xl text-[var(--color-gold)] mb-4" style={{ transform: 'rotate(-2deg)' }}>
+            Manifesto
+          </h2>
+        </div>
+        
+        <p className="font-sans text-[var(--color-gold-light)] uppercase tracking-[0.3em] text-sm sm:text-base font-semibold">
+          CHAI PARATHA & MORE
+        </p>
+
       </div>
     </section>
   );

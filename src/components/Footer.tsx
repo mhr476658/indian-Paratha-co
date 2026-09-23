@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
   ];
 
   return (
-    <footer className="bg-[#0b192c] text-white/70 border-t border-white/10 pt-12 pb-16 lg:pb-8 font-sans">
+    <footer className="bg-[var(--color-navy-dark)] text-[var(--text-primary)]/70 border-t border-white/10 pt-12 pb-16 lg:pb-8 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               <IPCLogo variant="light" size="md" />
             </div>
 
-            <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-6 font-sans">
+            <p className="text-[var(--text-primary)]/60 text-sm leading-relaxed max-w-sm mb-6 font-sans">
               "Traditional Indian flavours, reimagined for the modern world." Authentic tawa
               parathas, aromatic cutting chai, and patented Parathzzaa® along India’s scenic highways.
             </p>
@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
                 href="https://www.instagram.com/indianparathacompany?stkn=cDhoY3V4cWJiNGNu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#0b192c]/5 hover:bg-[#0b192c]/15 text-white/70 hover:text-white flex items-center justify-center transition-colors border border-white/10"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-[var(--text-primary)]/70 hover:text-[var(--text-primary)] flex items-center justify-center transition-colors border border-white/10"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
                 href="https://www.facebook.com/share/1BkF6H7jeR/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#0b192c]/5 hover:bg-[#0b192c]/15 text-white/70 hover:text-white flex items-center justify-center transition-colors border border-white/10"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-[var(--text-primary)]/70 hover:text-[var(--text-primary)] flex items-center justify-center transition-colors border border-white/10"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
                 href="https://youtube.com/@indianparathacompany6661?si=gIL1jMVrxGIStcip"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#0b192c]/5 hover:bg-[#0b192c]/15 text-white/70 hover:text-white flex items-center justify-center transition-colors border border-white/10"
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/15 text-[var(--text-primary)]/70 hover:text-[var(--text-primary)] flex items-center justify-center transition-colors border border-white/10"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
@@ -69,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
           {/* Navigation Links */}
           <div className="lg:col-span-3">
-            <h4 className="font-sans text-white font-bold tracking-wider text-base uppercase mb-4">
+            <h4 className="font-sans text-[var(--text-primary)] font-bold tracking-wider text-base uppercase mb-4">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -77,9 +77,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="hover:text-[#e41c24] transition-colors flex items-center gap-1.5 group"
+                    className="hover:text-[var(--color-gold)] transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="text-[#e41c24] text-xs transition-transform group-hover:translate-x-1">
+                    <span className="text-[var(--color-gold)] text-xs transition-transform group-hover:translate-x-1">
                       ✦
                     </span>
                     <span>{link.label}</span>
@@ -91,20 +91,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
           {/* Verified Contact & Location */}
           <div className="lg:col-span-4">
-            <h4 className="font-sans text-white font-bold tracking-wider text-base uppercase mb-4">
+            <h4 className="font-sans text-[var(--text-primary)] font-bold tracking-wider text-base uppercase mb-4">
               Verified Highway Presence
             </h4>
 
             <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#e41c24] shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[var(--color-gold)] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-white block">Indian Paratha Company</span>
+                  <span className="font-semibold text-[var(--text-primary)] block">Indian Paratha Company</span>
                   <a
                     href="https://maps.app.goo.gl/eGoErW1qTr9gxwAAA?g_st=aw"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#e41c24] hover:underline flex items-center gap-1 mt-0.5 font-mono"
+                    className="text-xs text-[var(--color-gold)] hover:underline flex items-center gap-1 mt-0.5 font-mono"
                   >
                     <span>View on Google Maps</span>
                     <ExternalLink className="w-3 h-3" />
@@ -113,8 +113,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               </li>
 
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#e41c24] shrink-0" />
-                <a href="tel:+919880883061" className="hover:text-white transition-colors font-mono">
+                <Phone className="w-5 h-5 text-[var(--color-gold)] shrink-0" />
+                <a href="tel:+919880883061" className="hover:text-[var(--text-primary)] transition-colors font-mono">
                   +91 98808 83061
                 </a>
               </li>
@@ -132,38 +132,38 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               </li>
 
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#e41c24] shrink-0" />
-                <a href="mailto:info@indianparathacompany.org" className="hover:text-white transition-colors">
+                <Mail className="w-5 h-5 text-[var(--color-gold)] shrink-0" />
+                <a href="mailto:info@indianparathacompany.org" className="hover:text-[var(--text-primary)] transition-colors">
                   info@indianparathacompany.org
                 </a>
               </li>
             </ul>
 
-            <div className="mt-6 p-4 rounded-2xl bg-[#0b192c] border border-white/10 text-xs text-white/70">
-              <span className="text-[#e41c24] font-semibold block mb-0.5 font-mono">Pure Vegetarian Hygiene</span>
+            <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-[var(--text-primary)]/70">
+              <span className="text-[var(--color-gold)] font-semibold block mb-0.5 font-mono">Pure Vegetarian Hygiene</span>
               All meals prepared in dedicated 100% vegetarian tawa kitchens.
             </div>
           </div>
         </div>
 
         {/* Bottom Bar: Copyright, Legal & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-primary)]/50">
           <div>
             © {new Date().getFullYear()} Indian Paratha Company. All Rights Reserved.
           </div>
 
           <div className="flex items-center gap-6 flex-wrap justify-center">
-            <a href="#privacy" className="hover:text-white transition-colors">
+            <a href="#privacy" className="hover:text-[var(--text-primary)] transition-colors">
               Privacy Policy
             </a>
             <span>•</span>
-            <a href="#terms" className="hover:text-white transition-colors">
+            <a href="#terms" className="hover:text-[var(--text-primary)] transition-colors">
               Terms &amp; Conditions
             </a>
             <span>•</span>
             <button
               onClick={onOpenAdmin}
-              className="text-white/40 hover:text-[#E5A93C] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px]"
+              className="text-[var(--text-primary)]/40 hover:text-[var(--color-gold)] transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px]"
               title="Station Master & Staff Operations"
             >
               <Shield className="w-3 h-3" />
@@ -172,7 +172,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             <span>•</span>
             <button
               onClick={scrollToTop}
-              className="hover:text-[#e41c24] flex items-center gap-1 transition-colors cursor-pointer"
+              className="hover:text-[var(--color-gold)] flex items-center gap-1 transition-colors cursor-pointer"
               aria-label="Back to top"
             >
               <span>Back to Top</span>

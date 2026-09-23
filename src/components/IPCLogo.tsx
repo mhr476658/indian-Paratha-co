@@ -50,13 +50,17 @@ export const IPCLogo: React.FC<IPCLogoProps> = ({
         <div className="flex flex-col text-left leading-none justify-center">
           <div className="flex items-center gap-1.5">
             <span
-              className={`font-serif tracking-wide font-extrabold uppercase ${sizeConfig.textClass} ${
-                isLight ? 'text-white' : 'text-[#0B1B30]'
+              className={`tracking-wide font-extrabold uppercase ${sizeConfig.textClass} ${
+                isLight ? 'text-[var(--text-primary)]' : 'text-[var(--color-navy)]'
               }`}
+              style={{ fontFamily: '"Times New Roman", Times, serif' }}
             >
               Indian Paratha
             </span>
-            <span className="text-[#e41c24] font-serif font-black text-xs sm:text-sm tracking-widest">
+            <span 
+              className="text-[#e41c24] font-black text-xs sm:text-sm tracking-widest"
+              style={{ fontFamily: '"Times New Roman", Times, serif' }}
+            >
               CO.
             </span>
           </div>

@@ -5,14 +5,15 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { SoulOfIPC } from './components/SoulOfIPC';
+import { Visionaries } from './components/Visionaries';
+import { FutureWeServe } from './components/FutureWeServe';
+import { TraditionInnovation } from './components/TraditionInnovation';
+import { Parathzzaa } from './components/Parathzzaa';
+import { FranchiseInfo } from './components/FranchiseInfo';
+import { FranchiseModels } from './components/FranchiseModels';
+import { JoinSuccessStory } from './components/JoinSuccessStory';
 
-
-import { MadeFresh } from './components/MadeFresh';
-import { RestaurantStory } from './components/RestaurantStory';
-import { Products } from './components/Products';
-import { FoodGallery } from './components/FoodGallery';
-import { Franchise } from './components/Franchise';
-import { Location } from './components/Location';
 import { Footer } from './components/Footer';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { ItemDetailModal } from './components/ItemDetailModal';
@@ -59,19 +60,8 @@ export default function App() {
     }
   };
 
-  // Smooth Scroll Helper
-  const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      const yOffset = -70;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
-
   return (
-    <div className="min-h-screen bg-[#0b192c] text-white font-sans antialiased selection:bg-[#e41c24] selection:text-white relative overflow-x-hidden overflow-y-auto">
+    <div className="min-h-screen bg-[var(--color-navy)] text-[var(--text-primary)] font-sans antialiased selection:bg-[var(--color-gold)] selection:text-[var(--color-navy)] relative overflow-x-hidden overflow-y-auto">
 
       {/* Top Fixed Navbar */}
       <Navbar
@@ -83,33 +73,35 @@ export default function App() {
         }}
       />
 
-      {/* Main Restaurant Experience Flow */}
+      {/* Main Restaurant Experience Flow - Redesigned based on Manifesto */}
       <main id="main-content" className="relative z-10">
-        {/* 1. Full-Screen Cinematic Hero with Restaurant Wooden Chalet Facade */}
-        <Hero
-          onExploreMenu={() => setIsMenuImageModalOpen(true)}
-          onOrderNow={() => setIsCartOpen(true)}
-        />
+        
+        {/* 1. Cover Page */}
+        <Hero />
 
+        {/* 2. The Soul of IPC */}
+        <SoulOfIPC />
 
+        {/* 3. Meet the Visionaries */}
+        <Visionaries />
 
-        {/* 6. Made Fresh Kitchen Craft & Purity Philosophy */}
-        <MadeFresh onExploreMenu={() => setIsMenuImageModalOpen(true)} />
+        {/* 4. The Future We Serve */}
+        <FutureWeServe />
 
-        {/* 9. The IPC Story & Highway Sanctuary Heritage */}
-        <RestaurantStory onExploreMenu={() => setIsMenuImageModalOpen(true)} />
+        {/* 5. Tradition & Innovation */}
+        <TraditionInnovation />
 
-        {/* Highway Merchandise / Products */}
-        <Products />
+        {/* 6. Introducing Parathzzaa */}
+        <Parathzzaa />
 
-        {/* 10. Visual Masonry Photo Gallery (Dishes, Chalet, Kitchen, Patio) */}
-        <FoodGallery />
+        {/* 7. Franchise Info (Own a Slice & Why Franchise) */}
+        <FranchiseInfo />
 
-        {/* 12. Location, Route & Interactive Google Maps */}
-        <Location onOrderNow={() => setIsCartOpen(true)} />
+        {/* 8. Franchise Models */}
+        <FranchiseModels />
 
-        {/* 13. Franchise Investment & Opportunities */}
-        <Franchise />
+        {/* 9. Join The Success Story */}
+        <JoinSuccessStory />
 
       </main>
 
@@ -124,7 +116,7 @@ export default function App() {
         onClose={handleCloseAdmin}
       />
 
-      {/* Floating Highway WhatsApp Quick Desk with subtle ping pulse */}
+      {/* Floating Highway WhatsApp Quick Desk */}
       <FloatingWhatsApp />
 
       {/* Mobile Fixed Bottom Navigation Bar */}
@@ -176,7 +168,7 @@ export default function App() {
         </div>
       )}
 
-      {/* More Highway Hub Modal (Amenities, Route ETA, Biker Meets, Hacks, Bulk Catering) */}
+      {/* More Highway Hub Modal */}
       <MoreHubModal
         isOpen={isMoreOpen}
         onClose={() => setIsMoreOpen(false)}
