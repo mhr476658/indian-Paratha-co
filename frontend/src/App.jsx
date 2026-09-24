@@ -27,8 +27,7 @@ const asset = (name) => `${A}${name}`;
 
 const sections = [
   ["home", "HOME"],
-  ["visionaries", "Visionaries"],
-  ["innovation", "Innovation"],
+  ["tea-blend", "Tea Blend"],
   ["parathzzaa", "Parathzzaa"],
   ["franchise", "Franchise"],
   ["models", "Models"],
@@ -94,8 +93,63 @@ function FacebookColorfulLogo({ size = 34 }) {
   );
 }
 
+function MenuModal({ onClose }) {
+  // Close on Escape key
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  // Prevent body scroll while modal open
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  return (
+    <div className="menu-overlay" onClick={onClose}>
+      <motion.div
+        className="menu-modal pdf-view"
+        initial={{ opacity: 0, scale: 0.96, y: 25 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.96, y: 25 }}
+        transition={{ duration: 0.25 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header - Clean title and close button only */}
+        <div className="menu-header">
+          <div>
+            <div className="menu-eyebrow">INDIAN PARATHA COMPANY</div>
+            <h2 className="menu-title">Chai Paratha <em>&amp; Comfort Food</em></h2>
+          </div>
+          <button className="menu-close" onClick={onClose} aria-label="Close menu">
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Direct PDF Viewer */}
+        <div className="menu-frame-container">
+          <iframe
+            src={`${asset("ipc-menu.pdf")}#view=FitH`}
+            className="menu-pdf-iframe"
+            title="Indian Paratha Company Menu"
+          />
+        </div>
+
+        <div className="menu-footer">
+          <Utensils size={14} /> Good Food ❤️ Good Mood · Freshly Prepared · Vegetarian
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showMenuModal, setShowMenuModal] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const [active, setActive] = useState("home");
 
@@ -126,6 +180,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      {showMenuModal && <MenuModal onClose={() => setShowMenuModal(false)} />}
       <header className="navbar">
         <div className="nav-inner">
           <button className="brand" onClick={() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" })}>
@@ -152,11 +207,12 @@ function App() {
       </header>
 
       <main>
-        <Hero />
+        <Hero onMenuOpen={() => setShowMenuModal(true)} />
         <Manifesto />
         <Story />
         <Visionaries />
         <Innovation />
+        <RetailProduct />
         <Parathzzaa />
         <Franchise />
         <Models />
@@ -205,7 +261,7 @@ function App() {
   );
 }
 
-function Hero() {
+function Hero({ onMenuOpen }) {
   return (
     <section id="home" className="hero navy-section">
       <div className="hero-content">
@@ -215,14 +271,12 @@ function Hero() {
           <p className="hero-sub">A brand born in India, inspired by its land — serving warmth, freshness and familiar flavours with a modern QSR spirit.</p>
           <div className="hero-actions">
             <a href="#franchise" className="btn btn-gold">Explore Franchise <ArrowUpRight size={18} /></a>
-            <a href="#parathzzaa" className="btn btn-outline">Explore Menu <Utensils size={18} /></a>
+            <button className="btn btn-outline" onClick={onMenuOpen}>Explore Menu <Utensils size={18} /></button>
             <a href="#story" className="btn btn-outline">Discover IPC <ArrowDown size={18} /></a>
           </div>
         </motion.div>
         <motion.div className="hero-logo-card" initial={{ opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: .15 }}>
-          <div className="seal-ring"></div>
           <img src={asset("p1_img1.png")} alt="IPC logo" />
-          <div className="hero-script">Manifesto</div>
         </motion.div>
       </div>
       <div className="scroll-cue"><span>SCROLL TO EXPLORE</span><ArrowDown size={16} /></div>
@@ -290,9 +344,6 @@ function Visionaries() {
         <p>Nirmal & Gunjan Sandhu are passionate food entrepreneurs committed to fresh, premium-quality Indian food. Their next generation, Sumreen & Naman, bring global expertise in patisserie and hotel management.</p>
       </div>
       <div className="vision-grid">
-        <div className="vision-photo">
-          <img src={asset("p3_img2.png")} alt="IPC family and team" />
-        </div>
         <div className="vision-card">
           <span>01</span>
           <h3>Nirmal & Gunjan</h3>
@@ -326,6 +377,105 @@ function Innovation() {
       <div className="innovation-visual">
         <img className="innovation-product" src={asset("p5_img1.png")} alt="IPC food product" />
         <img className="innovation-location" src={asset("p5_img2.png")} alt="IPC location" />
+      </div>
+    </section>
+  );
+}
+
+function RetailProduct() {
+  const [packs, setPacks] = useState(1);
+
+  const getWhatsAppUrl = () => {
+    const text = encodeURIComponent(
+      `Hi IPC, I would like to order ${packs} pack(s) of IPC Premium Tea Blend (100% Upper Assam Granules). Please share the pricing, payment and delivery details!`
+    );
+    return `https://wa.me/919880883061?text=${text}`;
+  };
+
+  return (
+    <section id="tea-blend" className="section retail-section">
+      <div className="retail-layout">
+        <div className="retail-visual">
+          <div className="retail-badge">RETAIL SPECIAL</div>
+          <img
+            src={asset("tea-blend.png")}
+            alt="IPC Premium Tea Blend - 100% Upper Assam Granules"
+            className="retail-product-img"
+          />
+        </div>
+
+        <div className="retail-content">
+          <div className="section-kicker">OUR SIGNATURE RETAIL PRODUCT</div>
+          <h2>IPC Premium<br /><em>Tea Blend</em></h2>
+          <div className="script-title">A perfect cup, a brighter you.</div>
+
+          <p className="retail-desc">
+            Sourced directly from the lush tea gardens of Upper Assam, IPC Premium Tea Blend delivers the bold, full-bodied flavour and rich aroma that Indian tea lovers cherish. Tradition, freshness, and warmth in every single sip.
+          </p>
+
+          <div className="retail-highlights">
+            <div className="highlight-pill">
+              <strong>100%</strong>
+              <span>Upper Assam Granules</span>
+            </div>
+            <div className="highlight-pill">
+              <strong>STRONG</strong>
+              <span>Rich &amp; Refreshing</span>
+            </div>
+            <div className="highlight-pill">
+              <strong>PREMIUM</strong>
+              <span>Finest Quality Leaves</span>
+            </div>
+            <div className="highlight-pill">
+              <strong>AROMA</strong>
+              <span>Deep Golden Colour</span>
+            </div>
+          </div>
+
+          <div className="retail-order-card">
+            <div className="order-card-header">
+              <div>
+                <strong>Order Directly via WhatsApp</strong>
+                <p>Fresh stock delivered straight to your doorstep</p>
+              </div>
+              <div className="pack-counter">
+                <label>Quantity:</label>
+                <div className="counter-controls">
+                  <button
+                    type="button"
+                    onClick={() => setPacks((p) => Math.max(1, p - 1))}
+                    aria-label="Decrease quantity"
+                  >
+                    −
+                  </button>
+                  <span>{packs}</span>
+                  <button
+                    type="button"
+                    onClick={() => setPacks((p) => p + 1)}
+                    aria-label="Increase quantity"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noreferrer"
+              className="whatsapp-order-btn"
+            >
+              <WhatsAppLogo size={22} className="btn-wa-icon" />
+              <span>Order via WhatsApp ({packs} {packs === 1 ? "Pack" : "Packs"})</span>
+              <ArrowUpRight size={18} />
+            </a>
+
+            <div className="order-note">
+              ⚡ Instant response &amp; door delivery available across India
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -466,10 +616,10 @@ function PhoneLogo() {
   );
 }
 
-function WhatsAppLogo() {
+function WhatsAppLogo({ size = 28, className = "contact-logo" }) {
   return (
-    <span className="contact-logo" aria-hidden="true">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+    <span className={className} aria-hidden="true">
+      <svg width={size} height={size} viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="16" fill="#25D366" />
         <path
           d="M16 6.8c-5.1 0-9.2 4.1-9.2 9.2 0 1.6.4 3.2 1.2 4.6L6.8 25.2l4.8-1.3c1.3.7 2.8 1.1 4.4 1.1 5.1 0 9.2-4.1 9.2-9.2s-4.1-9-9.2-9zm5.4 13c-.2.6-1.3 1.1-1.8 1.2-.5.1-1.1.2-3.3-.7-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.8 2 .9 2.2.1.2.1.3 0 .5s-.2.3-.4.5c-.2.2-.4.4-.5.6-.2.2-.4.4-.2.7.2.4.9 1.6 2 2.6 1.4 1.2 2.5 1.6 2.9 1.8.4.2.6.1.8-.1.2-.2.9-1 1.1-1.4.2-.4.4-.3.7-.2.3.1 1.9.9 2.2 1.1.3.2.5.3.6.4.1.2.1 1.1-.1 1.7z"
