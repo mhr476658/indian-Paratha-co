@@ -85,6 +85,14 @@ function FacebookColorfulLogo({ size = 34 }) {
   );
 }
 
+const menuPages = [
+  { id: 1, file: "menu-page-1.jpg", alt: "IPC Menu - Appetizers & Stuffed Parathas (Page 1/5)" },
+  { id: 2, file: "menu-page-2.jpg", alt: "IPC Menu - Rolls, Combos, Sides & Rice (Page 2/5)" },
+  { id: 3, file: "menu-page-3.jpg", alt: "IPC Menu - Parathzzza & Hot Blends (Page 3/5)" },
+  { id: 4, file: "menu-page-4.jpg", alt: "IPC Menu - Chai, Tea & Cold Blends (Page 4/5)" },
+  { id: 5, file: "menu-page-5.jpg", alt: "IPC Menu - Milkshakes & Desserts (Page 5/5)" },
+];
+
 function MenuModal({ onClose }) {
   // Close on Escape key
   useEffect(() => {
@@ -122,13 +130,19 @@ function MenuModal({ onClose }) {
           </button>
         </div>
 
-        {/* Menu Viewer */}
+        {/* Mobile-Optimized Sequential Page Scroll */}
         <div className="menu-image-scroll">
-          <img
-            src={asset("ipc-menu.jpg")}
-            alt="Indian Paratha Company Menu - Chai, Paratha & Comfort Food"
-            className="menu-pdf-img"
-          />
+          <div className="menu-pages-list">
+            {menuPages.map((p) => (
+              <img
+                key={p.id}
+                src={asset(p.file)}
+                alt={p.alt}
+                className="menu-page-img"
+                loading="lazy"
+              />
+            ))}
+          </div>
         </div>
 
         <div className="menu-footer">
