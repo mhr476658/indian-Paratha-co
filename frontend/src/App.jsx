@@ -4,20 +4,12 @@ import {
   ArrowUp,
   ArrowUpRight,
   Check,
-  ChevronDown,
   Clock3,
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
   Menu,
-  MessageCircle,
-  Phone,
   Send,
   Sparkles,
   Utensils,
-  X,
-  Youtube
+  X
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -130,12 +122,12 @@ function MenuModal({ onClose }) {
           </button>
         </div>
 
-        {/* Direct PDF Viewer */}
-        <div className="menu-frame-container">
-          <iframe
-            src={`${asset("ipc-menu.pdf")}#view=FitH`}
-            className="menu-pdf-iframe"
-            title="Indian Paratha Company Menu"
+        {/* Menu Viewer */}
+        <div className="menu-image-scroll">
+          <img
+            src={asset("ipc-menu.jpg")}
+            alt="Indian Paratha Company Menu - Chai, Paratha & Comfort Food"
+            className="menu-pdf-img"
           />
         </div>
 
