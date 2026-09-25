@@ -682,9 +682,9 @@ function Contact() {
         <h2>IPC Success<br /><em>Story Today!</em></h2>
         <p>Be part of a brand that blends India’s rich food heritage with a modern, scalable business model. Contact us to explore franchise opportunities.</p>
         <div className="contact-details">
-          <a href="mailto:info@franchise-ready.in">
+          <a href="mailto:Info@indianparathacompany.org">
             <EmailLogo />
-            <span>info@franchise-ready.in</span>
+            <span>Info@indianparathacompany.org</span>
           </a>
           <a href="tel:+919920234431">
             <PhoneLogo />
