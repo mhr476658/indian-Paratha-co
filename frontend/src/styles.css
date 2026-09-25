@@ -313,17 +313,6 @@ h3 em,
   filter: drop-shadow(0 20px 35px rgba(0, 0, 0, .28));
 }
 
-.hero-script {
-  position: absolute;
-  bottom: 7%;
-  font-size: 40px;
-  color: var(--gold);
-  font-family: var(--script);
-}
-
-.seal-ring {
-  display: none;
-}
 
 .scroll-cue {
   position: absolute;
@@ -1646,9 +1635,6 @@ h3 em,
     width: 270px;
   }
 
-  .hero-script {
-    font-size: 32px;
-  }
 
   .manifesto-grid,
   .story-layout,
