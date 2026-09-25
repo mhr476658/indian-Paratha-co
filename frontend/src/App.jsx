@@ -515,7 +515,7 @@ function Franchise() {
         <div className="section-kicker">OWN A SLICE OF</div>
         <h2>SUCCESS WITH<br /><em>INDIAN PARATHA</em><br />COMPANY</h2>
         <p>Looking to invest in a food business? Explore IPC’s franchise opportunity, multiple models, training and operational support.</p>
-        <a className="btn btn-gold" href="#contact">Request Franchise Details <ArrowUpRight /></a>
+        <a className="btn btn-gold" href="https://www.franchiseready.in/ipc" target="_blank" rel="noreferrer">Franchise Form <ArrowUpRight /></a>
       </div>
       <div className="franchise-photo">
         <img src={asset("p7_img1.png")} alt="IPC Parathzzaa product" />
